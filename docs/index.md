@@ -1,6 +1,6 @@
 # STAG-AUIUI-P8VT-2021-2022
 
-_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022_](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022_)_
+_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022_](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)_
 
 ---
 
