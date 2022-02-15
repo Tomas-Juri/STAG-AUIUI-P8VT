@@ -83,6 +83,7 @@ We will create a CI/CD pipeline to deploy our application to a staging server.
 We will create a build definition for the backend and the frontend separately.
 
 Frontend:
+
 ```yaml
 trigger:
   branches:
@@ -119,6 +120,7 @@ steps:
 ```
 
 Backend:
+
 ```yml
 trigger:
   branches:
@@ -160,11 +162,51 @@ To host our applications, we will use [Azure static web app](https://azure.micro
 
 To deploy our application, we will create two release pipelines and azure devops (backend & frontend).
 
+Backend:
+![AzureDevops_Release_Backend_1](AzureDevops_Release_Backend_1.PNG)
+![AzureDevops_Release_Backend_2](AzureDevops_Release_Backend_2.PNG)
 
+Frontend:
+![AzureDevops_Release_Frontend_1](AzureDevops_Release_Frontend_1.PNG)
+![AzureDevops_Release_Frontend_2](AzureDevops_Release_Frontend_2.PNG)
+
+If we did everything correctly, we should have our application deployed and it should look like this:
+
+- [Backend/WeatheForecast](https://stag-auiui-p8vt-2021-2022-test.azurewebsites.net/weatherforecast)
+- [Frontend](https://wonderful-cliff-0c67fd803.1.azurestaticapps.net/)
+
+### Application urls of teams
+
+Meethub Community:
+
+- [Backend](https://meethub-community-api.azurewebsites.net/)
+- [Frontend](https://ambitious-forest-0d81ac703.1.azurestaticapps.net)
+
+FixIt:
+
+- [Backend](https://fixit-api.azurewebsites.net/)
+- [Frontend](https://black-pebble-018be3b03.1.azurestaticapps.net)
+
+MyBusiness:
+
+- [Backend](https://mybusiness-api.azurewebsites.net)
+- [Frontend](https://ashy-river-067e71103.1.azurestaticapps.net)
+
+Why is swagger not running?  
+Why is fetchdata page not working?
 
 ### Configure appsetting.json for our staging environment
 
-###
+> TODO
+
+### Enable swagger
+
+> TODO
+
+### Create shared project for contracts between FE and BE
+
+> TODO
+
 
 _Final code commit of this lecture:_
 
