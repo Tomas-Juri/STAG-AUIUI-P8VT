@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - Application.Frontend
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 6
+    inputs:
+      version: "6.0.x"
+
+  - script: dotnet clean
+    displayName: "dotnet clean"
+
+  - script: dotnet publish -o $(Build.ArtifactStagingDirectory)
+    workingDirectory: Application.Frontend
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "frontend"

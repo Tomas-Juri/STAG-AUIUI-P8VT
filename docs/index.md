@@ -1,10 +1,10 @@
 # STAG-AUIUI-P8VT-2021-2022
 
-_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022_](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)_
+_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022_](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)
 
 ---
 
-## 1. Lekce -  09.02.2022
+## 1. Lekce - 09.02.2022
 
 ### Prerequisites:
 
@@ -32,16 +32,7 @@ Setup you visual studio to [debug both project simultaneously](https://stackover
 
 ### Connect Frontend to Backend
 
-Add cors policy to your backend so that you don't get errors on localhost, we get back to them later in the course.
-
-```csharp
-app.UseCors(corsPolicyBuilder => corsPolicyBuilder
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader());
-```
-
-Add appsettings.json file to your Application.Frontend/wwwroot folder with following content.
+Add [appsettings.json](https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/configuration?view=aspnetcore-6.0) file to your Application.Frontend/wwwroot folder with following content.
 
 ```json
 {
@@ -59,8 +50,180 @@ if (apiUrl == null)
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiUrl) });
 ```
 
+Add cors policy to your backend so that you don't get errors on localhost, we get back to them later in the course.
+
+```csharp
+app.UseCors(corsPolicyBuilder => corsPolicyBuilder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+```
+
+More about CORS:
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+- https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0
+
 Now we can run both apps and test if we really get the data from backend.
 
-Final commit of this lecture: **TODO**
+_Final code commit of this lecture: **37960e5d8dbdaffad510c929f1e2862e6965c008**_
 
 ---
+
+## 2 Lekce - 16.02.2022
+
+We will create a CI/CD pipeline to deploy our application to a staging server.
+
+### Prerequisites:
+
+- Pushed changes into a repository in azure devops
+
+### Create a build definition using YAML
+
+We will create a build definition for the backend and the frontend separately.
+
+Frontend:
+```yaml
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - Application.Frontend
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 6
+    inputs:
+      version: "6.0.x"
+
+  - script: dotnet clean
+    displayName: "dotnet clean"
+
+  - script: dotnet publish -o $(Build.ArtifactStagingDirectory)
+    workingDirectory: Application.Frontend
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "backend"
+```
+
+Backend:
+```yml
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - Application.Backend
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 6
+    inputs:
+      version: "6.0.x"
+
+  - script: dotnet clean
+    displayName: "dotnet clean"
+
+  - script: dotnet publish -o $(Build.ArtifactStagingDirectory)
+    workingDirectory: Application.Backend
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "backend"
+```
+
+### Create a release pipeline in Azure DevOps
+
+To host our applications, we will use [Azure static web app](https://azure.microsoft.com/en-.us/services/app-service/static/#overview) for frontend, and a [Azure app service](https://azure.microsoft.com/cs-cz/services/app-service/#overview) for backend.
+
+To deploy our application, we will create two release pipelines and azure devops (backend & frontend).
+
+
+
+### Configure appsetting.json for our staging environment
+
+###
+
+_Final code commit of this lecture:_
+
+---
+
+## 3. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 4. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 5. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 6. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 7. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 8. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 9. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 10. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 11. Lekce
+
+_Final code commit of this lecture:_
+
+---
+
+## 12. Lekce
+
+_Final code commit of this lecture:_

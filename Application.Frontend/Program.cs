@@ -13,3 +13,5 @@ if (apiUrl == null)
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiUrl) });
 
 await builder.Build().RunAsync();
+
+// Test 2
