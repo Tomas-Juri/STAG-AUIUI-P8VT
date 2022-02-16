@@ -1,8 +1,8 @@
 # STAG-AUIUI-P8VT-2021-2022
 
-_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022_](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)
-
----
+_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)_  
+_Backend: [https://stag-auiui-p8vt-2021-2022-test.azurewebsites.net](https://stag-auiui-p8vt-2021-2022-test.azurewebsites.net)_  
+_Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://wonderful-cliff-0c67fd803.1.azurestaticapps.net)_
 
 ## 1. Lekce - 09.02.2022
 
@@ -61,8 +61,8 @@ app.UseCors(corsPolicyBuilder => corsPolicyBuilder
 
 More about CORS:
 
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-- https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- [https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0)
 
 Now we can run both apps and test if we really get the data from backend.
 
@@ -192,8 +192,25 @@ MyBusiness:
 - [Backend](https://mybusiness-api.azurewebsites.net)
 - [Frontend](https://ashy-river-067e71103.1.azurestaticapps.net)
 
-Why is swagger not running?  
-Why is fetchdata page not working?
+Why is swagger not running ?  
+Why is fetchdata page not working ?
+How can i get my release running automagically after a new build ?
+
+_Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**_
+
+---
+
+## 3. Lekce 23.02.2022
+
+### Prerequisites:
+
+- Working CI pipeline (build) for Frontend and backend
+- Working Release pipeline (deploy) for Frontend and backend - i can see my applications deployed at azure.
+- Microsoft SQL Server management studio installed - [Download here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+
+### Release pipeline triggers
+
+> TODO
 
 ### Configure appsetting.json for our staging environment
 
@@ -207,14 +224,11 @@ Why is fetchdata page not working?
 
 > TODO
 
+### Entity framework on backend
 
-_Final code commit of this lecture:_
+We will use in-memory DB
 
----
-
-## 3. Lekce
-
-_Final code commit of this lecture:_
+> TODO
 
 ---
 
