@@ -202,6 +202,13 @@ Why is swagger not running ?
 Why is fetchdata page not working ?
 How can i get my release running automagically after a new build ?
 
+More info:
+
+- [YAML](https://yaml.org/)
+- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+
 _Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**_
 
 ---
