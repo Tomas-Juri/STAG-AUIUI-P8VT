@@ -5,9 +5,10 @@ _Backend: [https://stag-auiui-p8vt-2021-2022-test.azurewebsites.net](https://sta
 _Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://wonderful-cliff-0c67fd803.1.azurestaticapps.net)_
 
 **Table of contents:**
-- [1. Lekce](#1-lekce---09022022)  
-- [2. Lekce](#2-lekce---16022022)  
-- [3. Lekce](#3-lekce---22022022)
+
+- [1. Lekce](#1-lekce---09022022)
+- [2. Lekce](#2-lekce---16022022)
+- [3. Lekce](#3-lekce---23022022)
 
 ## 1. Lekce - 09.02.2022
 
