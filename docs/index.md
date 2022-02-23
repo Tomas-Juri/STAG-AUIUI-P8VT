@@ -224,11 +224,18 @@ _Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**
 
 ### Release pipeline triggers
 
-> TODO
+[Release triggers in azure devops](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops)
 
 ### Configure appsetting.json for our staging environment
 
-> TODO
+For Frontend project:
+
+- Remove `appsettings.json.br` and `appsettings.json.gz` because we cannot transform them in the next task
+- Transform `appsettings.json`
+- Define variables to transform in release variables
+- Deploy as usual
+
+![AzureDevops_Release_Frontend_3_Appsettings.PNG](AzureDevops_Release_Frontend_3_Appsettings.PNG)
 
 ### Enable swagger
 
@@ -261,7 +268,7 @@ public class DataContext : DbContext
 }
 ```
 
-Add DB Models - notice i added an Id property
+Add DB Models - notice the Id property
 
 ```csharp
 // file: /Database/Models/WeatherForecast.cs
@@ -362,7 +369,6 @@ More info:
 - [Entity Framework](https://docs.microsoft.com/en-us/ef/)
 - [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 - [Configuration over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
-
 
 _Final code commit of this lecture: **TODO**_
 
