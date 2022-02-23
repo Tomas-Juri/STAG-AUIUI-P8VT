@@ -378,7 +378,7 @@ More info:
 - [Configuration over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
 - [Create react app](https://reactjs.org/docs/create-a-new-react-app.html)
 
-_Final code commit of this lecture: **TODO**_
+_Final code commit of this lecture: **b03b5f89717cb6d710aad479634dbddc29158f63**_
 
 ---
 
