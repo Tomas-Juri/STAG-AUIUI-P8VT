@@ -241,10 +241,6 @@ For Frontend project:
 
 > TODO
 
-### Create shared project for contracts between FE and BE
-
-> TODO
-
 ### Install Entity framework on backend
 
 Install these packages:
@@ -363,6 +359,12 @@ public class WeatherForecastController : ControllerBase
 
 Create CRUD endpoints to manage data ?  
 Modify connection string on relase ?
+
+### Create shared project for contracts between FE and BE
+
+> TODO
+
+### TS(JS)/React Time!
 
 More info:
 
