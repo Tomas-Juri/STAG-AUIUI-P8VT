@@ -219,8 +219,8 @@ _Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**
 
 - Working CI pipeline (build) for Frontend and backend
 - Working Release pipeline (deploy) for Frontend and backend - i can see my applications deployed at azure.
-- Microsoft SQL Server - [Download here](https://www.microsoft.com/cs-cz/sql-server/sql-server-downloads), use developer version
-- Microsoft SQL Server management studio installed - [Download here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+- Microsoft SQL Server - [Download here](https://www.microsoft.com/cs-cz/sql-server/sql-server-downloads) Developer version
+- Microsoft SQL Server management studio - [Download here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 
 ### Release pipeline triggers
 
