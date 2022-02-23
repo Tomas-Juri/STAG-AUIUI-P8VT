@@ -363,17 +363,20 @@ public class WeatherForecastController : ControllerBase
 Create CRUD endpoints to manage data ?  
 Modify connection string on relase ?
 
-### Create shared project for contracts between FE and BE
-
-> TODO
-
 ### TS(JS)/React Time!
+
+Create react typescript app:
+
+- [How to](https://create-react-app.dev/docs/adding-typescript/)
+
+Typescript app also created in this repository by this moment
 
 More info:
 
 - [Entity Framework](https://docs.microsoft.com/en-us/ef/)
 - [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 - [Configuration over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
+- [Create react app](https://reactjs.org/docs/create-a-new-react-app.html)
 
 _Final code commit of this lecture: **TODO**_
 
