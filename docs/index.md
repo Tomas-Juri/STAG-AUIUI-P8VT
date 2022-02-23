@@ -219,6 +219,7 @@ _Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**
 
 - Working CI pipeline (build) for Frontend and backend
 - Working Release pipeline (deploy) for Frontend and backend - i can see my applications deployed at azure.
+- Microsoft SQL Server - [Download here](https://www.microsoft.com/cs-cz/sql-server/sql-server-downloads), use developer version
 - Microsoft SQL Server management studio installed - [Download here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 
 ### Release pipeline triggers
@@ -237,11 +238,133 @@ _Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**
 
 > TODO
 
-### Entity framework on backend
+### Install Entity framework on backend
 
-We will use in-memory DB
+Install these packages:
 
-> TODO
+- `Microsoft.EntityFrameworkCore`
+- `Microsoft.EntityFrameworkCore.Design`
+- `Microsoft.EntityFrameworkCore.SqlServer`
+- `Microsoft.EntityFrameworkCore.Tools`
+
+Add DB Context
+
+```csharp
+// file: /Database/DataContext.cs
+
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions<DataContext> options) : base(options)
+    {
+
+    }
+}
+```
+
+Add DB Models - notice i added an Id property
+
+```csharp
+// file: /Database/Models/WeatherForecast.cs
+
+public class WeatherForecast
+{
+    public Guid Id { get; set; }
+
+    public DateTime Date { get; set; }
+
+    public int TemperatureC { get; set; }
+
+    public string Summary { get; set; } = string.Empty;
+}
+```
+
+Use Model in DBContext
+
+```csharp
+// file: /Database/DataContext.cs
+
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions<DataContext> options) : base(options)
+    {
+
+    }
+
+    public DbSet<WeatherForecast> WeatherForecasts { get; set; } = default!;
+}
+```
+
+Add DataContext to DI container (startup)
+
+```csharp
+// file: /Program.cs
+
+...
+
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+
+...
+```
+
+Add migrations to project
+
+- Open Package Manager Console
+- `Add-Migration InitialMigration`
+
+Apply migrations on application start (Automagically)
+
+```csharp
+// file: /Program.cs
+
+...
+
+using var scope = app.Services.CreateScope();
+var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+
+if (dataContext == null)
+    throw new NullReferenceException("DataContext is not initialized in DI in Program.cs");
+
+dataContext.Database.Migrate();
+...
+```
+
+Use datacontext in controller to show data from db
+
+```csharp
+// file: /Controllers/WeatherForecastController.cs
+
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
+{
+    private readonly DataContext _dataContext;
+
+    public WeatherForecastController(DataContext dataContext)
+    {
+        _dataContext = dataContext;
+    }
+
+    [HttpGet(Name = "GetWeatherForecast")]
+    public IEnumerable<WeatherForecast> Get()
+    {
+        return _dataContext.WeatherForecasts.ToList();
+    }
+}
+
+```
+
+Create CRUD endpoints to manage data ?  
+Modify connection string on relase ?
+
+More info:
+
+- [Entity Framework](https://docs.microsoft.com/en-us/ef/)
+- [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [Configuration over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
+
+
+_Final code commit of this lecture: **TODO**_
 
 ---
 

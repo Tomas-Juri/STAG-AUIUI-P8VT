@@ -1,33 +1,73 @@
+using Application.Backend.Database;
+using Application.Backend.Database.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Application.Backend.Controllers
+namespace Application.Backend.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    private readonly DataContext _dataContext;
+
+    public WeatherForecastController(DataContext dataContext)
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        _dataContext = dataContext;
+    }
 
-        private readonly ILogger<WeatherForecastController> _logger;
+    [HttpPost]
+    public void Create(WeatherForecast weatherForecast)
+    {
+        _dataContext.Add(weatherForecast);
+        _dataContext.SaveChanges();
+    }
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
+    [HttpGet]
+    public IEnumerable<WeatherForecast> Get()
+    {
+        return _dataContext.WeatherForecasts.ToList();
+    }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+    [HttpGet("{id:guid}")]
+    public IActionResult Get(Guid id)
+    {
+        var weatherForecast = _dataContext.WeatherForecasts.Find(id);
+
+        if (weatherForecast == null)
+            return NotFound();
+
+        return Ok(weatherForecast);
+    }
+
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, WeatherForecast request)
+    {
+        var weatherForecast = _dataContext.WeatherForecasts.Find(id);
+
+        if (weatherForecast == null)
+            return NotFound();
+
+        weatherForecast.Summary = request.Summary;
+        weatherForecast.Date = request.Date;
+        weatherForecast.TemperatureC = request.TemperatureC;
+
+        _dataContext.Update(weatherForecast);
+        _dataContext.SaveChanges();
+
+        return Ok();
+    }
+
+    [HttpDelete("{id:guid}")]
+    public IActionResult Delete(Guid id)
+    {
+        var weatherForecast = _dataContext.WeatherForecasts.Find(id);
+
+        if (weatherForecast == null)
+            return NotFound();
+
+        _dataContext.Remove(weatherForecast);
+        _dataContext.SaveChanges();
+
+        return Ok();
     }
 }
