@@ -213,7 +213,7 @@ _Final code commit of this lecture: **cc1596c7960ee1e847d46f151e7fcd1d46e986c0**
 
 ---
 
-## 3. Lekce 23.02.2022
+## 3. Lekce - 23.02.2022
 
 ### Prerequisites:
 
@@ -244,7 +244,7 @@ For Frontend project:
 ### Connect backend to a MSSQL database
 
 You should have MSSQL running, and now you have to create a database for local development.
-So create a new database and let's go to our IDE.
+So create a new database and let's go to our IDE.s
 
 Install these packages:
 
