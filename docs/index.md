@@ -241,7 +241,10 @@ For Frontend project:
 
 > TODO
 
-### Install Entity framework on backend
+### Connect backend to a MSSQL database
+
+You should have MSSQL running, and now you have to create a database for local development.
+So create a new database and let's go to our IDE.
 
 Install these packages:
 
