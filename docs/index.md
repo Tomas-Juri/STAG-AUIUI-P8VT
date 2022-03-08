@@ -9,8 +9,8 @@ _Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://won
 [1. Lekce 09.02.2022](#1-lekce---09022022)  
 [2. Lekce 16.02.2022](#2-lekce---16022022)  
 [3. Lekce 23.02.2022](#3-lekce---23022022)  
-[4. Lekce 01.03.2022](#3-lekce---01032022)  
-[5. Lekce 09.03.2022](#3-lekce---09032022)
+[4. Lekce 01.03.2022](#4-lekce---01032022)  
+[5. Lekce 09.03.2022](#5-lekce---09032022)
 
 ## 1. Lekce - 09.02.2022
 
@@ -393,6 +393,18 @@ _Final code commit of this lecture: **b03b5f89717cb6d710aad479634dbddc29158f63**
 ---
 
 ## 5. Lekce - 09.03.2022
+
+### Prerequisites:
+
+- Working backend database connection using Entity framework
+- Knowing how to use DBContext to CRUD data
+
+### More Info:
+
+- [jwt.io](https://jwt.io/)
+- [Overview of ASP.NET Core authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-6.0)
+
+### JWT Authentication & Authorization
 
 _Final code commit of this lecture:_
 
