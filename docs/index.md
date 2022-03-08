@@ -392,7 +392,7 @@ _Final code commit of this lecture: **b03b5f89717cb6d710aad479634dbddc29158f63**
 
 ---
 
-## 5. Lekce - 08.03.2022
+## 5. Lekce - 09.03.2022
 
 _Final code commit of this lecture:_
 
