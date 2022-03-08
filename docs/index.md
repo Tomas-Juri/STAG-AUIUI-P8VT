@@ -382,13 +382,15 @@ _Final code commit of this lecture: **b03b5f89717cb6d710aad479634dbddc29158f63**
 
 ---
 
-## 4. Lekce
+## 4. Lekce - 01.03.2022
 
-_Final code commit of this lecture:_
+Lego game
+
+_Final code commit of this lecture: **b03b5f89717cb6d710aad479634dbddc29158f63**_
 
 ---
 
-## 5. Lekce
+## 5. Lekce - 08.03.2022
 
 _Final code commit of this lecture:_
 
