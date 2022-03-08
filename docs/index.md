@@ -6,11 +6,11 @@ _Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://won
 
 **Table of contents:**
 
-[1. Lekce](#1-lekce---09022022)  
-[2. Lekce](#2-lekce---16022022)  
-[3. Lekce](#3-lekce---23022022)  
-[4. Lekce](#3-lekce---01032022)  
-[5. Lekce](#3-lekce---09032022)
+[1. Lekce 09.02.2022](#1-lekce---09022022)  
+[2. Lekce 16.02.2022](#2-lekce---16022022)  
+[3. Lekce 23.02.2022](#3-lekce---23022022)  
+[4. Lekce 01.03.2022](#3-lekce---01032022)  
+[5. Lekce 09.03.2022](#3-lekce---09032022)
 
 ## 1. Lekce - 09.02.2022
 
