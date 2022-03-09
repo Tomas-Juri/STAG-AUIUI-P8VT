@@ -1,5 +1,6 @@
 using Application.Backend.Database;
 using Application.Backend.Database.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Backend.Controllers;
@@ -16,6 +17,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public void Create(WeatherForecast weatherForecast)
     {
         _dataContext.Add(weatherForecast);
@@ -40,6 +42,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
+    [Authorize]
     public IActionResult Update(Guid id, WeatherForecast request)
     {
         var weatherForecast = _dataContext.WeatherForecasts.Find(id);
@@ -58,6 +61,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
+    [Authorize]
     public IActionResult Delete(Guid id)
     {
         var weatherForecast = _dataContext.WeatherForecasts.Find(id);
