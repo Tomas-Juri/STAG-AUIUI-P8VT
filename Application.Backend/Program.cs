@@ -14,9 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var appSettingsSection = builder.Configuration.GetSection("AppSettings");
-
 var jwtSecret = appSettingsSection.Get<AppSettings>().JwtSecret;
-
 builder.Services.Configure<AppSettings>(appSettingsSection);
 
 builder.Services.AddDbContext<DataContext>(options =>
