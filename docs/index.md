@@ -10,7 +10,11 @@ _Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://won
 [2. Lekce 16.02.2022](#2-lekce---16022022)  
 [3. Lekce 23.02.2022](#3-lekce---23022022)  
 [4. Lekce 01.03.2022](#4-lekce---01032022)  
-[5. Lekce 09.03.2022](#5-lekce---09032022)
+[5. Lekce 09.03.2022](#5-lekce---09032022)  
+[6. Lekce 16.03.2022](#6-lekce---16032022)  
+[7. Lekce 23.03.2022](#7-lekce---23032022)  
+[8. Lekce 30.03.2022](#8-lekce---30032022)  
+[9. Lekce 06.04.2022](#9-lekce---06042022)
 
 ## 1. Lekce - 09.02.2022
 
@@ -686,7 +690,7 @@ _Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**
 
 ---
 
-## 6. Lekce
+## 6. Lekce - 16.03.2022
 
 UX/UI Presentation
 
@@ -694,21 +698,27 @@ _Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**
 
 ---
 
-## 7. Lekce
+## 7. Lekce - 23.03.2022
 
-_Final code commit of this lecture:_
+Demo & Planning & Retro
 
----
-
-## 8. Lekce
-
-_Final code commit of this lecture:_
+_Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**_
 
 ---
 
-## 9. Lekce
+## 8. Lekce - 30.03.2022
 
-_Final code commit of this lecture:_
+Přednáška Clean Code
+
+_Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**_
+
+---
+
+## 9. Lekce - 06.04.2022
+
+Demo & Planning & Retro
+
+_Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**_
 
 ---
 
