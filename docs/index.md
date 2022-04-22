@@ -15,6 +15,9 @@ _Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://won
 [7. Lekce 23.03.2022](#7-lekce---23032022)  
 [8. Lekce 30.03.2022](#8-lekce---30032022)  
 [9. Lekce 06.04.2022](#9-lekce---06042022)
+[10. Lekce 13.04.2022](#10-lekce---13042022)  
+[11. Lekce 20.04.2022](#11-lekce---20042022)  
+[12. Lekce 27.04.2022](#12-lekce---27042022)
 
 ## 1. Lekce - 09.02.2022
 
@@ -722,18 +725,29 @@ _Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**
 
 ---
 
-## 10. Lekce
+## 10. Lekce - 13.04.2022
 
-_Final code commit of this lecture:_
+Lecture dismissed
 
----
-
-## 11. Lekce
-
-_Final code commit of this lecture:_
+_Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**_
 
 ---
 
-## 12. Lekce
+## 11. Lekce - 20.04.2022
+
+Demo & Planning & Retro
+
+### Git
+
+### More Info:
+
+- [https://learngitbranching.js.org/](https://learngitbranching.js.org/)
+- [https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
+_Final code commit of this lecture: **8d86bf44bb218395d1799e91f4528810c7c6138e**_
+
+---
+
+## 12. Lekce - 27.04.2022
 
 _Final code commit of this lecture:_
