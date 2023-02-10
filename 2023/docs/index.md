@@ -15,11 +15,17 @@ _Discord channel: [https://discord.gg/9K8PSk4Z7b](https://discord.gg/9K8PSk4Z7b)
 [7. Lekce 23.03.2023](#7-lekce---24032023)  
 [8. Lekce 30.03.2023](#8-lekce---31032023)  
 [9. Lekce 06.04.2023](#9-lekce---07042023)  
-[10. Lekce 13.04.2023](#10-lekce---13042023)    
-[11. Lekce 20.04.2023](#11-lekce---20042023)    
+[10. Lekce 13.04.2023](#10-lekce---13042023)  
+[11. Lekce 20.04.2023](#11-lekce---20042023)  
 [12. Lekce 27.04.2023](#12-lekce---27042023)
 
 ## 1. Lekce - 10.02.2023
+
+Overview:
+
+- Initial presentation
+- Download presentation
+- Setup your own development environment
 
 ### Presentation:
 
@@ -35,22 +41,30 @@ _Discord channel: [https://discord.gg/9K8PSk4Z7b](https://discord.gg/9K8PSk4Z7b)
 - REST API Client
   - [Insomnia](https://insomnia.rest/)
   - [Postman](https://www.postman.com/)
+- [Node JS](https://nodejs.org/en/) (If you want react)
 
 ### Create Project and run it
 
-1. Create an Blazor webassembly App - ASP.NET Core Hosted  
+1. Create a Blazor webassembly App - ASP.NET Core Hosted  
    `dotnet new blazorwasm --hosted -n OnlyShare -o .`
 
-2. Run application using  
-   `dotnet run --project .\Server\OnlyShare.Server.csproj  `
+2. Or create a React App - ASP.NET Core Hosted  
+   `dotnet new react -n OnlyShare -o .`
 
-3. Or use your ide to run Server project
+3. Maybe you will need to install dev certificates  
+   `dotnet dev-certs https `
 
-4. This will run both backend and frontend as one application
+4. Run application using  
+   (Blazor) `dotnet run --project .\Server\OnlyShare.Server.csproj`  
+   (React) `dotnet run`
+
+5. Or use your ide to run Server project
+
+6. This will run both backend and frontend as one application
 
    - The ASP.NET server as a host to both API and frontend
 
-5. Delete/Change scaffolded code from project
+7. Delete/Change scaffolded code from project
    - `./Server/Pages` - Remove whole folder
    - `./Server.Program.cs`
      - `builder.Services.AddControllersWithViews();` -> `builder.Services.AddControllers();`
@@ -65,16 +79,24 @@ _Discord channel: [https://discord.gg/9K8PSk4Z7b](https://discord.gg/9K8PSk4Z7b)
 
 ![Image](./VS_Debug.png)
 
-More info on how to debug: https://learn.microsoft.com/en-us/aspnet/core/blazor/debug
+More info
 
-_Final code commit of this lecture: **37960e5d8dbdaffad510c929f1e2862e6965c008**_
+- [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+- [ASP.NET with React](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
+- [Blazor web assembly](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
+- [How to debug blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/debug)
+
+_Final code commit of this lecture: **TODO**_
 
 ---
 
-
 ## 2. Lekce - 17.02.2023
 
-> TODO
+Overview:
+
+- Create a continuous integration pipeline to build your application.
+- Create a continous delivery pipeline (release) to deploy your application to server.
+- Setup git policies for branches.
 
 ## 3. Lekce - 24.02.2023
 
