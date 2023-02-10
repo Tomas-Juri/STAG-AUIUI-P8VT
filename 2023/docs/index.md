@@ -100,10 +100,18 @@ _Final code commit of this lecture: **37960e5d8dbdaffad510c929f1e2862e6965c008**
 
 > TODO
 
-## 9. Lekce - 7.04.2023
+## 9. Lekce - 07.04.2023
 
 > TODO
 
 ## 10. Lekce - 13.04.2023
+
+> TODO
+
+## 11. Lekce - 20.04.2023
+
+> TODO
+
+## 12. Lekce - 27.04.2023
 
 > TODO
