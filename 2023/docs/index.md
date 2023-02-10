@@ -2,6 +2,8 @@
 
 _Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)_
 
+_Discord channel: [https://discord.gg/9K8PSk4Z7b](https://discord.gg/9K8PSk4Z7b)_
+
 **Table of contents:**
 
 [1. Lekce 10.02.2023](#1-lekce---10022023)
