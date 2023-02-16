@@ -86,7 +86,7 @@ More info
 - [Blazor web assembly](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
 - [How to debug blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/debug)
 
-_Final code commit of this lecture: **TODO**_
+_Final code commit of this lecture: 28ab2091744fec2e21b396e4beee56e34e815d8a_
 
 ---
 
@@ -101,10 +101,93 @@ Overview:
 
 ### Create build pipeline (Aspnet + BlazorWasm)
 
+```yaml
 
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+
+steps:
+- task: UseDotNet@2
+  displayName: Use Dotnet 7
+  inputs:
+    version: "7.0.x"
+    
+- task: NuGetToolInstaller@0
+  displayName: "Install NuGet"
+  inputs:
+    versionSpec: 6.0.x
+    checkLatest: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Dotnet restore'
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+
+- script: dotnet publish Server/OnlyShare.Server.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
+  displayName: "Dotnet publish OnlyShare"
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+```
 
 ### Create build pipeline (Aspnet + React)
 
+```yaml
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+
+steps:
+- task: UseDotNet@2
+  displayName: Use Dotnet 7
+  inputs:
+    version: "7.0.x"
+    
+- task: NuGetToolInstaller@0
+  displayName: "Install NuGet"
+  inputs:
+    versionSpec: 6.0.x
+    checkLatest: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Dotnet restore'
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+
+- script: dotnet publish OnlyShare.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
+  displayName: "Dotnet publish OnlyShare"
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+```
+
+More Info:
+ - [Azure pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
+
+_Final code commit of this lecture: TODO_
 
 ## 3. Lekce - 24.02.2023
 

@@ -1,0 +1,45 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - OnlyShare.Server
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+
+steps:
+- task: UseDotNet@2
+  displayName: Use Dotnet 7
+  inputs:
+    version: "7.0.x"
+    
+- task: NuGetToolInstaller@0
+  displayName: "Install NuGet"
+  inputs:
+    versionSpec: 6.0.x
+    checkLatest: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Dotnet restore'
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+
+- script: dotnet publish Blazorwasm/Server/OnlyShare.Server.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
+  displayName: "Dotnet publish OnlyShare.Server"
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
