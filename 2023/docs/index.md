@@ -195,7 +195,15 @@ steps:
 To host our applications, we will use Azure app service.  
 To deploy our application, we will create a release pipeline.
 
-Backend:
+Release pipeline:
+1. Create new Release pipeline
+2. Select 'Azure App Service deployment'
+3. Add artifact
+4. Configure Azure App Service deployment
+   - Add subscription (admin needed)
+   - Add application (admin needed)
+   - Select Package/Folder location (from build)
+
 ![AzureDevops_Release_Backend_1](AzureDevops_Release_Backend_1.PNG)
 ![AzureDevops_Release_Backend_2](AzureDevops_Release_Backend_2.PNG)
 
@@ -206,6 +214,24 @@ If we did everything correctly, we should have our application deployed and it s
 More Info:
 
 - [Azure pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
+
+### Application urls of teams
+
+- Amundsen: https://cngroup-utb--2023-os-amundsen.azurewebsites.net
+- Hd kvalita: https://cngroup-utb--2023-os-hd-kvalita.azurewebsites.net
+- Nevime: https://cngroup-utb--2023-os-nevime.azurewebsites.net
+- ORZ: https://cngroup-utb--2023-os-orz.azurewebsites.net
+- Sempa: https://cngroup-utb--2023-os-sempa.azurewebsites.net
+- ToPujde: https://cngroup-utb--2023-os-topujde.azurewebsites.net
+
+How can i get my release running automagically after a new build ?
+
+More info:
+
+- [YAML](https://yaml.org/)
+- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
 
 _Final code commit of this lecture: TODO_
 
