@@ -98,6 +98,14 @@ Overview:
 - Create a continous delivery pipeline (release) to deploy your application to server.
 - Setup git policies for branches.
 
+
+### Create build pipeline (Aspnet + BlazorWasm)
+
+
+
+### Create build pipeline (Aspnet + React)
+
+
 ## 3. Lekce - 24.02.2023
 
 > TODO

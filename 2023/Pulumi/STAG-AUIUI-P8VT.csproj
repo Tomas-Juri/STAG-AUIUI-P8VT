@@ -11,6 +11,7 @@
     <PackageReference Include="Pulumi.Random" Version="3.*" />
     <PackageReference Include="Pulumi.Azure" Version="1.*" />
     <PackageReference Include="Pulumi.AzureNative" Version="1.*" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
 </Project>

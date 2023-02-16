@@ -1,22 +1,32 @@
-
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
-- master
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - ./React
 
 pool:
-  vmImage: windows-latest
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '16.x'
-  displayName: "Install Node.js"
+  - task: UseDotNet@2
+    displayName: Use Dotnet 7
+    inputs:
+      version: "7.0.x"
 
-- script: |
-    cd ClientApp
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+  - script: dotnet clean
+    displayName: "dotnet clean"
+
+  - script: dotnet publish -o $(Build.ArtifactStagingDirectory)
+    workingDirectory: ./React
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "backend"
