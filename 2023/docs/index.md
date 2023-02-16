@@ -92,57 +92,23 @@ _Final code commit of this lecture: 28ab2091744fec2e21b396e4beee56e34e815d8a_
 
 ## 2. Lekce - 17.02.2023
 
+We will create a CI/CD pipeline to deploy our application to a staging server.
+
 Overview:
 
 - Create a continuous integration pipeline to build your application.
 - Create a continous delivery pipeline (release) to deploy your application to server.
 - Setup git policies for branches.
 
+Prerequisites:
 
-### Create build pipeline (Aspnet + BlazorWasm)
+- Pushed changes into a repository in azure devops
 
-```yaml
+### Create a build definition using YAML
 
-trigger:
-  branches:
-    include:
-      - master
+We will create a build definition for the application.
 
-pool:
-  vmImage: windows-latest
-
-variables:
-  buildConfiguration: 'Release'
-
-
-steps:
-- task: UseDotNet@2
-  displayName: Use Dotnet 7
-  inputs:
-    version: "7.0.x"
-    
-- task: NuGetToolInstaller@0
-  displayName: "Install NuGet"
-  inputs:
-    versionSpec: 6.0.x
-    checkLatest: true
-
-- task: DotNetCoreCLI@2
-  displayName: 'Dotnet restore'
-  inputs:
-    command: restore
-    projects: '**/*.csproj'
-
-- script: dotnet publish Server/OnlyShare.Server.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
-  displayName: "Dotnet publish OnlyShare"
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-```
-
-### Create build pipeline (Aspnet + React)
+**Create build pipeline (Aspnet + BlazorWasm)**:
 
 ```yaml
 trigger:
@@ -154,38 +120,92 @@ pool:
   vmImage: windows-latest
 
 variables:
-  buildConfiguration: 'Release'
-
+  buildConfiguration: "Release"
 
 steps:
-- task: UseDotNet@2
-  displayName: Use Dotnet 7
-  inputs:
-    version: "7.0.x"
-    
-- task: NuGetToolInstaller@0
-  displayName: "Install NuGet"
-  inputs:
-    versionSpec: 6.0.x
-    checkLatest: true
+  - task: UseDotNet@2
+    displayName: Use Dotnet 7
+    inputs:
+      version: "7.0.x"
 
-- task: DotNetCoreCLI@2
-  displayName: 'Dotnet restore'
-  inputs:
-    command: restore
-    projects: '**/*.csproj'
+  - task: NuGetToolInstaller@0
+    displayName: "Install NuGet"
+    inputs:
+      versionSpec: 6.0.x
+      checkLatest: true
 
-- script: dotnet publish OnlyShare.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
-  displayName: "Dotnet publish OnlyShare"
+  - task: DotNetCoreCLI@2
+    displayName: "Dotnet restore"
+    inputs:
+      command: restore
+      projects: "**/*.csproj"
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+  - script: dotnet publish Server/OnlyShare.Server.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
+    displayName: "Dotnet publish OnlyShare"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "drop"
 ```
+
+**Create build pipeline (Aspnet + React)**:
+
+```yaml
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 7
+    inputs:
+      version: "7.0.x"
+
+  - task: NuGetToolInstaller@0
+    displayName: "Install NuGet"
+    inputs:
+      versionSpec: 6.0.x
+      checkLatest: true
+
+  - task: DotNetCoreCLI@2
+    displayName: "Dotnet restore"
+    inputs:
+      command: restore
+      projects: "**/*.csproj"
+
+  - script: dotnet publish OnlyShare.csproj -o $(Build.ArtifactStagingDirectory) --configuration Release /p:EnvironmentName=Development
+    displayName: "Dotnet publish OnlyShare"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "drop"
+```
+
+### Create a release pipeline in Azure DevOps
+
+To host our applications, we will use Azure app service.  
+To deploy our application, we will create a release pipeline.
+
+Backend:
+![AzureDevops_Release_Backend_1](AzureDevops_Release_Backend_1.PNG)
+![AzureDevops_Release_Backend_2](AzureDevops_Release_Backend_2.PNG)
+
+If we did everything correctly, we should have our application deployed and it should look like this:
+
+- [Azure/OnlyShare](https://cngroup-utb--2023-os-internaltest.azurewebsites.net/)
 
 More Info:
- - [Azure pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
+
+- [Azure pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
 
 _Final code commit of this lecture: TODO_
 
