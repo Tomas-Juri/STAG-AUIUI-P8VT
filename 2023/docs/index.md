@@ -100,6 +100,10 @@ Overview:
 - Create a continous delivery pipeline (release) to deploy your application to server.
 - Setup git policies for branches.
 
+### Presentation:
+
+[![Presentation](https://media.slid.es/thumbnails/4e98ef093e6af45b6abd8d7c3c8908f9/thumb.jpg?1676881146)](https://slides.com/trckatomas/vtv-1stlesson/fullscreen)
+
 Prerequisites:
 
 - Pushed changes into a repository in azure devops
