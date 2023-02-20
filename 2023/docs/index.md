@@ -96,6 +96,7 @@ We will create a CI/CD pipeline to deploy our application to a staging server.
 
 Overview:
 
+- Git flow & best practices presentation
 - Create a continuous integration pipeline to build your application.
 - Create a continous delivery pipeline (release) to deploy your application to server.
 - Setup git policies for branches.
