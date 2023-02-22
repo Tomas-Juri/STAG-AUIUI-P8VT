@@ -498,14 +498,14 @@ Let's add connectionString saved in Azure keyvault to your Release pipeline
 - Sempa: ...
 - ToPujde: ...
 
-![Step 1](AzureDevops_Keyvault_1.PNG)
-![Step 2](AzureDevops_Keyvault_2.PNG)
-![Step 3](AzureDevops_Keyvault_3.PNG)
-![Step 4](AzureDevops_Keyvault_4.PNG)
-![Step 5](AzureDevops_Keyvault_5.PNG)
-![Step 6](AzureDevops_Keyvault_6.PNG)
-![Step 7](AzureDevops_Keyvault_7.PNG)
-![Step 8](AzureDevops_Keyvault_8.PNG)
+![Step 1](AzureDevops_Keyvault_1.png)
+![Step 2](AzureDevops_Keyvault_2.png)
+![Step 3](AzureDevops_Keyvault_3.png)
+![Step 4](AzureDevops_Keyvault_4.png)
+![Step 5](AzureDevops_Keyvault_5.png)
+![Step 6](AzureDevops_Keyvault_6.png)
+![Step 7](AzureDevops_Keyvault_7.png)
+![Step 8](AzureDevops_Keyvault_8.png)
 
 
 Create CRUD endpoints to manage data ?  
