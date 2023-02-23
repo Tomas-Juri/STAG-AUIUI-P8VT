@@ -242,7 +242,280 @@ _Final code commit of this lecture: TODO_
 
 ## 3. Lekce - 24.02.2023
 
-> TODO
+We will create a CI/CD pipeline to deploy our application to a staging server.
+We will create and connect to local and azure databases.
+
+Overview:
+
+- ORM & Entity Framework
+- Create migrations and local database
+- Seed database with default data
+- Add connection to Azure database to Release pipeline via connection string stored in Azure Keyvault
+
+### Presentation:
+
+[![Presentation](https://media.slid.es/thumbnails/e29a33f27ae77212ab903dc1a1765bdd/thumb.jpg?1677088775)](https://slides.com/daviddlugosz/vtv-3rdlesson-databases/fullscreen)
+
+### Prerequisites:
+
+- Working CI pipeline (build)
+- Working Release pipeline (deploy) [I can see my applications deployed on Azure]
+- Microsoft SQL Server - [Download here](https://www.microsoft.com/cs-cz/sql-server/sql-server-downloads) Developer version
+- Microsoft SQL Server management studio - [Download here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+
+### Release pipeline triggers
+
+[Release triggers in azure devops](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/triggers?view=azure-devops)
+
+### Connect to a MSSQL database
+
+You should have MSSQL running, and now you have to create a database for local development.
+
+Install these packages to Server project:
+
+- `Microsoft.EntityFrameworkCore`
+- `Microsoft.EntityFrameworkCore.Design`
+- `Microsoft.EntityFrameworkCore.SqlServer`
+- `Microsoft.EntityFrameworkCore.Tools`
+
+Add DB Context
+
+```csharp
+// file: /Database/DataContext.cs
+
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions<DataContext> options) : base(options)
+    {
+
+    }
+}
+```
+
+Add DB Models - notice the Id property
+
+```csharp
+// file: /Database/Models/WeatherForecast.cs
+
+public class WeatherForecast
+{
+    public Guid Id { get; set; }
+
+    public DateTime Date { get; set; }
+
+    public int TemperatureC { get; set; }
+
+    public string Summary { get; set; } = string.Empty;
+}
+```
+
+Use Model in DBContext
+
+```csharp
+// file: /Database/DataContext.cs
+
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions<DataContext> options) : base(options)
+    {
+
+    }
+
+    public DbSet<Models.WeatherForecast> WeatherForecasts { get; set; } = default!;
+}
+```
+
+Set database connection string to database on local SQL Server
+
+- Add to appsettings.json
+```json
+...
+"ConnectionStrings": {
+  "Database": "Data Source={name of your local server};Initial Catalog={name of your database};Trusted_Connection=True;Encrypt=False"
+}
+...
+```
+
+Add DataContext to DI container (startup)
+
+```csharp
+// file: /Program.cs
+
+...
+
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+
+...
+```
+
+Add migrations to project
+
+- Open Package Manager Console
+- `Add-Migration InitialMigration`
+
+Apply migrations on application start (Automagically)
+
+```csharp
+// file: /Program.cs
+
+...
+
+using var scope = app.Services.CreateScope();
+var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+
+if (dataContext == null)
+    throw new NullReferenceException("DataContext is not initialized in DI in Program.cs");
+
+dataContext.Database.Migrate();
+...
+```
+
+Add Repository and map onto existing WeatherForecast class
+NOTE: Return type is shared WeatherForecast class, not database model one
+
+```csharp
+// file: /Database/Repositories/IWeatherForecastRepository.cs
+
+public interface IWeatherForecastRepository
+{
+    IEnumerable<WeatherForecast> GetWeatherForecasts();
+}
+
+// file: /Database/Repositories/WeatherForecastRepository.cs
+
+public class WeatherForecastRepository : IWeatherForecastRepository
+{
+    private readonly DataContext _context;
+
+    public WeatherForecastRepository(DataContext context)
+    {
+        _context = context;
+    }
+
+    public IEnumerable<WeatherForecast> GetWeatherForecasts()
+    {
+        return _context.WeatherForecasts
+            .Select(wf => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(wf.Date),
+                Summary = wf.Summary,
+                TemperatureC = wf.TemperatureC
+            });
+    }
+}
+```
+
+Add Repository to DI container (startup)
+
+```csharp
+// file: /Program.cs
+
+...
+
+builder.Services.AddScoped<IWeatherForecastRepository, WeatherForecastRepository>();
+
+...
+```
+
+Use Repository in controller to show data from db
+
+```csharp
+// file: /Controllers/WeatherForecastController.cs
+
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
+{
+    private readonly IWeatherForecastRepository _repository;
+
+    public WeatherForecastController(IWeatherForecastRepository repository)
+    {
+        _repository = repository;
+    }
+
+    [HttpGet(Name = "GetWeatherForecast")]
+    public IEnumerable<WeatherForecast> Get()
+    {
+        return _repository.GetWeatherForecasts();
+    }
+}
+
+```
+
+Run the app and test your API
+
+No Data? Let's seed some default data
+
+```csharp
+// file: /Database/DataContext.cs
+
+...
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<Models.WeatherForecast>().HasData(new Models.WeatherForecast
+    {
+        Id = Guid.NewGuid(),
+        Date = DateTime.Now.AddYears(-2),
+        Summary = "Weather 1",
+        TemperatureC = 30,
+    });
+    modelBuilder.Entity<Models.WeatherForecast>().HasData(new Models.WeatherForecast
+    {
+        Id = Guid.NewGuid(),
+        Date = DateTime.Now.AddYears(-1),
+        Summary = "Weather 2",
+        TemperatureC = 35,
+    });
+    modelBuilder.Entity<Models.WeatherForecast>().HasData(new Models.WeatherForecast
+    {
+        Id = Guid.NewGuid(),
+        Date = DateTime.Now,
+        Summary = "Weather 3",
+        TemperatureC = 40,
+    });
+}
+...
+```
+
+Add new migration to project
+
+- Open Package Manager Console
+- `Add-Migration SeedData`
+
+Run app again and verify you see the data we just seed into database
+
+Let's add connectionString saved in Azure keyvault to your Release pipeline
+
+### Keyvault names of teams
+
+- Amundsen: ...
+- Hd kvalita: ...
+- Nevime: ...
+- ORZ: ...
+- Sempa: ...
+- ToPujde: ...
+
+![Step 1](AzureDevops_Keyvault_1.png)
+![Step 2](AzureDevops_Keyvault_2.png)
+![Step 3](AzureDevops_Keyvault_3.png)
+![Step 4](AzureDevops_Keyvault_4.png)
+![Step 5](AzureDevops_Keyvault_5.png)
+![Step 6](AzureDevops_Keyvault_6.png)
+![Step 7](AzureDevops_Keyvault_7.png)
+![Step 8](AzureDevops_Keyvault_8.png)
+
+
+Create CRUD endpoints to manage data ?  
+
+More info:
+
+- [Entity Framework](https://docs.microsoft.com/en-us/ef/)
+- [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+
+_Final code commit of this lecture: ****_
 
 ## 4. Lekce - 03.03.2023
 
