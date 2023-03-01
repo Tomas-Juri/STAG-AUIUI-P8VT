@@ -519,7 +519,297 @@ _Final code commit of this lecture: ****_
 
 ## 4. Lekce - 03.03.2023
 
-> TODO
+### Prerequisites:
+
+- Working backend database connection using Entity framework
+- Knowing how to use DBContext to CRUD data
+
+### JWT Authentication & Authorization
+
+Create a new request/response classes for registration/login
+
+```csharp
+// file: Contracts/LoginRequest
+
+public class LoginRequest
+{
+    public string Email { get; set; } = string.Empty;
+
+    public string Password { get; set; } = string.Empty;
+}
+```
+
+```csharp
+// file: Contracts/LoginResponse.cs
+
+public class LoginResponse
+{
+    public string Token { get; set; } = string.Empty;
+}
+```
+
+```csharp
+// file: Contracts/RegisterRequest.cs
+
+public class RegisterRequest
+{
+    public string Email { get; set; } = string.Empty;
+
+    public string Password { get; set; } = string.Empty;
+
+    public string PasswordRepeat { get; set; } = string.Empty;
+
+    public string Username { get; set; } = string.Empty;
+}
+```
+
+```csharp
+// file: Contracts/RegisterResponse.cs
+
+public class RegisterResponse
+{
+
+}
+```
+
+Create new Account Controller
+
+```csharp
+// file: Controllers/AccountController.cs
+
+[ApiController]
+[Route("[controller]")]
+public class AccountController : ControllerBase
+{
+    private readonly DataContext _dataContext;
+
+    public AccountController(DataContext dataContext)
+    {
+        _dataContext = dataContext;
+    }
+
+    [HttpPost("[action]")]
+    public IActionResult Register(RegisterRequest request)
+    {
+       ...
+    }
+
+    [HttpPost("[action]")]
+    public IActionResult Login(LoginRequest request)
+    {
+        ...
+    }
+}
+```
+
+Implement Register Method
+
+```csharp
+// file: Controllers/AccountController.cs
+
+[HttpPost("[action]")]
+public IActionResult Register(RegisterRequest request)
+{
+    if (request.Password != request.PasswordRepeat)
+        return BadRequest("Zadaná hesla se neshodují");
+
+    if (_dataContext.Users.Any(user => user.Email == request.Email))
+        return BadRequest($"Uživatel s emailem {request.Email} je již registrován");
+
+    var (passwordSalt, passwordHash) = CreatePasswordHash(request.Password);
+
+    var user = new User
+    {
+        Email = request.Email,
+        Username = request.Username,
+        PasswordHash = passwordHash,
+        PasswordSalt = passwordSalt
+    };
+
+    _dataContext.Add(user);
+    _dataContext.SaveChanges();
+
+    // send email here
+
+    return Ok("Uživatel vytvořen");
+}
+
+private static (byte[] passwordSalt, byte[] passwordHash) CreatePasswordHash(string password)
+{
+    using var hmac = new System.Security.Cryptography.HMACSHA512();
+    var passwordSalt = hmac.Key;
+    var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+    return (passwordSalt, passwordHash);
+}
+```
+
+Create user Table/Entity
+
+```csharp
+// file: Database/Models/User.cs
+
+public class User
+{
+    public Guid Id { get; set; }
+
+    public string Email { get; set; } = string.Empty;
+
+    public string Username { get; set; } = string.Empty;
+
+    public byte[] PasswordHash { get; set; } = Array.Empty<byte>();
+
+    public byte[] PasswordSalt { get; set; } = Array.Empty<byte>();
+}
+```
+
+And add it to dbContext
+
+```csharp
+// file: Database/DataContext.cs
+
+public DbSet<User> Users { get; set; } = default!;
+```
+
+Create migration and run the app to apply it.
+You can now test if your register Endpoint works - if your request passess validations, there should be a new user in the DB.
+
+Implement Login Method  
+You may need to add several usings into the file
+
+```csharp
+// file: Controllers/AccountController.cs
+
+[HttpPost("[action]")]
+public IActionResult Login(LoginRequest request)
+{
+    var user = _dataContext.Users.FirstOrDefault(user => request.Email == user.Email);
+
+    if (user == null)
+        return NotFound($"Uživatel ${request.Email} nenalezen.");
+
+    if (VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt) == false)
+        return BadRequest("Neplatné přihlášení");
+
+
+    var tokenHandler = new JwtSecurityTokenHandler();
+    var key = Encoding.ASCII.GetBytes(_options.Value.JwtSecret);
+    var tokenDescriptor = new SecurityTokenDescriptor
+    {
+        Subject = new ClaimsIdentity(new[]
+        {
+            new Claim("id", user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Email)
+        }),
+        Expires = DateTime.UtcNow.AddDays(7),
+        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+    };
+    var token = tokenHandler.CreateToken(tokenDescriptor);
+    var tokenString = tokenHandler.WriteToken(token);
+
+    if (tokenString == null)
+        return BadRequest("Nepodařilo se přihlásit");
+
+    return Ok(new LoginResponse { Token = tokenString });
+}
+
+private static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
+{
+    if (storedHash.Length != 64)
+        throw new ArgumentException("Invalid length of password hash (64 bytes expected).", nameof(storedHash));
+    if (storedSalt.Length != 128)
+        throw new ArgumentException("Invalid length of password salt (128 bytes expected).", nameof(storedSalt));
+
+    using var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt);
+    var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+    for (var i = 0; i < computedHash.Length; i++)
+    {
+        if (computedHash[i] != storedHash[i]) return false;
+    }
+
+    return true;
+}
+```
+
+Now you can test that you can log as a registered user and you will get your JWT token, which you can inspect at [https://jwt.io](https://jwt.io).  
+This token will be used by frontend to prove its identity.
+
+Plug in the ASP.NET authorization for JWT tokens.  
+You will need `Microsoft.AspNetCore.Authentication.JwtBearer` package.
+
+```csharp
+// file: Program.cs
+
+var appSettingsSection = builder.Configuration.GetSection("AppSettings");
+var jwtSecret = appSettingsSection.Get<AppSettings>().JwtSecret;
+builder.Services.Configure<AppSettings>(appSettingsSection);
+
+...
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = context =>
+            {
+                var dataContext = context.HttpContext.RequestServices.GetRequiredService<DataContext>();
+                var userId = context.Principal.Identity.Name;
+                var user = dataContext.Users.FirstOrDefault(user => user.Email == userId);
+
+                if (user == null)
+                    context.Fail("Unauthorized");
+
+                return Task.CompletedTask;
+            }
+        };
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecret)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
+...
+
+app.UseAuthentication();
+
+```
+
+Now your app is configured to authenticate using JWT tokens. But you cannot really test this, can you ?
+
+We can add `[Authorize]` attribute to our controller methods to prevent unauthorized users to use them
+
+```csharp
+// file: Controllers/WeatherForecastController.cs
+
+[HttpPost]
+[Authorize]
+public void Create(WeatherForecast weatherForecast)
+{
+
+```
+
+Now we can test that only if we send the token in Authorize-Headers we are able to create a weatherforecast, using this endpoint.
+
+How to use token in swagger ?
+How to store the token in frontend ?
+
+### More Info:
+
+- [jwt.io](https://jwt.io/)
+- [Overview of ASP.NET Core authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-6.0)
+
+_Final code commit of this lecture: ****_
+
+---
 
 ## 5. Lekce - 10.03.2023
 
