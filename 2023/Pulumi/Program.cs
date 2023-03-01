@@ -39,6 +39,9 @@ return await Pulumi.Deployment.RunAsync(() =>
 
     var sempaDbUsername = "cngroup_utb_administrator_sempa";
     var sempaDbPassword = CreatePassword("cngroup-utb--2023-Sempa-password");
+    
+    var posDbUsername = "cngroup_utb_administrator_pos";
+    var posDbPassword = CreatePassword("cngroup-utb--2023-pos-password");
 
     Output<string> CreatePassword(string name)
     {
@@ -97,28 +100,6 @@ return await Pulumi.Deployment.RunAsync(() =>
         },
         ResourceGroupName = resourceGroup.Name
     });
-    CreateSecret("cngroup-utb--2023-sql-admin-password", adminDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-InternalTest-password", internalTestDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-ToPujde-password", toPujdeDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-Admundsen-password", amundsenDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-HD-Kvalita-password", hdKvalitaDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-Nevime-password", nevimeDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-ORZ-password", orzDbPassword);
-    CreateSecret("cngroup-utb--2023-sql-Sempa-password", sempaDbPassword);
-
-    Secret CreateSecret(string name, Output<string> value)
-    {
-        return new Secret(name, new SecretArgs()
-        {
-            ResourceGroupName = resourceGroup.Name,
-            SecretName = name,
-            VaultName = keyVault.Name,
-            Properties = new AzureNative.KeyVault.Inputs.SecretPropertiesArgs
-            {
-                Value = value,
-            },
-        });
-    }
 
     // Create azure sql server
     var sqlServer = new Server("cngroup-utb--2023", new()
@@ -131,13 +112,14 @@ return await Pulumi.Deployment.RunAsync(() =>
         AdministratorLoginPassword = adminDbPassword
     });
 
-    CreateDatabase("cngroup-utb--2023-OS-InternalTest", sqlServer, resourceGroup);
-    CreateDatabase("cngroup-utb--2023-OS-ToPujde", sqlServer, resourceGroup);
-    CreateDatabase("cngroup-utb--2023-OS-Amundsen", sqlServer, resourceGroup);
-    CreateDatabase("cngroup-utb--2023-OS-HD-kvalita", sqlServer, resourceGroup);
-    CreateDatabase("cngroup-utb--2023-OS-Nevime", sqlServer, resourceGroup);
-    CreateDatabase("cngroup-utb--2023-OS-ORZ", sqlServer, resourceGroup);
-    CreateDatabase("cngroup-utb--2023-OS-Sempa", sqlServer, resourceGroup);
+    var internalTestDatabase = CreateDatabase("cngroup-utb--2023-OS-InternalTest", sqlServer, resourceGroup);
+    var toPujdeDatabase = CreateDatabase("cngroup-utb--2023-OS-ToPujde", sqlServer, resourceGroup);
+    var amundsenDatabase = CreateDatabase("cngroup-utb--2023-OS-Amundsen", sqlServer, resourceGroup);
+    var hdKvalitaDatabase = CreateDatabase("cngroup-utb--2023-OS-HD-kvalita", sqlServer, resourceGroup);
+    var NevimeDatabase = CreateDatabase("cngroup-utb--2023-OS-Nevime", sqlServer, resourceGroup);
+    var oRZDatabase = CreateDatabase("cngroup-utb--2023-OS-ORZ", sqlServer, resourceGroup);
+    var sempaDatabase = CreateDatabase("cngroup-utb--2023-OS-Sempa", sqlServer, resourceGroup);
+    var posDatabase = CreateDatabase("cngroup-utb--2023-OS-Pos", sqlServer, resourceGroup);
 
     Database CreateDatabase(string name, Server server, ResourceGroup rg)
     {
@@ -154,6 +136,44 @@ return await Pulumi.Deployment.RunAsync(() =>
                 Size = "2"
             },
             RequestedBackupStorageRedundancy = RequestedBackupStorageRedundancy.Local
+        });
+    }
+    
+    CreateSecret("cngroup-utb--2023-sql-admin-password", adminDbPassword);
+    CreateSecret("cngroup-utb--2023-sql-InternalTest-connection-string", GetConnectionString("cngroup-utb--2023-OS-InternalTest", internalTestDbUsername, internalTestDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-ToPujde-connection-string", GetConnectionString("cngroup-utb--2023-OS-ToPujde", toPujdeDbUsername, toPujdeDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-Admundsen-connection-string", GetConnectionString("cngroup-utb--2023-OS-Amundsen", amundsenDbUsername, amundsenDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-HD-Kvalita-connection-string", GetConnectionString("cngroup-utb--2023-OS-HD-kvalita", hdKvalitaDbUsername, hdKvalitaDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-Nevime-connection-string", GetConnectionString("cngroup-utb--2023-OS-Nevime", nevimeDbUsername, nevimeDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-ORZ-connection-string", GetConnectionString("cngroup-utb--2023-OS-ORZ", orzDbUsername, orzDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-Sempa-connection-string", GetConnectionString("cngroup-utb--2023-OS-Sempa", sempaDbUsername, sempaDbPassword));
+    CreateSecret("cngroup-utb--2023-sql-pos-connection-string", GetConnectionString("cngroup-utb--2023-OS-Pos", posDbUsername, posDbPassword));
+
+
+    Output<string> GetConnectionString(string databaseName, string userName, Output<string> password)
+    {
+        return password.Apply(value => $"Server=tcp::cngroup-utb--2023.database.windows.net,1433;" +
+                                       $"Initial Catalog={databaseName};" +
+                                       $"Persist Security Info=False;" +
+                                       $"User ID={userName};" +
+                                       $"Password={value};" +
+                                       $"MultipleActiveResultSets=False;" +
+                                       $"Encrypt=True;" +
+                                       $"TrustServerCertificate=False;" +
+                                       $"Connection Timeout=30;");
+    }
+    
+    Secret CreateSecret(string name, Output<string> value)
+    {
+        return new Secret(name, new SecretArgs()
+        {
+            ResourceGroupName = resourceGroup.Name,
+            SecretName = name,
+            VaultName = keyVault.Name,
+            Properties = new AzureNative.KeyVault.Inputs.SecretPropertiesArgs
+            {
+                Value = value,
+            },
         });
     }
 
@@ -227,11 +247,21 @@ return await Pulumi.Deployment.RunAsync(() =>
             x.Wait();
             return x.Id;
         });
+        
+    Output.Tuple(adminDbPassword, posDbPassword, sqlServer.Name)
+        .Apply(async output => await CreateUser(
+            output.Item3, "cngroup-utb--2023-OS-Pos", posDbUsername,
+            output.Item1, output.Item2))
+        .Apply(x =>
+        {
+            x.Wait();
+            return x.Id;
+        });
 
     async Task CreateUser(string sqlServerName, string databaseName, string username, string adminPassword,
         string password)
     {
-        var connString = GetConnectionString(sqlServerName, databaseName, adminPassword);
+        var connString = GetAdminConnectionString(sqlServerName, databaseName, adminPassword);
         await using var sqlConn = new SqlConnection(connString);
         await sqlConn.OpenAsync();
 
@@ -246,7 +276,7 @@ return await Pulumi.Deployment.RunAsync(() =>
         await createCmd.ExecuteNonQueryAsync();
     }
 
-    string GetConnectionString(string sqlServerName, string databaseName, string adminPassword)
+    string GetAdminConnectionString(string sqlServerName, string databaseName, string adminPassword)
     {
         return $"Server=tcp:{sqlServerName}.database.windows.net,1433;" +
                $"Initial Catalog={databaseName};" +
@@ -282,6 +312,7 @@ return await Pulumi.Deployment.RunAsync(() =>
     CreateWebApp("cngroup-utb--2023-OS-Nevime", appServicePlan);
     CreateWebApp("cngroup-utb--2023-OS-ORZ", appServicePlan);
     CreateWebApp("cngroup-utb--2023-OS-Sempa", appServicePlan);
+    CreateWebApp("cngroup-utb--2023-OS-Pos", appServicePlan);
 
     WebApp CreateWebApp(string name, AppServicePlan appServicePlan)
     {
@@ -296,32 +327,3 @@ return await Pulumi.Deployment.RunAsync(() =>
         });
     }
 });
-
-
-// interpolatedStringHandler.AppendLiteral("CREATE USER ");
-// interpolatedStringHandler.AppendFormatted(username);
-// interpolatedStringHandler.AppendLiteral(" WITH PASSWORD='");
-// interpolatedStringHandler.AppendFormatted(password); 
-// interpolatedStringHandler.AppendLiteral("'");
-// ref StringBuilder.AppendInterpolatedStringHandler local1 = ref interpolatedStringHandler;
-// stringBuilder3.AppendLine(ref local1);
-// StringBuilder stringBuilder4 = stringBuilder1;
-// StringBuilder stringBuilder5 = stringBuilder4;
-// interpolatedStringHandler = new StringBuilder.AppendInterpolatedStringHandler(43, 1, stringBuilder4);
-// interpolatedStringHandler.AppendLiteral("EXEC sp_addrolemember N'db_datareader', N'");
-// interpolatedStringHandler.AppendFormatted(username);
-// interpolatedStringHandler.AppendLiteral("'");
-// ref StringBuilder.AppendInterpolatedStringHandler local2 = ref interpolatedStringHandler;
-// stringBuilder5.AppendLine(ref local2);
-// StringBuilder stringBuilder6 = stringBuilder1;
-// StringBuilder stringBuilder7 = stringBuilder6;
-// interpolatedStringHandler = new StringBuilder.AppendInterpolatedStringHandler(43, 1, stringBuilder6);
-// interpolatedStringHandler.AppendLiteral("EXEC sp_addrolemember N'db_datawriter', N'");
-// interpolatedStringHandler.AppendFormatted(username);
-// interpolatedStringHandler.AppendLiteral("'");
-// ref StringBuilder.AppendInterpolatedStringHandler local3 = ref interpolatedStringHandler;
-// stringBuilder7.AppendLine(ref local3);
-// StringBuilder stringBuilder8 = stringBuilder1;
-// StringBuilder stringBuilder9 = stringBuilder8;
-// interpolatedStringHandler = new StringBuilder.AppendInterpolatedStringHandler(41, 1, stringBuilder8);
-// interpolatedStringHandler.AppendLiteral("EXEC sp_addrolemember N'db_ddladmin', N'");
