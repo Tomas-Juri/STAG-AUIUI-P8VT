@@ -523,6 +523,7 @@ _Final code commit of this lecture: ****_
 
 - Working backend database connection using Entity framework
 - Knowing how to use DBContext to CRUD data
+- Installed Postman (or alternative for testing APIs)
 
 ### JWT Authentication & Authorization
 
@@ -672,6 +673,40 @@ public DbSet<User> Users { get; set; } = default!;
 
 Create migration and run the app to apply it.
 You can now test if your register Endpoint works - if your request passess validations, there should be a new user in the DB.
+
+Generate your JwtSecret and put it into appsettings.json (we will use HmacSha256 encryption algorithm, so the secret should be 32 bytes long)
+```json
+...
+"AppSettings": {
+  "JwtSecret": "{your secret}"
+}
+...
+```
+
+Create a class mapping the AppSettings part of appsettings.json
+```csharp
+// file: AppSettings.cs
+
+public class AppSettings
+{
+    public string JwtSecret { get; set; } = String.Empty;
+}
+```
+
+Inject AppSettings into AccountController
+```csharp
+// file: Controllers/AccountController.cs
+...
+private readonly IOptions<AppSettings> _options;
+
+public AccountController(DataContext dataContext, IOptions<AppSettings> options)
+{
+    _dataContext = dataContext;
+    _options = options;
+}
+...
+```
+
 
 Implement Login Method  
 You may need to add several usings into the file
