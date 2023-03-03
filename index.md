@@ -9,4 +9,4 @@ This repository contains the following:
 
 - **Documentation:** This directory contains all of the documentation for the course, including lecture slides, assignments, and other relevant materials.
 
-- **Source Code:** This directory contains all of the source code for the course. The source code is organized by week and assignment, making it easy to find and navigate.
+- **Source Code:** This directory contains all of the source code for the course. The source code is organized by year, making it easy to find and navigate.

@@ -18,21 +18,6 @@ layout: home
 
 ---
 
-**Table of contents:**
-
-[1. Lekce 10.02.2023](#1-lekce---10022023)  
-[2. Lekce 17.02.2023](#2-lekce---17022023)  
-[3. Lekce 24.02.2023](#3-lekce---24022023)  
-[4. Lekce 03.03.2023](#4-lekce---03032023)  
-[5. Lekce 09.03.2023](#5-lekce---10032023)  
-[6. Lekce 16.03.2023](#6-lekce---17032023)  
-[7. Lekce 23.03.2023](#7-lekce---24032023)  
-[8. Lekce 30.03.2023](#8-lekce---31032023)  
-[9. Lekce 06.04.2023](#9-lekce---07042023)  
-[10. Lekce 13.04.2023](#10-lekce---13042023)  
-[11. Lekce 20.04.2023](#11-lekce---20042023)  
-[12. Lekce 27.04.2023](#12-lekce---27042023)
-
 ## 1. Lekce - 10.02.2023
 
 Overview:
@@ -533,6 +518,8 @@ More info:
 _Final code commit of this lecture: \*\*\*\*_
 
 ## 4. Lekce - 03.03.2023
+
+UX/UI Presentation
 
 ### Prerequisites:
 
