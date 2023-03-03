@@ -1,6 +1,7 @@
 ---
 title: Home
 layout: home
+nav_order: 1
 ---
 
 Welcome to the STAG-AUIUI-P8VT course repository! This repository contains both the documentation and source code for the STAG-AUIUI-P8VT course.

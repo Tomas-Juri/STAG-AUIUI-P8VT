@@ -1,6 +1,7 @@
 ---
 title: "2023"
 layout: home
+nav_order: 2
 ---
 
 # STAG-AUIUI-P8VT 2023
