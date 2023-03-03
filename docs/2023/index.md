@@ -1,8 +1,7 @@
-# STAG-AUIUI-AP8VT-2023
-
-_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)_
-
-_Discord channel: [https://discord.gg/9K8PSk4Z7b](https://discord.gg/9K8PSk4Z7b)_
+---
+title: STAG-AUIUI-P8VT 2023
+layout: home
+---
 
 **Table of contents:**
 
@@ -201,6 +200,7 @@ To host our applications, we will use Azure app service.
 To deploy our application, we will create a release pipeline.
 
 Release pipeline:
+
 1. Create new Release pipeline
 2. Select 'Azure App Service deployment'
 3. Add artifact
@@ -328,6 +328,7 @@ public class DataContext : DbContext
 Set database connection string to database on local SQL Server
 
 - Add to appsettings.json
+
 ```json
 ...
 "ConnectionStrings": {
@@ -507,15 +508,14 @@ Let's add connectionString saved in Azure keyvault to your Release pipeline
 ![Step 7](AzureDevops_Keyvault_7.png)
 ![Step 8](AzureDevops_Keyvault_8.png)
 
-
-Create CRUD endpoints to manage data ?  
+Create CRUD endpoints to manage data ?
 
 More info:
 
 - [Entity Framework](https://docs.microsoft.com/en-us/ef/)
 - [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 
-_Final code commit of this lecture: ****_
+_Final code commit of this lecture: \*\*\*\*_
 
 ## 4. Lekce - 03.03.2023
 
@@ -705,6 +705,7 @@ Create migration and run the app to apply it.
 You can now test if your register Endpoint works - if your request passess validations, there should be a new user in the DB.
 
 Generate your JwtSecret and put it into appsettings.json (we will use HmacSha256 encryption algorithm, so the secret should be 32 bytes long)
+
 ```json
 ...
 "AppSettings": {
@@ -714,6 +715,7 @@ Generate your JwtSecret and put it into appsettings.json (we will use HmacSha256
 ```
 
 Create a class mapping the AppSettings part of appsettings.json
+
 ```csharp
 // file: AppSettings.cs
 
@@ -724,6 +726,7 @@ public class AppSettings
 ```
 
 Inject AppSettings into AccountController
+
 ```csharp
 // file: Controllers/AccountController.cs
 ...
@@ -736,7 +739,6 @@ public AccountController(DataContext dataContext, IOptions<AppSettings> options)
 }
 ...
 ```
-
 
 Implement Login Method  
 You may need to add several usings into the file
@@ -872,7 +874,7 @@ How to store the token in frontend ?
 - [jwt.io](https://jwt.io/)
 - [Overview of ASP.NET Core authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-6.0)
 
-_Final code commit of this lecture: ****_
+_Final code commit of this lecture: \*\*\*\*_
 
 ---
 

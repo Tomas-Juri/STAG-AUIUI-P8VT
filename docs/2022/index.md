@@ -1,8 +1,7 @@
-# STAG-AUIUI-P8VT-2021-2022
-
-_Repository: [https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT-2021-2022)_  
-_Backend: [https://stag-auiui-p8vt-2021-2022-test.azurewebsites.net](https://stag-auiui-p8vt-2021-2022-test.azurewebsites.net)_  
-_Frontend: [https://wonderful-cliff-0c67fd803.1.azurestaticapps.net](https://wonderful-cliff-0c67fd803.1.azurestaticapps.net)_
+---
+title: STAG-AUIUI-P8VT 2022
+layout: home
+---
 
 **Table of contents:**
 
