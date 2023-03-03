@@ -4,17 +4,10 @@ layout: home
 ---
 
 # STAG-AUIUI-P8VT 2023
-
 {: .no_toc }
 
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-- TOC
-{:toc}
-</details>
+## Table of contents
+{: .no_toc .text-delta }
 
 ---
 
