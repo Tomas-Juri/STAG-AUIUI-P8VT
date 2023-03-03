@@ -1,5 +1,5 @@
 ---
-title: STAG-AUIUI-P8VT 2023
+title: "2023"
 layout: home
 ---
 
