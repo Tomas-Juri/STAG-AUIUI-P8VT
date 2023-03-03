@@ -3,20 +3,19 @@ title: STAG-AUIUI-P8VT 2022
 layout: home
 ---
 
-**Table of contents:**
+# STAG-AUIUI-P8VT 2022
+{: .no_toc }
 
-[1. Lekce 09.02.2022](#1-lekce---09022022)  
-[2. Lekce 16.02.2022](#2-lekce---16022022)  
-[3. Lekce 23.02.2022](#3-lekce---23022022)  
-[4. Lekce 01.03.2022](#4-lekce---01032022)  
-[5. Lekce 09.03.2022](#5-lekce---09032022)  
-[6. Lekce 16.03.2022](#6-lekce---16032022)  
-[7. Lekce 23.03.2022](#7-lekce---23032022)  
-[8. Lekce 30.03.2022](#8-lekce---30032022)  
-[9. Lekce 06.04.2022](#9-lekce---06042022)
-[10. Lekce 13.04.2022](#10-lekce---13042022)  
-[11. Lekce 20.04.2022](#11-lekce---20042022)  
-[12. Lekce 27.04.2022](#12-lekce---27042022)
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
+
+---
 
 ## 1. Lekce - 09.02.2022
 

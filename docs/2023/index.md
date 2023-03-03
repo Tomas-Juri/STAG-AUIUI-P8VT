@@ -3,6 +3,21 @@ title: STAG-AUIUI-P8VT 2023
 layout: home
 ---
 
+# STAG-AUIUI-P8VT 2023
+
+{: .no_toc }
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
+
+---
+
 **Table of contents:**
 
 [1. Lekce 10.02.2023](#1-lekce---10022023)  
