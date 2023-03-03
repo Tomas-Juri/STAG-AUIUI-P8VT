@@ -9,6 +9,9 @@ layout: home
 ## Table of contents
 {: .no_toc .text-delta }
 
+1. TOC
+{:toc}
+
 ---
 
 ## 1. Lekce - 10.02.2023
