@@ -525,6 +525,36 @@ _Final code commit of this lecture: ****_
 - Knowing how to use DBContext to CRUD data
 - Installed Postman (or alternative for testing APIs)
 
+### Postman
+
+First, test your GET WeatherForecast EP with Postman.
+
+### Swagger
+
+Let's add Swagger to the app so we can easily see what EPs our BE offers
+
+You will need `Swashbuckle.AspNetCore` package.
+
+```csharp
+// file: Program.cs
+
+...
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+...
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseWebAssemblyDebugging();
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+...
+```
+
 ### JWT Authentication & Authorization
 
 Create a new request/response classes for registration/login
