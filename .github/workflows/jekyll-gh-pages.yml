@@ -40,7 +40,6 @@ jobs:
         with:
           source: ./docs
           destination: ./_site
-          baseurl: ${{ steps.pages.outputs.base_path }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
