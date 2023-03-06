@@ -235,7 +235,7 @@ More info:
 - [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
 - [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
 
-_Final code commit of this lecture: TODO_
+_Final code commit of this lecture: c8c15d90eb5b5d41ec037f5fb8e9ce4f695a1519_
 
 ## 3. Lekce - 24.02.2023
 
@@ -512,7 +512,7 @@ More info:
 - [Entity Framework](https://docs.microsoft.com/en-us/ef/)
 - [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 
-_Final code commit of this lecture: \*\*\*\*_
+_Final code commit of this lecture: c8c15d90eb5b5d41ec037f5fb8e9ce4f695a1519_
 
 ## 4. Lekce - 03.03.2023
 
@@ -873,13 +873,18 @@ How to store the token in frontend ?
 - [jwt.io](https://jwt.io/)
 - [Overview of ASP.NET Core authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-6.0)
 
-_Final code commit of this lecture: \*\*\*\*_
+_Final code commit of this lecture: c8c15d90eb5b5d41ec037f5fb8e9ce4f695a1519_
 
 ---
 
 ## 5. Lekce - 10.03.2023
 
-> TODO
+
+
+### Prerequisites:
+
+- You can log as a registered user and you will get your JWT token from your backend
+- Knowing what jwt token is
 
 ## 6. Lekce - 17.03.2023
 
