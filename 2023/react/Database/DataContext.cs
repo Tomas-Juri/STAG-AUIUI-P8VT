@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlyShare.Database.Models;
 
 namespace OnlyShare.Database
 {
@@ -9,7 +10,9 @@ namespace OnlyShare.Database
 
         }
 
-        public DbSet<Models.WeatherForecast> WeatherForecasts { get; set; } = default!;
+        public DbSet<Models.WeatherForecast> WeatherForecasts => Set<Models.WeatherForecast>();
+
+        public DbSet<User> Users => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
