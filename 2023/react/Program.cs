@@ -1,8 +1,49 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using OnlyShare.Database;
 using OnlyShare.Database.Repositories;
+using OnlyShare.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var appSettingsSection = builder.Configuration.GetSection("AppSettings");
+var jwtSecret = appSettingsSection.Get<AppSettings>().JwtSecret;
+builder.Services.Configure<AppSettings>(appSettingsSection);
+
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = context =>
+            {
+                var dataContext = context.HttpContext.RequestServices.GetRequiredService<DataContext>();
+                var userId = context.Principal.Identity.Name;
+                var user = dataContext.Users.FirstOrDefault(user => user.Email == userId);
+
+                if (user == null)
+                    context.Fail("Unauthorized");
+
+                return Task.CompletedTask;
+            }
+        };
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecret)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -42,6 +83,9 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute( 
     name: "default",
