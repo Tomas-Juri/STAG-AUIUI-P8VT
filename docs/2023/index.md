@@ -251,7 +251,7 @@ Overview:
 
 ### Presentation:
 
-[![Presentation](https://media.slid.es/thumbnails/e29a33f27ae77212ab903dc1a1765bdd/thumb.jpg?1677088775)](https://slides.com/daviddlugosz/vtv-3rdlesson-databases/fullscreen)
+[![Presentation](https://media.slid.es/thumbnails/e29a33f27ae77212ab903dc1a1765bdd/thumb.jpg?1677088775)](https://slides.com/daviddlugosz/vtv-3rdlesson-orm-entity-framework/fullscreen)
 
 ### Prerequisites:
 
@@ -896,7 +896,9 @@ _Final code commit of this lecture: c8c15d90eb5b5d41ec037f5fb8e9ce4f695a1519_
 
 ## 8. Lekce - 31.03.2023
 
-> TODO
+### Presentation:
+
+[![Presentation](https://media.slid.es/thumbnails/e29a33f27ae77212ab903dc1a1765bdd/thumb.jpg?1677088775)](https://slides.com/daviddlugosz/vtv-3rdlesson-databases/fullscreen)
 
 ## 9. Lekce - 07.04.2023
 
