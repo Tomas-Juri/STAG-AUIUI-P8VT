@@ -910,8 +910,16 @@ _Final code commit of this lecture: c8c15d90eb5b5d41ec037f5fb8e9ce4f695a1519_
 
 ## 11. Lekce - 20.04.2023
 
-> TODO
+Lego game
 
 ## 12. Lekce - 27.04.2023
 
 > TODO
+
+## 13. Lekce - 05.05.2023
+
+Lecture skipped in favor of coding
+
+## 14. Lekce - 12.05.2023
+
+Final assessment 
