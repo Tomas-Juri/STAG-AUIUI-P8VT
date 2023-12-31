@@ -1,0 +1,28 @@
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 8
+    inputs:
+      version: "8.0.x"
+
+  - script: dotnet clean
+    displayName: "dotnet clean"
+
+  - script: dotnet publish -o $(Build.ArtifactStagingDirectory)
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "backend"
