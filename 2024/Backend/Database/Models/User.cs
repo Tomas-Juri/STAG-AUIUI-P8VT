@@ -2,13 +2,13 @@
 
 public class User
 {
-    public Guid Id { get; set; }
+    public required Guid Id { get; set; }
 
-    public string Email { get; set; } = string.Empty;
+    public required string Email { get; set; }
 
-    public string Username { get; set; } = string.Empty;
+    public required string Username { get; set; }
 
-    public byte[] PasswordHash { get; set; } = Array.Empty<byte>();
+    public required byte[] PasswordHash { get; set; }
 
-    public byte[] PasswordSalt { get; set; } = Array.Empty<byte>();
+    public required byte[] PasswordSalt { get; set; }
 }

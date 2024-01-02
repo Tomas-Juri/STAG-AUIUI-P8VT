@@ -2,11 +2,11 @@
 
 public class WeatherForecast
 {
-    public Guid Id { get; set; }
+    public required Guid Id { get; set; }
 
-    public DateTime Date { get; set; }
+    public required DateTime Date { get; set; }
 
-    public int TemperatureC { get; set; }
+    public required int TemperatureC { get; set; }
 
-    public string Summary { get; set; } = string.Empty;
+    public required string Summary { get; set; }
 }

@@ -8,90 +8,68 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Application.Migrations;
-
-[DbContext(typeof(DataContext))]
-partial class DataContextModelSnapshot : ModelSnapshot
+namespace Application.Migrations
 {
-    protected override void BuildModel(ModelBuilder modelBuilder)
+    [DbContext(typeof(DataContext))]
+    partial class DataContextModelSnapshot : ModelSnapshot
     {
+        protected override void BuildModel(ModelBuilder modelBuilder)
+        {
 #pragma warning disable 612, 618
-        modelBuilder
-            .HasAnnotation("ProductVersion", "7.0.3")
-            .HasAnnotation("Relational:MaxIdentifierLength", 128);
+            modelBuilder
+                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-        SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-        modelBuilder.Entity("Application.Database.Models.User", b =>
-        {
-            b.Property<Guid>("Id")
-                .ValueGeneratedOnAdd()
-                .HasColumnType("uniqueidentifier");
-
-            b.Property<string>("Email")
-                .IsRequired()
-                .HasColumnType("nvarchar(max)");
-
-            b.Property<byte[]>("PasswordHash")
-                .IsRequired()
-                .HasColumnType("varbinary(max)");
-
-            b.Property<byte[]>("PasswordSalt")
-                .IsRequired()
-                .HasColumnType("varbinary(max)");
-
-            b.Property<string>("Username")
-                .IsRequired()
-                .HasColumnType("nvarchar(max)");
-
-            b.HasKey("Id");
-
-            b.ToTable("Users");
-        });
-
-        modelBuilder.Entity("Application.Database.Models.WeatherForecast", b =>
-        {
-            b.Property<Guid>("Id")
-                .ValueGeneratedOnAdd()
-                .HasColumnType("uniqueidentifier");
-
-            b.Property<DateTime>("Date")
-                .HasColumnType("datetime2");
-
-            b.Property<string>("Summary")
-                .IsRequired()
-                .HasColumnType("nvarchar(max)");
-
-            b.Property<int>("TemperatureC")
-                .HasColumnType("int");
-
-            b.HasKey("Id");
-
-            b.ToTable("WeatherForecasts");
-
-            b.HasData(
-                new
+            modelBuilder.Entity("Application.Backend.Database.Models.User", b =>
                 {
-                    Id = new Guid("18eadf00-e455-4ff3-ae87-9e01fd94f916"),
-                    Date = new DateTime(2021, 3, 10, 12, 21, 0, 564, DateTimeKind.Local).AddTicks(6814),
-                    Summary = "Weather 1",
-                    TemperatureC = 30
-                },
-                new
-                {
-                    Id = new Guid("041fc995-1384-495e-9b0f-c5cc298bf277"),
-                    Date = new DateTime(2022, 3, 10, 12, 21, 0, 564, DateTimeKind.Local).AddTicks(6897),
-                    Summary = "Weather 2",
-                    TemperatureC = 35
-                },
-                new
-                {
-                    Id = new Guid("60b0592d-faee-423c-85fc-10523e770eca"),
-                    Date = new DateTime(2023, 3, 10, 12, 21, 0, 564, DateTimeKind.Local).AddTicks(6906),
-                    Summary = "Weather 3",
-                    TemperatureC = 40
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
-        });
+
+            modelBuilder.Entity("Application.Backend.Database.Models.WeatherForecast", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TemperatureC")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WeatherForecasts");
+                });
 #pragma warning restore 612, 618
+        }
     }
 }

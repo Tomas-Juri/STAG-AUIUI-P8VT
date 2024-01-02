@@ -28,6 +28,7 @@ public class AccountController(DataContext dataContext, IOptions<AppSettings> op
 
         var user = new User
         {
+            Id = Guid.Empty,
             Email = request.Email,
             Username = request.Username,
             PasswordHash = passwordHash,
