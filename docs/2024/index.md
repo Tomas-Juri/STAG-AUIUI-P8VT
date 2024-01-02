@@ -15,8 +15,7 @@ nav_order: 2
 
 ---
 
-## 1. Lekce - 10.02.2024
-
+## 1. Lekce - Introduction & Local setup (10.02.2024)
 
 ### Technical Prerequisites:
 
@@ -69,3 +68,5 @@ More info
 - [ASP.NET with React](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
 - [Blazor web assembly](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
 - [How to debug blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/debug)
+
+## 2. Lekce - Git, CI&CD (10.02.2024)
