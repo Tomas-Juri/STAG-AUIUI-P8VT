@@ -32,36 +32,36 @@ Za finální (poslední) sprint je nutné, aby tým obdržel minimálně 50% bod
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ## Program výuky - Seminář
-- 1.Týden - Seznámení s předmětem, Představení projektu, Sestavení týmů.
-- 2.Týden - Lean Canvas workshop.
-- 3.Týden - Základy Scrumu / Wireframy, Design Sprint, Accessibility, UI/UX triky.
-- 4.Týden - Sprint review 1.
-- 5.Týden - Workshop o týmových odhadech / Backlog.
-- 6.Týden - Sprint review 2.
-- 7.Týden - Clean architecture - Mara?
-- 8.Týden - Sprint review 3.
-- 9.Týden - Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek.
-- 10.Týden - Sprint review 4.
-- 11.Týden - Ed house - How to run a company / nebo nějaké Best practices.
-- 12.Týden - Sprint review 5.
-- 13.Týden - Finální retrospektiva / Pokročilý Scrum.
-- 14.Týden - Finální prezentace projektu.
+1. Týden - Seznámení s předmětem, Představení projektu, Sestavení týmů.
+2. Týden - Lean Canvas workshop.
+3. Týden - Základy Scrumu / UI/UX triky (External)
+4. Týden - Sprint review 1.
+5. Týden - Workshop o týmových odhadech / Backlog.
+6. Týden - Sprint review 2.
+7. Týden - Scrum game
+8. Týden - Sprint review 3.
+9. Týden -  Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek. (External)
+10. Týden - Sprint review 4.
+11. Týden - Ed house - How to run a company / nebo nějaké Best practices. / Clean architecture - Mara? (External)
+12. Týden - Sprint review 5.
+13. Týden - Finální retrospektiva / Pokročilý Scrum.
+14. Týden - Finální prezentace projektu.
 
 ## Program výuky - Cvičení
-1. Týden -
-2. Týden -
-3. Týden -
-4. Týden -
-5. Týden -
+1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
+2. Týden - Git, Continuous development & Continuous integration
+3. Týden - Azure, Databáze, Entity framework
+4. Týden - 
+5. Týden - Autentizace a autorizace
 6. Týden -
-7. Týden -
+7. Týden - Scrum game
 8. Týden -
 9. Týden -
 10. Týden -
 11. Týden -
 12. Týden -
-13. Týden -
-14. Týden -
+13. Týden - Code review
+14. Týden - Už nebude cvičení.
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -71,7 +71,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ---
 
-## 1. Lekce - Introduction & Local setup (10.02.2024)
+## 1. Lekce - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
 
 ### Technical Prerequisites:
 
@@ -125,4 +125,4 @@ More info
 - [Blazor web assembly](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
 - [How to debug blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/debug)
 
-## 2. Lekce - Git, CI&CD (10.02.2024)
+## 2. Lekce - Git, Continuous development & Continuous integration
