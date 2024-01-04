@@ -32,20 +32,20 @@ Za finální (poslední) sprint je nutné, aby tým obdržel minimálně 50% bod
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ## Program výuky - Seminář
-1. Týden - Seznámení s předmětem, Představení projektu, Sestavení týmů.
-2. Týden - Lean Canvas workshop.
-3. Týden - Základy Scrumu / Wireframy, Design Sprint, Accessibility, UI/UX triky.
-4. Týden - Sprint review 1.
-5. Týden - Workshop o týmových odhadech / Backlog.
-6. Týden - Sprint review 2.
-7. Týden - Clean architecture - Mara?
-8. Týden - Sprint review 3.
-9. Týden - Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek.
-10. Týden - Sprint review 4.
-11. Týden - Ed house - How to run a company / nebo nějaké Best practices.
-12. Týden - Sprint review 5.
-13. Týden - Finální retrospektiva / Pokročilý Scrum.
-14. Týden - Finální prezentace projektu.
+- 1.Týden - Seznámení s předmětem, Představení projektu, Sestavení týmů.
+- 2.Týden - Lean Canvas workshop.
+- 3.Týden - Základy Scrumu / Wireframy, Design Sprint, Accessibility, UI/UX triky.
+- 4.Týden - Sprint review 1.
+- 5.Týden - Workshop o týmových odhadech / Backlog.
+- 6.Týden - Sprint review 2.
+- 7.Týden - Clean architecture - Mara?
+- 8.Týden - Sprint review 3.
+- 9.Týden - Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek.
+- 10.Týden - Sprint review 4.
+- 11.Týden - Ed house - How to run a company / nebo nějaké Best practices.
+- 12.Týden - Sprint review 5.
+- 13.Týden - Finální retrospektiva / Pokročilý Scrum.
+- 14.Týden - Finální prezentace projektu.
 
 ## Program výuky - Cvičení
 1. Týden -
