@@ -24,7 +24,7 @@ Vedení kurzu a product owneri ohodnotí increment každého sprintu hodnotou 0-
 Všechna tři hodnocení se zprůměrují (např. 85 %) a tímto průměrem se násobí maximální možný počet bodů (10 bodů * počet členů týmu). Například pro 5ti-členný tým by součet byl max. 50 bodů, který mohl tým za sprint získat. Body se zaokrouhlí na celé číslo nahoru a tím se získá bodové ohodnocení za tento sprint pro daný tým (např. 43 bodů).
 Tyto body si mezi sebe rozdělí členové týmu na základě vzájemné dohody, jak kdo v daném sprintu pracoval. Tým je povinen nahlásit do 3 dnů od sprint review počet bodů pro jednotlivé členy v týmu (např. Karel 8b, Monika 10 bodů, Pepa 5 bodů, Simona 10 bodů, Šimon 10 bodů). Tímto způsobem můžete reflektovat skutečnou práci na projektu napříč týmem.
 
-### Zvláštní pravidla:
+### Zvláštní pravidla
 Za jeden sprint může jednotlivec v rámci přerozdělování bodů v týmu dostat i více bodů než 10, maximálně však o 2 body více než je maximum.
 Počet přidělených bodů na jednoho zaokrouhlete na celá čísla.
 Za finální (poslední) sprint je nutné, aby tým obdržel minimálně 50% bodů pro úspěšné absolvování kurzu. V případě, že se tak nestane, bude vedoucí kurzu s týmem řešit celou situaci a buď celý tým nebo určití jedinci dostanou z kurzu známku F.
@@ -34,15 +34,15 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky - Seminář
 1. Týden - Seznámení s předmětem, Představení projektu, Sestavení týmů.
 2. Týden - Lean Canvas workshop.
-3. Týden - Základy Scrumu / UI/UX triky (External)
+3. Týden - Základy Scrumu / (External) UI/UX triky 
 4. Týden - Sprint review 1.
 5. Týden - Workshop o týmových odhadech / Backlog.
 6. Týden - Sprint review 2.
 7. Týden - Scrum game
 8. Týden - Sprint review 3.
-9. Týden -  Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek. (External)
+9. Týden - (External) Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek. 
 10. Týden - Sprint review 4.
-11. Týden - Ed house - How to run a company / nebo nějaké Best practices. / Clean architecture - Mara? (External)
+11. Týden - (External) TBA
 12. Týden - Sprint review 5.
 13. Týden - Finální retrospektiva / Pokročilý Scrum.
 14. Týden - Finální prezentace projektu.
