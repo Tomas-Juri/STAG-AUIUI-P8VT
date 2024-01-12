@@ -7,6 +7,29 @@ nav_order: 2
 # STAG-AUIUI-P8VT 2024
 {: .no_toc }
 
+# Náplň a požadavky
+Kurz AP8VT si klade za cíl naučit studenty kvalitně a efektivně vyvíjet webové aplikace podle moderních přístupů a postupů. Přednášky jsou realizovány také formou praktických workshopů, v rámci nichž dílčí týmy postupně budují svůj webový produkt. Cvičení se zaměřují na využívání konkrétních technologií, pomocí kterých studenti průběžně realizují týmový projekt.
+
+## Lektoři
+
+**Petr Záček**
+Organizační záležitosti univerzity, garant předmětu, Product Owner
+
+**Jiří Urban**
+Hlavní přednášející, organizace kurzu, Product Owner
+
+**Tomáš Juríčka**
+Hlavní cvičící, .NET, React
+
+**Stanislav Čermák**
+Product Owner
+
+**David Dlugoš, David Sedlář**
+Cvičící
+
+
+## Dochazka
+Povoleny jsou 3 absence, v opačném případě je třeba donést omluvenku od doktora.
 
 ## Způsob hodnocení
 Studenti mohou během semestru získat až 70 bodů v následující struktuře:
