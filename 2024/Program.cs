@@ -17,6 +17,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add Cors
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy => policy
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin()));
+
 // Add Database
 builder.Services
     .AddDbContext<DataContext>(options => options
@@ -47,6 +54,7 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors();
 
 // TODO Use Auth
 
