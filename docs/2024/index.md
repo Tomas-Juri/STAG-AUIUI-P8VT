@@ -73,16 +73,16 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky - Cvičení
 1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
 2. Týden - Git, Continuous development & Continuous integration, Azure
-3. Týden - Databáze, Entity framework, React intro
-4. Týden - Rest API, Autentizace a autorizace
-5. Týden - 
-6. Týden -
+3. Týden - Databáze, Entity framework, React app intro
+4. Týden - React Functional components, Bootstrap, REST API, Fetch
+5. Týden - Autentizace a autorizace
+6. Týden - Logování aplikace, Individuální podpora týmů 
 7. Týden - Scrum game
-8. Týden -
-9. Týden -
-10. Týden -
-11. Týden -
-12. Týden -
+8. Týden - Individuální podpora týmů / Volné téma
+9. Týden - Clean Code/Atomic design
+10. Týden - Code review
+11. Týden - Individuální podpora týmů / Volné téma
+12. Týden - Individuální podpora týmů / Volné téma
 13. Týden - Code review
 14. Týden - Už nebude cvičení.
 
@@ -153,6 +153,7 @@ More info
 
 ## 2. Lekce - Git, Continuous development & Continuous integration
 
+- [Git](https://git-scm.com/downloads)
 - REST API Client
     - [Insomnia](https://insomnia.rest/)
     - [Postman](https://www.postman.com/)
