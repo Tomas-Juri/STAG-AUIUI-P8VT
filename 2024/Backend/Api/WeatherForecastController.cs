@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Application.Backend.Controllers;
+namespace Application.Backend.Api;
 
 [ApiController]
 [Route("[controller]")]

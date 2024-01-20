@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 .idea/
+2024/.DS_Store
+
+2024/Backend/.DS_Store
