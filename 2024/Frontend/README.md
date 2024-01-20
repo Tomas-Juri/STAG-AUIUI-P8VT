@@ -129,12 +129,8 @@ my-app/
     index.html
     favicon.ico
   src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
+    App.tsx
+    index.tsx
 ```
 
 For the project to build, **these files must exist with exact filenames**:
