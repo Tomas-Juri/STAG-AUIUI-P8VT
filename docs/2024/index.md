@@ -55,20 +55,20 @@ Za finální (poslední) sprint je nutné, aby tým obdržel minimálně 50% bod
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ## Program výuky - Seminář
-1. Týden - Seznámení s předmětem, Představení projektu, Sestavení týmů.
-2. Týden - Lean Canvas workshop.
-3. Týden - Základy Scrumu / (External) UI/UX triky 
-4. Týden - Sprint review 1.
-5. Týden - Workshop o týmových odhadech / Backlog.
-6. Týden - Sprint review 2.
-7. Týden - Scrum game
-8. Týden - Sprint review 3.
-9. Týden - (External) Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek. 
-10. Týden - Sprint review 4.
-11. Týden - (External) TBA
-12. Týden - Sprint review 5.
-13. Týden - Finální retrospektiva / Pokročilý Scrum.
-14. Týden - Finální prezentace projektu.
+1. Týden 5.2 - Seznámení s předmětem, Představení projektu, Sestavení týmů.
+2. Týden 12.2 - Lean Canvas workshop.
+3. Týden 19.2 - Základy Scrumu / (External) UI/UX triky 
+4. Týden 26.2 - Sprint review 1.
+5. Týden 4.3 - Workshop o týmových odhadech / Backlog.
+6. Týden 11.3 - Sprint review 2.
+7. Týden 18.3 - Scrum game
+8. Týden 25.3 - Sprint review 3.
+9. Týden 1.4 - Odpada - Velikonoce
+10. Týden 8.4 - Sprint review 4.
+11. Týden 15.4 - (External) Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek. 
+12. Týden 22.4 - Sprint review 5.
+13. Týden 29.4 - Finální retrospektiva / Pokročilý Scrum.
+14. Týden 6.5 - Finální prezentace projektu.
 
 ## Program výuky - Cvičení
 1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
@@ -78,8 +78,8 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 5. Týden - Autentizace a autorizace
 6. Týden - Logování aplikace, Individuální podpora týmů 
 7. Týden - Scrum game
-8. Týden - Individuální podpora týmů / Volné téma
-9. Týden - Clean Code/Atomic design
+8. Týden - Clean Code/Atomic design
+9. Týden - Odpada - Velkkonoce
 10. Týden - Code review
 11. Týden - Individuální podpora týmů / Volné téma
 12. Týden - Individuální podpora týmů / Volné téma
