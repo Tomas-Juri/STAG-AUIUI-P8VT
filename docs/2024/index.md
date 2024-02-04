@@ -24,8 +24,8 @@ Hlavní cvičící, .NET, React
 **Stanislav Čermák**
 Product Owner
 
-**David Dlugoš, David Sedlář**
-Cvičící
+**David Sedlář**
+Cvičící, .NET
 
 
 ## Dochazka
