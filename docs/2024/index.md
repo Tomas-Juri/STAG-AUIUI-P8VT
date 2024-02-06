@@ -112,29 +112,35 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 1. Copy the project
 
-2. Create a database in your local SQL server  
+2. Install MSSQL Server and run it or run your MSSQL Docker Image
+    - `docker pull mcr.microsoft.com/mssql/server:latest`
+    - `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest`
+    - See how to use section in https://hub.docker.com/_/microsoft-mssql-server
+
+3. Create a database in your local SQL server
+
 
     `Create Database "STAG-AUIUI-P8VT"`
 
-3. Change your connection string in your `appsettings.json` 
+4. Change your connection string in your `appsettings.json` 
 
     ```js 
     "ConnectionStrings": {
-        "Database": "Data Source=localhost;Initial Catalog=STAG-AUIUI-P8VT;Integrated Security=false;User ID=sa;Password=SQLServer1;TrustServerCertificate=true"
+        "Database": "Data Source=localhost;Initial Catalog=STAG-AUIUI-P8VT;Integrated Security=false;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=true"
       },
     ```
 
-4. Build the application via `dotnet build`
+5. Build the application via `dotnet build`
 
-5. Run the application via IDE or `dotnet run`
+6. Run the application via IDE or `dotnet run`
 
-6. Maybe you will need to install dev certificates  
+7. Maybe you will need to install dev certificates  
    `dotnet dev-certs https `
 
-7. This will run both backend and frontend as one application
+8. This will run both backend and frontend as one application
     - The ASP.NET server will serve as a host to both API and frontend
   
-8. In `Fetch Data` page you can see some data being pull from API, this data is stored in database an has been seeded via a migration.
+9. In `Fetch Data` page you can see some data being pull from API, this data is stored in database an has been seeded via a migration.
 
 ### How to debug (in VS Community)
 
