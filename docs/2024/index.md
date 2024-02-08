@@ -248,7 +248,11 @@ More Info:
 - Spolecenstvo Simona - Binary Brothers: https://utb--2024-spolecenstvo-binary.azurewebsites.net/
 - Internal_Test: https://utb--2024-internal-test.azurewebsites.net/
 
-How can i get my release running automagically after a new build ?
+Additional Topics: 
+- Overview of Azure resources.  
+- How is application connected to database ?  
+- If we have Time - Infrastructure as code and Pulumi  
+- How can i get my release running automagically after a new build ?
 
 More info:
 
@@ -258,3 +262,4 @@ More info:
 - [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
 - [Learn git branching](https://learngitbranching.js.org/)
   - [Sandbox](https://learngitbranching.js.org/?NODEMO)
+
