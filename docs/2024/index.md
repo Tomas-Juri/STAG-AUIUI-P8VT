@@ -213,6 +213,8 @@ steps:
       ArtifactName: "application"
 ```
 
+> NOTE: Get latest version of react app to get the fix for api URL
+
 ### Create a release pipeline in Azure DevOps
 
 To host our applications, we will use Azure app service.  
@@ -233,7 +235,7 @@ Release pipeline:
 
 If we did everything correctly, we should have our application deployed and it should look like this:
 
-- [Azure/Application](https://cngroup-utb--2023-os-internaltest.azurewebsites.net/)
+- [Azure/Application](https://utb--2024-internal-test.azurewebsites.net/)
 
 More Info:
 
