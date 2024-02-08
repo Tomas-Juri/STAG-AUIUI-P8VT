@@ -146,7 +146,6 @@ More info
 
 - [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
 - [ASP.NET with React](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
-- [Blazor web assembly](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
 - [How to debug blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/debug)
 
 ## 2. Lekce - Git, Continuous development & Continuous integration, Azure
