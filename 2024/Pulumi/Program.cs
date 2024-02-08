@@ -30,17 +30,14 @@ return await Pulumi.Deployment.RunAsync(() =>
     var internalTestDbUsername = "InternalTestAdministrator";
     var internalTestDbPassword = CreatePassword("internal-test-password");
 
-    var team1UserName = "Team1Administrator";
-    var team1Password = CreatePassword("team1-password");
+    var team1UserName = "AlfaPreberuAdministrator";
+    var team1Password = CreatePassword("alfa-preberu-password");
 
-    var team2UserName = "Team2Administrator";
-    var team2Password = CreatePassword("team2-password");
+    var team2UserName = "DynamicRandomAdministrator";
+    var team2Password = CreatePassword("dynamic-random-password");
 
-    var team3UserName = "Team3Administrator";
-    var team3Password = CreatePassword("team3-password");
-
-    var team4UserName = "Team4Administrator";
-    var team4Password = CreatePassword("team4-password");
+    var team3UserName = "SpolecenstvoBinaryAdministrator";
+    var team3Password = CreatePassword("spolecenstvo-binary-password");
 
     Output<string> CreatePassword(string name) =>
         new RandomPassword(PrefixDashed(name),
@@ -109,10 +106,9 @@ return await Pulumi.Deployment.RunAsync(() =>
     });
 
     var internalTestDatabase = CreateDatabase(PrefixDashed("internal-test"), sqlServer, resourceGroup);
-    var team1database = CreateDatabase(PrefixDashed("team1"), sqlServer, resourceGroup);
-    var team2database = CreateDatabase(PrefixDashed("team2"), sqlServer, resourceGroup);
-    var team3database = CreateDatabase(PrefixDashed("team3"), sqlServer, resourceGroup);
-    var team4database = CreateDatabase(PrefixDashed("team4"), sqlServer, resourceGroup);
+    var team1database = CreateDatabase(PrefixDashed("alfa-preberu"), sqlServer, resourceGroup);
+    var team2database = CreateDatabase(PrefixDashed("dynamic-random"), sqlServer, resourceGroup);
+    var team3database = CreateDatabase(PrefixDashed("spolecenstvo-binary"), sqlServer, resourceGroup);
 
     Database CreateDatabase(string name, Server server, ResourceGroup rg)
     {
@@ -134,10 +130,9 @@ return await Pulumi.Deployment.RunAsync(() =>
     
     CreateSecret(PrefixDashed("administrator-password"), adminDbPassword);
     CreateSecret(PrefixDashed("internal-test-connection-string"), GetConnectionString(PrefixDashed("internal-test"), internalTestDbUsername, internalTestDbPassword));
-    CreateSecret(PrefixDashed("team1-connection-string"), GetConnectionString(PrefixDashed("team1"), team1UserName, team1Password));
-    CreateSecret(PrefixDashed("team2-connection-string"), GetConnectionString(PrefixDashed("team2"), team2UserName, team2Password));
-    CreateSecret(PrefixDashed("team3-connection-string"), GetConnectionString(PrefixDashed("team3"), team3UserName, team3Password));
-    CreateSecret(PrefixDashed("team4-connection-string"), GetConnectionString(PrefixDashed("team4"), team4UserName, team4Password));
+    CreateSecret(PrefixDashed("alfa-preberu-connection-string"), GetConnectionString(PrefixDashed("alfa-preberu"), team1UserName, team1Password));
+    CreateSecret(PrefixDashed("dynamic-random-connection-string"), GetConnectionString(PrefixDashed("dynamic-random"), team2UserName, team2Password));
+    CreateSecret(PrefixDashed("spolecenstvo-binary-connection-string"), GetConnectionString(PrefixDashed("spolecenstvo-binary"), team3UserName, team3Password));
 
 
     Output<string> GetConnectionString(string databaseName, string userName, Output<string> password)
@@ -175,22 +170,17 @@ return await Pulumi.Deployment.RunAsync(() =>
 
     Output.Tuple(adminDbPassword, team1Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("team1"), team1UserName,
+            output.Item3, PrefixDashed("alfa-preberu"), team1UserName,
             output.Item1, output.Item2));
 
     Output.Tuple(adminDbPassword, team2Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("team2"), team1UserName,
+            output.Item3, PrefixDashed("dynamic-random"), team1UserName,
             output.Item1, output.Item2));
 
     Output.Tuple(adminDbPassword, team3Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("team3"), team1UserName,
-            output.Item1, output.Item2));
-
-    Output.Tuple(adminDbPassword, team4Password, sqlServer.Name)
-        .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("team4"), team1UserName,
+            output.Item3, PrefixDashed("spolecenstvo-binary"), team1UserName,
             output.Item1, output.Item2));
 
 
@@ -216,11 +206,6 @@ return await Pulumi.Deployment.RunAsync(() =>
 
     string GetAdminConnectionString(string sqlServerName, string databaseName, string adminPassword)
     {
-        adminDbPassword.Apply(password =>
-        {
-            Log.Info($"{sqlServerName} {databaseName} {adminDbUsername} {password}");
-            return password;
-        });
         
         return $"Server=tcp:{sqlServerName}.database.windows.net,1433;" +
                $"Initial Catalog={databaseName};" +
@@ -250,10 +235,9 @@ return await Pulumi.Deployment.RunAsync(() =>
         }
     });
     CreateWebApp(PrefixDashed("internal-test"), appServicePlan);
-    CreateWebApp(PrefixDashed("team1"), appServicePlan);
-    CreateWebApp(PrefixDashed("team2"), appServicePlan);
-    CreateWebApp(PrefixDashed("team3"), appServicePlan);
-    CreateWebApp(PrefixDashed("team4"), appServicePlan);
+    CreateWebApp(PrefixDashed("alfa-preberu"), appServicePlan);
+    CreateWebApp(PrefixDashed("dynamic-random"), appServicePlan);
+    CreateWebApp(PrefixDashed("spolecenstvo-binary"), appServicePlan);
 
     WebApp CreateWebApp(string name, AppServicePlan appServicePlan)
     {

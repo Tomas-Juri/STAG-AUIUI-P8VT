@@ -5,9 +5,11 @@ nav_order: 2
 ---
 
 # STAG-AUIUI-P8VT 2024
+
 {: .no_toc }
 
 # Náplň a požadavky
+
 Kurz AP8VT si klade za cíl naučit studenty kvalitně a efektivně vyvíjet webové aplikace podle moderních přístupů a postupů. Přednášky jsou realizovány také formou praktických workshopů, v rámci nichž dílčí týmy postupně budují svůj webový produkt. Cvičení se zaměřují na využívání konkrétních technologií, pomocí kterých studenti průběžně realizují týmový projekt.
 
 ## Lektoři
@@ -27,27 +29,31 @@ Product Owner
 **David Sedlář**
 Cvičící, .NET
 
-
 ## Dochazka
+
 Povoleny jsou 3 absence, v opačném případě je třeba donést omluvenku od doktora.
 
 ## Způsob hodnocení
+
 Studenti mohou během semestru získat až 70 bodů v následující struktuře:
 
 ### Projekt – 65 bodů
+
 Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
 Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
 
 ### Code review – 5 bodů
+
 Před finální prezentací proběhne hodnocení kvality zdrojových kódů, kde má tým možnost získat a obhajit si dodatečných 5 bodů.
 
 Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminologie). Konkrétní bodování za jednotlivé sprinty probíhá následovně:
 
 Vedení kurzu a product owneri ohodnotí increment každého sprintu hodnotou 0-100 % za plánování a jeho formální správnost, dodané množství práce (increment), komunikaci a projev v průběhu sprintu, prezentaci při sprint review.
-Všechna tři hodnocení se zprůměrují (např. 85 %) a tímto průměrem se násobí maximální možný počet bodů (10 bodů * počet členů týmu). Například pro 5ti-členný tým by součet byl max. 50 bodů, který mohl tým za sprint získat. Body se zaokrouhlí na celé číslo nahoru a tím se získá bodové ohodnocení za tento sprint pro daný tým (např. 43 bodů).
+Všechna tři hodnocení se zprůměrují (např. 85 %) a tímto průměrem se násobí maximální možný počet bodů (10 bodů \* počet členů týmu). Například pro 5ti-členný tým by součet byl max. 50 bodů, který mohl tým za sprint získat. Body se zaokrouhlí na celé číslo nahoru a tím se získá bodové ohodnocení za tento sprint pro daný tým (např. 43 bodů).
 Tyto body si mezi sebe rozdělí členové týmu na základě vzájemné dohody, jak kdo v daném sprintu pracoval. Tým je povinen nahlásit do 3 dnů od sprint review počet bodů pro jednotlivé členy v týmu (např. Karel 8b, Monika 10 bodů, Pepa 5 bodů, Simona 10 bodů, Šimon 10 bodů). Tímto způsobem můžete reflektovat skutečnou práci na projektu napříč týmem.
 
 ### Zvláštní pravidla
+
 Za jeden sprint může jednotlivec v rámci přerozdělování bodů v týmu dostat i více bodů než 10, maximálně však o 2 body více než je maximum.
 Počet přidělených bodů na jednoho zaokrouhlete na celá čísla.
 Za finální (poslední) sprint je nutné, aby tým obdržel minimálně 50% bodů pro úspěšné absolvování kurzu. V případě, že se tak nestane, bude vedoucí kurzu s týmem řešit celou situaci a buď celý tým nebo určití jedinci dostanou z kurzu známku F.
@@ -55,9 +61,10 @@ Za finální (poslední) sprint je nutné, aby tým obdržel minimálně 50% bod
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ## Program výuky - Seminář
+
 1. Týden 5.2 - Seznámení s předmětem, Představení projektu, Sestavení týmů.
 2. Týden 12.2 - Lean Canvas workshop.
-3. Týden 19.2 - Základy Scrumu / (External) UI/UX triky 
+3. Týden 19.2 - Základy Scrumu / (External) UI/UX triky
 4. Týden 26.2 - Sprint review 1.
 5. Týden 4.3 - Workshop o týmových odhadech / Backlog.
 6. Týden 11.3 - Sprint review 2.
@@ -65,18 +72,19 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 8. Týden 25.3 - Sprint review 3.
 9. Týden 1.4 - Odpada - Velikonoce
 10. Týden 8.4 - Sprint review 4.
-11. Týden 15.4 - (External) Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek. 
+11. Týden 15.4 - (External) Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek.
 12. Týden 22.4 - Sprint review 5.
 13. Týden 29.4 - Finální retrospektiva / Pokročilý Scrum.
 14. Týden 6.5 - Finální prezentace projektu.
 
 ## Program výuky - Cvičení
+
 1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
 2. Týden - Git, Continuous development & Continuous integration, Azure
 3. Týden - Databáze, Entity framework, React app intro
 4. Týden - React Functional components, Bootstrap, REST API, Fetch
 5. Týden - Autentizace a autorizace
-6. Týden - Logování aplikace, Individuální podpora týmů 
+6. Týden - Logování aplikace, Individuální podpora týmů
 7. Týden - Scrum game
 8. Týden - Clean Code/Atomic design
 9. Týden - Odpada - Velkkonoce
@@ -87,10 +95,11 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 14. Týden - Už nebude cvičení.
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -100,9 +109,9 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - Your favorite IDE
-    - [VS Code](https://code.visualstudio.com/)
-    - [Visual studio community](https://visualstudio.microsoft.com/cs/vs/community/)
-    - [Jetbrains Rider](https://www.jetbrains.com/rider/)
+  - [VS Code](https://code.visualstudio.com/)
+  - [Visual studio community](https://visualstudio.microsoft.com/cs/vs/community/)
+  - [Jetbrains Rider](https://www.jetbrains.com/rider/)
 - [Node JS](https://nodejs.org/en/) for react development
 - [MSSQL](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjUwczW8bmDAxU11gIHHZcPB90QFnoECBIQAQ&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fsql-server%2Fsql-server-downloads&usg=AOvVaw0d74lgRcnfX6ZThGwL_ED6&opi=89978449) or a [Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some management tool
   - [SQL Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
@@ -113,21 +122,22 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 1. Copy the project
 
 2. Install MSSQL Server and run it or run your MSSQL Docker Image
-    - `docker pull mcr.microsoft.com/mssql/server:latest`
-    - `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest`
-    - See how to use section in https://hub.docker.com/_/microsoft-mssql-server
+
+   - `docker pull mcr.microsoft.com/mssql/server:latest`
+   - `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest`
+   - See how to use section in https://hub.docker.com/_/microsoft-mssql-server
 
 3. Create a database in your local SQL server
 
-    `Create Database "STAG-AUIUI-P8VT"`
+   `Create Database "STAG-AUIUI-P8VT"`
 
-4. Change your connection string in your `appsettings.json` 
+4. Change your connection string in your `appsettings.json`
 
-    ```js 
-    "ConnectionStrings": {
-        "Database": "Data Source=localhost;Initial Catalog=STAG-AUIUI-P8VT;Integrated Security=false;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=true"
-      },
-    ```
+   ```js
+   "ConnectionStrings": {
+       "Database": "Data Source=localhost;Initial Catalog=STAG-AUIUI-P8VT;Integrated Security=false;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=true"
+     },
+   ```
 
 5. Build the application via `dotnet build`
 
@@ -137,10 +147,10 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
    `dotnet dev-certs https `
 
 8. This will run both backend and frontend as one application
-    - The ASP.NET server will serve as a host to both API and frontend
-  
-9. In `Fetch Data` page you can see some data being pull from API, this data is stored in database an has been seeded via a migration.
 
+   - The ASP.NET server will serve as a host to both API and frontend
+
+9. In `Fetch Data` page you can see some data being pull from API, this data is stored in database an has been seeded via a migration.
 
 More info
 
@@ -150,8 +160,99 @@ More info
 
 ## 2. Lekce - Git, Continuous development & Continuous integration, Azure
 
+**Overview:**
+- Git & best practices presentation
+- Create a continuous integration pipeline to build your application.
+- Create a continous delivery pipeline (release) to deploy your application to server.
+- Setup git policies for branches.
+
+
+**Prerequisites:**
 - [Git](https://git-scm.com/downloads)
+- Pushed changes into a repository in azure devops
 
+### Git and development with it
 
-More Info 
+1. Git Demo - Basics, Commit, Branch, Checkout, Rebase, merge
+2. Git Demo - Gitflow
+3. Git Demo - Trunk based
+4. How to colaborate using git
+
+### Create a build definition using YAML
+
+Setup build pipelines with branch push trigger in azure devops
+
+```yml
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 8
+    inputs:
+      version: "8.0.x"
+
+  - script: dotnet clean
+    displayName: "dotnet clean"
+
+  - script: dotnet publish -o $(Build.ArtifactStagingDirectory)
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "application"
+```
+
+### Create a release pipeline in Azure DevOps
+
+To host our applications, we will use Azure app service.  
+To deploy our application, we will create a release pipeline.
+
+Release pipeline:
+
+1. Create new Release pipeline
+2. Select 'Azure App Service deployment'
+3. Add artifact
+4. Configure Azure App Service deployment
+   - Add subscription (admin needed)
+   - Add application (admin needed)
+   - Select Package/Folder location (from build)
+
+![AzureDevops_Release_1](AzureDevops_Release_1.PNG)
+![AzureDevops_Release_2](AzureDevops_Release_2.PNG)
+
+If we did everything correctly, we should have our application deployed and it should look like this:
+
+- [Azure/Application](https://cngroup-utb--2023-os-internaltest.azurewebsites.net/)
+
+More Info:
+
+- [Azure pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
+
+### Application urls of teams
+
+- AlfaskvadraVlkousi - Preberu ukradnu: https://utb--2024-alfa-preberu.azurewebsites.net/
+- Dynamic Developers - Random: https://utb--2024-dynamic-random.azurewebsites.net/
+- Spolecenstvo Simona - Binary Brothers: https://utb--2024-spolecenstvo-binary.azurewebsites.net/
+- Internal_Test: https://utb--2024-internal-test.azurewebsites.net/
+
+How can i get my release running automagically after a new build ?
+
+More info:
+
+- [YAML](https://yaml.org/)
+- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
 - [Learn git branching](https://learngitbranching.js.org/)
+  - [Sandbox](https://learngitbranching.js.org/?NODEMO)

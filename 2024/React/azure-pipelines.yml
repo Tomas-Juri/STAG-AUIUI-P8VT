@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - master
+      - main
 
 pool:
   vmImage: "windows-latest"
@@ -25,4 +25,4 @@ steps:
     displayName: "Publish Artifact: drop"
     inputs:
       PathtoPublish: "$(Build.ArtifactStagingDirectory)"
-      ArtifactName: "backend"
+      ArtifactName: "application"
