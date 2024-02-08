@@ -243,10 +243,10 @@ More Info:
 
 ### Application urls of teams
 
-- AlfaskvadraVlkousi - Preberu ukradnu: https://utb--2024-alfa-preberu.azurewebsites.net/
-- Dynamic Developers - Random: https://utb--2024-dynamic-random.azurewebsites.net/
-- Spolecenstvo Simona - Binary Brothers: https://utb--2024-spolecenstvo-binary.azurewebsites.net/
-- Internal_Test: https://utb--2024-internal-test.azurewebsites.net/
+- [AlfaskvadraVlkousi - Preberu ukradnu](https://utb--2024-alfa-preberu.azurewebsites.net/)
+- [Dynamic Developers - Random](https://utb--2024-dynamic-random.azurewebsites.net/)
+- [Spolecenstvo Simona - Binary Brothers](https://utb--2024-spolecenstvo-binary.azurewebsites.net/)
+- [Internal_Test](https://utb--2024-internal-test.azurewebsites.net/)
 
 Additional Topics: 
 - Overview of Azure resources.  
