@@ -1,5 +1,5 @@
 export const Endpoints = {
     WeatherForecast: {
-        Index: '/weather-forecast'
+        Index: '/api/weather-forecast'
     }
 }

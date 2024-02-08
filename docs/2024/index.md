@@ -119,7 +119,6 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 3. Create a database in your local SQL server
 
-
     `Create Database "STAG-AUIUI-P8VT"`
 
 4. Change your connection string in your `appsettings.json` 
@@ -142,13 +141,6 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
   
 9. In `Fetch Data` page you can see some data being pull from API, this data is stored in database an has been seeded via a migration.
 
-### How to debug (in VS Community)
-
-1. Open the solution in VS community
-
-2. Press the debug button 'https' in VS
-
-![Image](./VS_Debug.png)
 
 More info
 
@@ -157,9 +149,10 @@ More info
 - [Blazor web assembly](https://learn.microsoft.com/cs-cz/aspnet/core/client-side/spa/react?view=aspnetcore-7.0&tabs=visual-studio)
 - [How to debug blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/debug)
 
-## 2. Lekce - Git, Continuous development & Continuous integration
+## 2. Lekce - Git, Continuous development & Continuous integration, Azure
 
 - [Git](https://git-scm.com/downloads)
-- REST API Client
-    - [Insomnia](https://insomnia.rest/)
-    - [Postman](https://www.postman.com/)
+
+
+More Info 
+- [Learn git branching](https://learngitbranching.js.org/)

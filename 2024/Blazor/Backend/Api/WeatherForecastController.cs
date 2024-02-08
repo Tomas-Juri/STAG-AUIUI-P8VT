@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Application.Backend.Api;
 
 [ApiController]
-[Route("/weather-forecast")]
+[Route("/api/weather-forecast")]
 public class WeatherForecastController(DataContext dataContext) : ControllerBase
 {
     [HttpGet]

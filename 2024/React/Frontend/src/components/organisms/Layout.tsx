@@ -12,7 +12,7 @@ export const Layout = ({ children }: Props) => (
   <>
     <Navbar expand="lg" className="mb-4 border-bottom box-shadow">
       <Container>
-        <Navbar.Brand href="#home">Application</Navbar.Brand>
+        <Navbar.Brand href="/">Application</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
