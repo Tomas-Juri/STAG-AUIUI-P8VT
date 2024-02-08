@@ -1,10 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from "axios";
 
-const target = process.env.ASPNETCORE_HTTPS_PORT
-  ? `https://localhost:${process.env.ASPNETCORE_HTTPS_PORT}`
-  : process.env.ASPNETCORE_URLS
-  ? process.env.ASPNETCORE_URLS.split(";")[0]
-  : "https://localhost:7101/";
+
+export const url = process.env.NODE_ENV === 'development' ? 'https://localhost:7125/' : '/';
 
 export function api(): AxiosInstance {
   const headers: { [key: string]: string } = {
@@ -17,7 +14,7 @@ export function api(): AxiosInstance {
   }
 
   const instance = axios.create({
-    baseURL: target,
+    baseURL: url,
     headers,
   });
 
