@@ -81,8 +81,8 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
 2. Týden - Git, Continuous development & Continuous integration, Azure
-3. Týden - Databáze, Entity framework, React app intro
-4. Týden - React Functional components, Bootstrap, REST API, Fetch
+3. Týden - Databáze, Entity framework, DI, Databáze, Entity framework, REST API
+4. Týden - React app intro, React and Blazor components, Bootstrap, Fetch
 5. Týden - Autentizace a autorizace
 6. Týden - Logování aplikace, Individuální podpora týmů
 7. Týden - Scrum game
@@ -263,3 +263,21 @@ More info:
 - [Learn git branching](https://learngitbranching.js.org/)
   - [Sandbox](https://learngitbranching.js.org/?NODEMO)
 
+## Databáze, Entity framework, DI, Databáze, Entity framework, REST API
+
+**Overview:**
+- Leftover from last lecture: Setup git policies for branches.
+- Overview of MSSQL database and entity framework
+- Migrations, Database update, managing migrations in release
+- Relations and how to create them
+- Repositories & Dependency injection
+- Data seeding
+- REST API in ASP.NET
+
+More info:
+- [Entity Framework](https://docs.microsoft.com/en-us/ef/)
+- [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [ASP.NET Rest API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0&tabs=visual-studio)
+- [REST Api best practices](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
+- [HTTP statuses](https://httpstatusdogs.com/)
+  - [Boring version](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)

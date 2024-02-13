@@ -175,12 +175,12 @@ return await Pulumi.Deployment.RunAsync(() =>
 
     Output.Tuple(adminDbPassword, team2Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("dynamic-random"), team1UserName,
+            output.Item3, PrefixDashed("dynamic-random"), team2UserName,
             output.Item1, output.Item2));
 
     Output.Tuple(adminDbPassword, team3Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("spolecenstvo-binary"), team1UserName,
+            output.Item3, PrefixDashed("spolecenstvo-binary"), team3UserName,
             output.Item1, output.Item2));
 
 
