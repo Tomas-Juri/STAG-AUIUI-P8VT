@@ -8,4 +8,8 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
     public required DbSet<WeatherForecast> WeatherForecasts { get; set; }
 
     public required DbSet<User> Users { get; set; }
+    
+    public required DbSet<Car> Cars { get; set; }
+    
+    public required DbSet<Delivery> Deliveries { get; set; }
 }

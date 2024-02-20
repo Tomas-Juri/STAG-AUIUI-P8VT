@@ -1,5 +1,6 @@
 using Application;
 using Application.Backend.Database;
+using Application.Backend.Database.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,9 @@ builder.Services.Configure<AppSettings>(appSettingsSection);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// Add Repositories
+builder.Services.AddScoped<UsersRepository>();
 
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();

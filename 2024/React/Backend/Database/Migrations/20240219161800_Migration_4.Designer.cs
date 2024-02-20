@@ -4,6 +4,7 @@ using Application.Backend.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Application.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240219161800_Migration_4")]
+    partial class Migration_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("Application.Backend.Database.Models.Delivery", b =>
@@ -54,7 +57,7 @@ namespace Application.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Deliveries", (string)null);
+                    b.ToTable("Deliveries");
                 });
 
             modelBuilder.Entity("Application.Backend.Database.Models.User", b =>
@@ -84,7 +87,7 @@ namespace Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Application.Backend.Database.Models.WeatherForecast", b =>
@@ -105,7 +108,7 @@ namespace Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeatherForecasts", (string)null);
+                    b.ToTable("WeatherForecasts");
                 });
 
             modelBuilder.Entity("Application.Backend.Database.Models.Delivery", b =>

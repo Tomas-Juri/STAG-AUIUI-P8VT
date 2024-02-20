@@ -4,6 +4,7 @@ using Application.Backend.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Application.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240219160421_Migration_3")]
+    partial class Migration_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,27 +37,7 @@ namespace Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars", (string)null);
-                });
-
-            modelBuilder.Entity("Application.Backend.Database.Models.Delivery", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Deliveries", (string)null);
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("Application.Backend.Database.Models.User", b =>
@@ -84,7 +67,7 @@ namespace Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Application.Backend.Database.Models.WeatherForecast", b =>
@@ -105,23 +88,7 @@ namespace Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeatherForecasts", (string)null);
-                });
-
-            modelBuilder.Entity("Application.Backend.Database.Models.Delivery", b =>
-                {
-                    b.HasOne("Application.Backend.Database.Models.User", "User")
-                        .WithMany("Deliveries")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Application.Backend.Database.Models.User", b =>
-                {
-                    b.Navigation("Deliveries");
+                    b.ToTable("WeatherForecasts");
                 });
 #pragma warning restore 612, 618
         }
