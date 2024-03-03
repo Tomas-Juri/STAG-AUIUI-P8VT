@@ -82,14 +82,14 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
 2. Týden - Git, Continuous development & Continuous integration, Azure
 3. Týden - Databáze, Entity framework, DI, Databáze, Entity framework, REST API
-4. Týden - React app intro, React and Blazor components, Bootstrap, Fetch
-5. Týden - Autentizace a autorizace
-6. Týden - Logování aplikace, Individuální podpora týmů
+4. Týden - Cvičení vynecháno z důvodu nepřítomnosti cvičícího
+5. Týden - React app intro, React and Blazor components, Bootstrap, Fetch
+6. Týden - Autentizace a autorizace
 7. Týden - Scrum game
-8. Týden - Clean Code/Atomic design
+8. Týden - Logování aplikace, Individuální podpora týmů
 9. Týden - Odpada - Velkkonoce
 10. Týden - Code review
-11. Týden - Individuální podpora týmů / Volné téma
+11. Týden - Clean Code/Atomic design
 12. Týden - Individuální podpora týmů / Volné téma
 13. Týden - Code review
 14. Týden - Už nebude cvičení.
@@ -263,7 +263,7 @@ More info:
 - [Learn git branching](https://learngitbranching.js.org/)
   - [Sandbox](https://learngitbranching.js.org/?NODEMO)
 
-## Databáze, Entity framework, DI, Databáze, Entity framework, REST API
+## 3. Lekce - Databáze, Entity framework, DI, Databáze, Entity framework, REST API
 
 **Overview:**
 - Leftover from last lecture: Setup git policies for branches.
@@ -281,3 +281,9 @@ More info:
 - [REST Api best practices](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
 - [HTTP statuses](https://httpstatusdogs.com/)
   - [Boring version](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+## 4. Lekce
+
+> Cvičení vynecháno z důvodu nepřítomnosti cvičícího
+
+## 5. Lekce - React app intro, React and Blazor components, Bootstrap, Fetch
