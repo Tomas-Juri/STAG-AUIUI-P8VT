@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Layout } from "../organisms";
 import { api } from "../../api";
 import { Endpoints } from "../../api/endpoints";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 
 type WeatherForecast = {
   id: string;
@@ -13,6 +13,10 @@ type WeatherForecast = {
 
 export const FetchDataPage = () => {
   const [data, setData] = useState<WeatherForecast[]>([]);
+
+  fetch(Endpoints.WeatherForecast.Index)
+    .then((x) => x.json())
+    .then((x) => setData(x));
 
   useEffect(() => {
     api()
@@ -33,14 +37,16 @@ export const FetchDataPage = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(forecast => <tr>
-            <td>{forecast.id}</td>
-            <td>{forecast.date.toLocaleString('cs')}</td>
-            <td>{forecast.temperatureC}°C</td>
-            <td>{forecast.summary}</td>
-          </tr>)}
+          {data.map((forecast) => (
+            <tr>
+              <td>{forecast.id}</td>
+              <td>{forecast.date.toLocaleString("cs")}</td>
+              <td>{forecast.temperatureC}°C</td>
+              <td>{forecast.summary}</td>
+            </tr>
+          ))}
         </tbody>
-        </Table>  
+      </Table>
     </Layout>
   );
 };

@@ -287,3 +287,7 @@ More info:
 > Cvičení vynecháno z důvodu nepřítomnosti cvičícího
 
 ## 5. Lekce - React app intro, React and Blazor components, Bootstrap, Fetch
+
+**Overview:**
+- React Intro
+  - Functional components and hooks

@@ -1,6 +1,5 @@
 ﻿@page "/fetch-data"
 @using Application.Shared
-@inject HttpClient Http
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -14,6 +13,7 @@
 }
 else
 {
+    <p>@Count</p>
     <table class="table">
         <thead>
             <tr>
@@ -25,7 +25,7 @@ else
         </thead>
         <tbody>
             @foreach (var forecast in forecasts)
-            {
+            { 
                 <tr>
                     <td>@forecast.Id</td>
                     <td>@forecast.Date.ToShortDateString()</td>
@@ -38,10 +38,18 @@ else
 }
 
 @code {
+    
+    [Inject]
+    public required HttpClient Http { get; set; }
+    
     private WeatherForecast[]? forecasts;
+
+    private int Count => forecasts?.Length ?? 0;
 
     protected override async Task OnInitializedAsync()
     {
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("api/weather-forecast");
     }
+    
+    
 }

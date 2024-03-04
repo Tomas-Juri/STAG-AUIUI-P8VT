@@ -1,0 +1,16 @@
+<div class="alert">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    
+    [Parameter]
+    [EditorRequired]
+    public required string Name { get; set; }
+    
+    [Parameter]
+    [EditorRequired]
+    public required EventCallback<string> OnChange { get; set; }
+}

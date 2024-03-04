@@ -1,8 +1,12 @@
 ﻿@page "/"
+@page "/home"
 
 <PageTitle>Index</PageTitle>
 
 <h1>Hello, world!</h1>
+
+<Test Name="foo" OnChange="(value) => { Console.WriteLine(value); }">Hello world</Test>
+
 <p>Welcome to your new single-page application, built with:</p>
 <ul>
     <li>
