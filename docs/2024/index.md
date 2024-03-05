@@ -70,7 +70,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 6. Týden 11.3 - Sprint review 2.
 7. Týden 18.3 - Scrum game
 8. Týden 25.3 - Sprint review 3.
-9. Týden 1.4 - Odpada - Velikonoce
+9. Týden 1.4 - Odpadá - Velikonoce
 10. Týden 8.4 - Sprint review 4.
 11. Týden 15.4 - (External) Tyrkysová organizace / agilní vývoj projektu: Honza Podzimek.
 12. Týden 22.4 - Sprint review 5.
@@ -79,27 +79,24 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ## Program výuky - Cvičení
 
-1. Týden - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
-2. Týden - Git, Continuous development & Continuous integration, Azure
-3. Týden - Databáze, Entity framework, DI, Databáze, Entity framework, REST API
-4. Týden - Cvičení vynecháno z důvodu nepřítomnosti cvičícího
-5. Týden - React app intro, React and Blazor components, Bootstrap, Fetch
-6. Týden - Autentizace a autorizace
-7. Týden - Scrum game
-8. Týden - Logování aplikace, Individuální podpora týmů
-9. Týden - Odpada - Velkkonoce
-10. Týden - Code review
-11. Týden - Clean Code/Atomic design
-12. Týden - Individuální podpora týmů / Volné téma
-13. Týden - Code review
-14. Týden - Už nebude cvičení.
+1. Týden 5.2 - Založení projektu ze šablony a nastavení lokálního vývojového prostředí
+2. Týden 12.2 - Git, Continuous development & Continuous integration, Azure
+3. Týden 19.2 - Databáze, Entity framework, DI, Databáze, Entity framework, REST API
+4. Týden 26.2 - Cvičení vynecháno z důvodu nepřítomnosti cvičícího
+5. Týden 4.3 - React app intro, React and Blazor components, Bootstrap, Fetch
+6. Týden 11.3 - Autentizace a autorizace
+7. Týden 18.3 - Scrum game
+8. Týden 25.3 - Logování aplikace, Individuální podpora týmů
+9. Týden 1.4 - Odpadá - Velkkonoce
+10. Týden 8.4 - Code review
+11. Týden 15.4 - Clean Code/Atomic design
+12. Týden 22.4 - Individuální podpora týmů / Volné téma
+13. Týden 29.4 - Code review
+14. Týden 6.5 - Už nebude cvičení.
 
 ## Table of contents
 
-{: .no_toc .text-delta }
-
-1. TOC
-   {:toc}
+{:toc}
 
 ---
 
@@ -290,4 +287,39 @@ More info:
 
 **Overview:**
 - React Intro
+  - What is React
+  - Intro to TSX/JSX
   - Functional components and hooks
+  - State management with `useState`
+  - Side effects with `useEffect`
+  - Passing props to child components
+  - Lifting state up
+  - Fetch API/Axios
+  - Information about bootstrap
+- Blazor Intro
+  - What is Blazor
+  - Blazor hosting models
+  - State management and side effect (loading data)
+  - Passing properties to child components
+  - HttpClient usage
+  - Information about bootstrap
+
+More info:
+- [React](https://react.dev/learn)
+  - [Components](https://react.dev/learn/your-first-component)
+  - [State management](https://react.dev/learn/state-a-components-memory)
+  - [Side effects](https://react.dev/learn/synchronizing-with-effects)
+  - [Lifting state up](https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example)
+  - [Forms in react](https://react.dev/learn/reacting-to-input-with-state)
+  - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+    - [Axios](https://axios-http.com/docs/intro)
+- [React Bootstrap](https://react-bootstrap.netlify.app/)
+- [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+  - [Hosting Models](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-8.0)
+  - [Components in blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-8.0)
+  - [Components lifecycle](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-8.0)
+  - [State management](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management?view=aspnetcore-8.0&pivots=server)
+  - [Get data from API](https://learn.microsoft.com/en-us/aspnet/core/blazor/call-web-api?view=aspnetcore-8.0)
+- [Bootstrap](https://getbootstrap.com/)
+
+## 6. Lekce - Autentikace a autorizace
