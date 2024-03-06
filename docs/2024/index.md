@@ -88,7 +88,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 7. Týden 18.3 - Scrum game
 8. Týden 25.3 - Logování aplikace, Individuální podpora týmů
 9. Týden 1.4 - Odpadá - Velkkonoce
-10. Týden 8.4 - Code review
+10. Týden 8.4 - Přednáška CI&CD Best practices, Code review
 11. Týden 15.4 - Clean Code/Atomic design
 12. Týden 22.4 - Individuální podpora týmů / Volné téma
 13. Týden 29.4 - Code review
