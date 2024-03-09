@@ -1,24 +1,28 @@
-﻿using Application.Backend.Api.Models;
+﻿using System.Security.Claims;
+using Application.Backend.Api.Models;
+using Application.Backend.Authorization;
 using Application.Backend.Database;
 using Application.Backend.Database.Models;
 using Application.Backend.Database.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Backend.Api;
 
 [ApiController]
 [Route("/api/weather-forecast")]
-public class WeatherForecastController(DataContext dataContext, UsersRepository usersRepository) : ControllerBase
+[Authorize]
+public class WeatherForecastController(DataContext dataContext) : ControllerBase
 {
     [HttpGet]
     public IActionResult Get()
     {
+        var emailClaim = User.FindFirst(ClaimTypes.Email);
+        
         var weatherForecasts = dataContext.WeatherForecasts.ToList();
         return Ok(weatherForecasts);
     }
     
-    // HTTP-GET /api/weather-forecasts/guid
     [HttpGet("{id:guid}")]
     public IActionResult Get(Guid id)
     {
@@ -30,6 +34,7 @@ public class WeatherForecastController(DataContext dataContext, UsersRepository 
     }
     
     [HttpPost]
+    [Authorize(Policy = Policy.CanEditForecasts)]
     public IActionResult Create(WeatherForecast weatherForecast)
     {
         dataContext.Add(weatherForecast);
@@ -39,6 +44,7 @@ public class WeatherForecastController(DataContext dataContext, UsersRepository 
     }
     
     [HttpPut("{id:guid}")]
+    [Authorize(Policy = Policy.CanEditForecasts)]
     public IActionResult Update(Guid id, UpdateWeatherForecastRequest request)
     {
         var weatherForecasts = dataContext.WeatherForecasts.FirstOrDefault(forecast => forecast.Id == id);
@@ -55,6 +61,7 @@ public class WeatherForecastController(DataContext dataContext, UsersRepository 
     
     
     [HttpDelete("{id:guid}")]
+    [Authorize(Policy = Policy.CanDeleteForecasts)]
     public IActionResult Delete(Guid id)
     {
         var weatherForecasts = dataContext.WeatherForecasts.FirstOrDefault(forecast => forecast.Id == id);

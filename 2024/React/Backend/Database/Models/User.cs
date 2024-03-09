@@ -13,6 +13,6 @@ public class User
     public required byte[] PasswordHash { get; set; }
 
     public required byte[] PasswordSalt { get; set; }
-
-    public ICollection<Delivery> Deliveries { get; set; } = [];
+    
+    public required string Role { get; set; }
 }

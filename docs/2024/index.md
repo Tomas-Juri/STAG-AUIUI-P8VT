@@ -322,4 +322,236 @@ More info:
   - [Get data from API](https://learn.microsoft.com/en-us/aspnet/core/blazor/call-web-api?view=aspnetcore-8.0)
 - [Bootstrap](https://getbootstrap.com/)
 
-## 6. Lekce - Autentikace a autorizace
+## 6. Lekce - Autentizace a autorizace
+
+**Overview:** 
+ - What is authentization? What is authorization? Difference
+ - JWT tokens
+ - Authentication in ASP.NET
+ - Current user context
+ - Authorization in ASP.NET
+  - Role Based
+  - Policy Based
+  - Claims-based
+ - Claims in tokens for frontend
+
+### Add authenticaion to API
+
+1. Register Authentication Services  
+
+    ```csharp
+    // Add authentication
+    builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(o =>
+    {
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = false,
+            ValidateIssuerSigningKey = true
+        };
+    });
+    ```
+
+  2. Add configuration for JWT
+
+      ```csharp
+      "Jwt": {
+        "Issuer": "https://utb--2024-internal-test.azurewebsites.net/",
+        "Audience": "https://utb--2024-internal-test.azurewebsites.net/",
+        "Key": "{GENERATED_KEY_DO_NOT_SHARE}"
+      }
+      ```
+
+      ```csharp
+      public class AppSettings
+      {
+          public required JwtOptions Jwt { get; init; }
+          
+          public record JwtOptions
+          {
+              public required string Issuer { get; init; }
+              
+              public required string Audience { get; init; }
+              
+              public required string Key { get; init; }
+          }   
+      }
+      ```
+
+  3. Add authentication middleware
+
+      ```csharp
+      app.UseAuthorization();
+      ```
+
+  4. Create login Endpoint
+
+      ```csharp
+      [ApiController]
+      [Route("/api/account")]
+      public class AccountController(DataContext dataContext, IOptions<AppSettings> appSettings) : Controller
+      {
+          private readonly AppSettings _appSettings = appSettings.Value;
+          
+          [HttpPost("login")]
+          public IActionResult Login(LoginRequest request)
+          {
+              var user = dataContext.Users.FirstOrDefault(user => user.Email == request.Email);
+              if (user == null)
+                  return NotFound();
+
+              if (Password.Verify(request.Password, user.PasswordHash, user.PasswordSalt) == false)
+                  return BadRequest();
+
+              var issuer = _appSettings.Jwt.Issuer;
+              var audience = _appSettings.Jwt.Audience;
+              var key = Encoding.ASCII.GetBytes(_appSettings.Jwt.Key);
+              var tokenDescriptor = new SecurityTokenDescriptor
+              {
+                  Subject = new ClaimsIdentity(new[]
+                  {
+                      new Claim("Id", user.Id.ToString()),
+                      new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                  }),
+                  Expires = DateTime.UtcNow.AddDays(1),
+                  Issuer = issuer,
+                  Audience = audience,
+                  SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
+              };
+              var tokenHandler = new JwtSecurityTokenHandler();
+              var token = tokenHandler.CreateToken(tokenDescriptor);
+              var jwtToken = tokenHandler.WriteToken(token);
+
+              return Ok(jwtToken);
+          }
+      }
+      ```
+
+  5. You should now be able to login in with your user 
+    - You can inspect your token at https://jwt.io/
+
+  6. Authorize weather forecasts
+
+      ```csharp
+      ...
+      [ApiController]
+      [Route("/api/weather-forecast")]
+
+      [Authorize]
+
+      public class WeatherForecastController(DataContext dataContext, UsersRepository usersRepository) : ControllerBase
+      {
+      ...
+      ```
+
+  7. Add JWT token capability for swagger
+
+      ```csharp
+      // Add Swagger
+      builder.Services.AddEndpointsApiExplorer();
+      builder.Services.AddSwaggerGen(option =>
+      {
+          option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+          {
+              In = ParameterLocation.Header,
+              Description = "Please enter a valid token",
+              Name = "Authorization",
+              Type = SecuritySchemeType.Http,
+              BearerFormat = "JWT",
+              Scheme = "Bearer"
+          });
+          option.AddSecurityRequirement(new OpenApiSecurityRequirement
+          {
+              {
+                  new OpenApiSecurityScheme
+                  {
+                      Reference = new OpenApiReference
+                      {
+                          Type=ReferenceType.SecurityScheme,
+                          Id="Bearer"
+                      }
+                  },
+                  new string[]{}
+              }
+          });
+      });
+      ```
+
+  8. Now your endpoints are restricted to authorized users only and swagger can work with token
+
+
+### Add auhtorization to API
+
+  1. Define roles
+
+      ```csharp
+      namespace Application.Backend.Authorization;
+
+      public class Role
+      {
+          public const string Administrator = "Administrator";
+          public const string User = "User";
+      }
+      ```
+
+  2. Define policies
+
+      ```csharp
+      namespace Application.Backend.Authorization;
+
+      public class Policy
+      {
+          public const string CanEditForecasts = "CanEditForecasts";
+      }
+      ```
+
+  3. Add Authorization and register policy
+
+      ```csharp
+      builder.Services
+        .AddAuthorization(options =>
+        {
+            options.AddPolicy(Policy.CanEditForecasts, policy => policy.RequireClaim(Policy.CanEditForecasts, "True"));
+        });
+      ```
+
+  4. Add role to User
+  5. Add claim when creating token
+
+      ```csharp
+      ...
+      new Claim(Policy.CanEditForecasts, (user.Role == Role.Administrator).ToString())
+      ...
+      ```
+
+  6. Apply authorization attribute on controller methods
+  
+      ```csharp
+      [Authorize(Policy = Policy.CanEditForecasts)]
+      ```
+
+  7. Now you have roles and policies for them, you can also use the policies on FE since they are in token
+
+### Getting current user context in API
+
+```csharp
+...
+public class WeatherForecastController(DataContext dataContext) : ControllerBase
+...
+var emailClaim = User.FindFirst(ClaimTypes.Email);
+...
+```
+
+
+More info:
+- [jwt.io](https://jwt.io/)
+- [ASP.NET Authenticaion](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-8.0)

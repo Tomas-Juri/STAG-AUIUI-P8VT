@@ -1,15 +1,51 @@
+using System.Text;
 using Application;
+using Application.Backend.Authorization;
 using Application.Backend.Database;
 using Application.Backend.Database.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add configuration seciton
 var appSettingsSection = builder.Configuration.GetSection("AppSettings");
+var appSettings = appSettingsSection.Get<AppSettings>();
+if (appSettings is null)
+    throw new ArgumentNullException(nameof(appSettings));
+
 builder.Services.Configure<AppSettings>(appSettingsSection);
 
-// TODO Add Auth
+// Add authentication
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidIssuer = appSettings.Jwt.Issuer,
+            ValidAudience = appSettings.Jwt.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appSettings.Jwt.Key)),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = false,
+            ValidateIssuerSigningKey = true
+        };
+    });
+
+builder.Services
+    .AddAuthorization(options =>
+    {
+        options.AddPolicy(Policy.CanEditForecasts, policy => policy.RequireClaim(Policy.CanEditForecasts, "True"));
+        options.AddPolicy(Policy.CanDeleteForecasts, policy => policy.RequireClaim(Policy.CanDeleteForecasts, "True"));
+    });
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -19,7 +55,32 @@ builder.Services.AddScoped<UsersRepository>();
 
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(option =>
+{
+    option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter a valid token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "Bearer"
+    });
+    option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
+});
 
 // Add Cors
 builder.Services.AddCors(options =>
@@ -60,7 +121,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseCors();
 
-// TODO Use Auth
+app.UseAuthorization();
 
 app.MapControllerRoute( 
     name: "default",
