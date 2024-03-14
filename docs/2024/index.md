@@ -555,3 +555,36 @@ var emailClaim = User.FindFirst(ClaimTypes.Email);
 More info:
 - [jwt.io](https://jwt.io/)
 - [ASP.NET Authenticaion](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-8.0)
+
+
+## 7. Lekce - Scrum game
+
+> Cvičení vynecháno - věnováno scrum game
+
+## 8. Lekce - Logování aplikace, Individuální podpora týmů
+
+**Overview:** 
+- What is loggin and why is it usefull
+- ASP.NET Logging basics
+- Azure app insights
+
+More Info:
+
+- [ASP.NET Logging fundamentals](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-8.0)
+- [Azure App Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+
+
+## 9. Lekce - Scrum game
+
+> Cvičení odpadá - Velikonoce
+
+## 10. Lekce - Přednáška CI&CD Best practices, Code review
+
+
+## 11. Lekce - Clean Code/Atomic design
+
+
+## 12. Lekce - Individuální podpora týmů / Volné téma
+
+
+## 13. Lekce - Final code review
