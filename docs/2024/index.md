@@ -20,7 +20,7 @@ Organizační záležitosti univerzity, garant předmětu, Product Owner
 **Jiří Urban**
 Hlavní přednášející, organizace kurzu, Product Owner
 
-**Tomáš Juríčka**
+**Tomáš Juřička**
 Hlavní cvičící, .NET, React
 
 **Stanislav Čermák**
@@ -489,7 +489,7 @@ More info:
   8. Now your endpoints are restricted to authorized users only and swagger can work with token
 
 
-### Add auhtorization to API
+### Add authorization to API
 
   1. Define roles
 
@@ -561,20 +561,161 @@ More info:
 
 > Cvičení vynecháno - věnováno scrum game
 
-## 8. Lekce - Logování aplikace, Individuální podpora týmů
+## 8. Lekce - Feature Flags, Logování aplikace, Individuální podpora týmů
 
 **Overview:** 
 - What is loggin and why is it usefull
 - ASP.NET Logging basics
 - Azure app insights
+- What is feature management and why should you use it
+- Setup feature managamenet
+- Give permessions to read azure ? TJU - JUR 
+
+
+### Logging
+
+1. Inject ILogger<T> in your class
+
+    ```csharp
+    public class WeatherForecastController(DataContext dataContext, ILogger<WeatherForecastController> logger) : ControllerBase
+    ```
+
+2. Log your actions
+
+    ```csharp
+    ...
+    [HttpGet]
+    public IActionResult Get()
+    {
+        logger.LogInformation("Getting weather forecasts");
+    ...  
+    ```
+    
+    ```csharp
+    ...
+    [HttpGet("{id:guid}")]
+    public IActionResult Get(Guid id)
+    {
+        var weatherForecasts = dataContext.WeatherForecasts.FirstOrDefault(forecast => forecast.Id == id);
+        if (weatherForecasts == null)
+        {
+            logger.LogWarning("Weather forecast  {id} not found", id);
+
+            return NotFound();
+        }
+    ...
+    ```
+
+    ```csharp
+    [HttpGet("exception")]
+    public IActionResult GetException()
+    {
+        try
+        {
+            throw new Exception("Foo bar");
+        }
+        catch (Exception exception)
+        {
+            logger.LogError(exception, "An error happened while ...");
+            throw;
+        }
+    }
+    ```
+
+3. Log all your HTTP request
+
+    ```csharp
+    ...
+    // Add Database
+    builder.Services
+        .AddDbContext<DataContext>(options => options
+            .UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+
+    // Add Logging
+    builder.Services.AddHttpLogging(o => { });
+
+    // Build app
+    var app = builder.Build();
+    ...
+    ```
+
+    ```csharp
+    ...
+    dataContext.Database.Migrate();
+
+    // Configure the HTTP request pipeline.
+    app.UseHttpLogging();
+
+    if (app.Environment.IsDevelopment())
+    {
+    ...
+    ``` 
+    ```json
+    ...
+    "Logging": {
+      "LogLevel": {
+        ...
+        "Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware": "Information"
+      }
+    },
+    ...
+    ```
+
+### Feature Flags
+
+1. Install Microsoft.FeatureManagement package
+2. Add your flags to appsettings.json
+   
+   ```json
+    "FeatureManagement": { 
+      "WeatherForecastIncludesFahrenheits": true,
+      "WeatherForecastIncludesKelvins": {
+        "EnabledFor": [
+          {
+            "Name": "Percentage",
+            "Parameters": {
+              "Value": 50
+            }
+          }
+        ]
+      }
+    }
+   ```
+3. Inject `IFeatureManager`
+
+  ```csharp
+  public class WeatherForecastController(DataContext dataContext, IFeatureManager featureManager) : ControllerBase
+  ```
+
+4. Use flags in code
+
+  ```csharp
+  ...
+  var includeFahrenheit = await featureManager.IsEnabledAsync("WeatherForecastIncludesFahrenheits");
+  var includeKelvin = await featureManager.IsEnabledAsync("WeatherForecastIncludesKelvins");
+  
+  var weatherForecasts = dataContext.WeatherForecasts
+      .Select(forecast => new
+      {
+          forecast.Id,
+          forecast.Summary,
+          forecast.Date,
+          Fahrenheit = includeFahrenheit ? Random.Next() : (int?)null,
+          Kelvin = includeKelvin ? Random.Next() : (int?)null,
+      })
+      .ToList();
+  ...
+  ```
 
 More Info:
-
+- [ASP.NET Http logging](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-logging/?view=aspnetcore-8.0)
 - [ASP.NET Logging fundamentals](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-8.0)
 - [Azure App Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+- [ASP.NET Feature flags](https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core)
+- [Feature toggle (Wiki)](https://en.wikipedia.org/wiki/Feature_toggle)
+- [Feature toggle (Martin Fowler)](https://martinfowler.com/articles/feature-toggles.html)
 
-
-## 9. Lekce - Scrum game
+## 9. Lekce 
 
 > Cvičení odpadá - Velikonoce
 
