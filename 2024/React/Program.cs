@@ -5,6 +5,7 @@ using Application.Backend.Database;
 using Application.Backend.Database.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.FeatureManagement;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -17,6 +18,9 @@ if (appSettings is null)
     throw new ArgumentNullException(nameof(appSettings));
 
 builder.Services.Configure<AppSettings>(appSettingsSection);
+
+// Add feature managemenet
+builder.Services.AddFeatureManagement();
 
 // Add authentication
 builder.Services
@@ -87,7 +91,8 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy => policy
         .AllowAnyHeader()
         .AllowAnyMethod()
-        .AllowAnyOrigin()));
+        .AllowAnyOrigin()
+        .WithExposedHeaders("location")));
 
 // Add Database
 builder.Services

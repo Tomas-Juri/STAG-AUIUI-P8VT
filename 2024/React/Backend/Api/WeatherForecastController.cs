@@ -3,32 +3,51 @@ using Application.Backend.Api.Models;
 using Application.Backend.Authorization;
 using Application.Backend.Database;
 using Application.Backend.Database.Models;
-using Application.Backend.Database.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.FeatureManagement;
 
 namespace Application.Backend.Api;
 
 [ApiController]
 [Route("/api/weather-forecast")]
-[Authorize]
-public class WeatherForecastController(DataContext dataContext) : ControllerBase
+// [Authorize]
+public class WeatherForecastController(DataContext dataContext, ILogger<WeatherForecastController> logger, IFeatureManager featureManager) : ControllerBase
 {
+    private Random Random => Random.Shared;
+    
     [HttpGet]
-    public IActionResult Get()
+    public async Task<IActionResult> Get()
     {
-        var emailClaim = User.FindFirst(ClaimTypes.Email);
+        var includeFahrenheit = await featureManager.IsEnabledAsync("WeatherForecastIncludesFahrenheits");
+        var includeKelvin = await featureManager.IsEnabledAsync("WeatherForecastIncludesKelvins");
+  
+        var weatherForecasts = dataContext.WeatherForecasts
+            .Select(forecast => new
+            {
+                forecast.Id,
+                forecast.Summary,
+                forecast.Date,
+                Fahrenheit = includeFahrenheit ? Random.Next() : (int?)null,
+                Kelvin = includeKelvin ? Random.Next() : (int?)null,
+            })
+            .ToList();
         
-        var weatherForecasts = dataContext.WeatherForecasts.ToList();
         return Ok(weatherForecasts);
     }
     
     [HttpGet("{id:guid}")]
     public IActionResult Get(Guid id)
     {
+        logger.LogInformation("Getting weather forecasts");
+        
         var weatherForecasts = dataContext.WeatherForecasts.FirstOrDefault(forecast => forecast.Id == id);
         if (weatherForecasts == null)
+        {
+            logger.LogInformation("Weather forecast {id} not found", id);
+            
             return NotFound();
+        }
         
         return Ok(weatherForecasts);
     }

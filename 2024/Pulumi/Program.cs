@@ -5,10 +5,12 @@ using Pulumi.AzureNative.Resources;
 using Pulumi.AzureNative.KeyVault;
 using Pulumi.AzureNative.Sql;
 using Pulumi.AzureNative.Sql.Inputs;
+using Pulumi.AzureNative.Storage;
 using Pulumi.AzureNative.Web;
 using Pulumi.AzureNative.Web.Inputs;
 using Pulumi.Random;
 using AzureNative = Pulumi.AzureNative;
+using SkuName = Pulumi.AzureNative.KeyVault.SkuName;
 
 // ReSharper disable InconsistentNaming
 
@@ -187,21 +189,21 @@ return await Pulumi.Deployment.RunAsync(() =>
     async Task CreateUser(string sqlServerName, string databaseName, string username, string adminPassword,
         string password)
     {
-        var connString = GetAdminConnectionString(sqlServerName, databaseName, adminPassword);
-        await using var sqlConn = new SqlConnection(connString);
-        await sqlConn.OpenAsync();
-
-        await using SqlCommand dropCmd = new($"DROP USER IF EXISTS {username}", sqlConn);
-        await using SqlCommand createCmd = new($"CREATE USER {username} WITH PASSWORD='{password}'", sqlConn);
-        await using SqlCommand dataReaderCmd = new($"EXEC sp_addrolemember N'db_datareader', N'{username}'", sqlConn);
-        await using SqlCommand dataWriterCmd = new($"EXEC sp_addrolemember N'db_datawriter', N'{username}'", sqlConn);
-        await using SqlCommand ddlAdminCmd = new($"EXEC sp_addrolemember N'db_ddladmin', N'{username}'", sqlConn);
-        
-        await dropCmd.ExecuteNonQueryAsync();
-        await createCmd.ExecuteNonQueryAsync();
-        await dataReaderCmd.ExecuteNonQueryAsync();
-        await dataWriterCmd.ExecuteNonQueryAsync();
-        await ddlAdminCmd.ExecuteNonQueryAsync();
+        // var connString = GetAdminConnectionString(sqlServerName, databaseName, adminPassword);
+        // await using var sqlConn = new SqlConnection(connString);
+        // await sqlConn.OpenAsync();
+        //
+        // await using SqlCommand dropCmd = new($"DROP USER IF EXISTS {username}", sqlConn);
+        // await using SqlCommand createCmd = new($"CREATE USER {username} WITH PASSWORD='{password}'", sqlConn);
+        // await using SqlCommand dataReaderCmd = new($"EXEC sp_addrolemember N'db_datareader', N'{username}'", sqlConn);
+        // await using SqlCommand dataWriterCmd = new($"EXEC sp_addrolemember N'db_datawriter', N'{username}'", sqlConn);
+        // await using SqlCommand ddlAdminCmd = new($"EXEC sp_addrolemember N'db_ddladmin', N'{username}'", sqlConn);
+        //
+        // await dropCmd.ExecuteNonQueryAsync();
+        // await createCmd.ExecuteNonQueryAsync();
+        // await dataReaderCmd.ExecuteNonQueryAsync();
+        // await dataWriterCmd.ExecuteNonQueryAsync();
+        // await ddlAdminCmd.ExecuteNonQueryAsync();
     }
 
     string GetAdminConnectionString(string sqlServerName, string databaseName, string adminPassword)
@@ -251,4 +253,27 @@ return await Pulumi.Deployment.RunAsync(() =>
             ServerFarmId = appServicePlan.Name
         });
     }
+    
+    // Storage accounts
+    CreateStorageAccount(PrefixZeroes("internal0test"));
+    CreateStorageAccount(PrefixZeroes("alfa0preberu"));
+    
+    StorageAccount CreateStorageAccount(string name)
+    {
+        return new StorageAccount(name, new StorageAccountArgs
+        {
+            AccessTier = AccessTier.Hot,
+            AccountName = name,
+            AllowBlobPublicAccess = true,
+            AllowSharedKeyAccess = null,
+            EnableHttpsTrafficOnly = null,
+            Kind = Kind.BlobStorage,
+            Location = resourceGroup.Location,
+            Sku = new Pulumi.AzureNative.Storage.Inputs.SkuArgs
+            {
+                Name = "Standard_LRS"
+            },
+            ResourceGroupName = resourceGroup.Name
+        });
+    };
 });
