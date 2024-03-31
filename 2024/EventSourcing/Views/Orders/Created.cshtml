@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "New Order | Shippers";
+}
+<section class="row justify-content-center py-5 my-5">
+    <div class="col-6 text-center">
+        <h1 class="mb-2">Your order has been created</h1>
+        <p>
+            Your order for <strong>@ViewData["Name"]</strong> has been created under the <strong>@ViewData["Id"]</strong> identification
+        </p>
+        <p class="mb-5">
+            Thank you for using Shippers to make the world a better place
+        </p>
+        <div class="d-grid gap-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-block">
+                <span>Return to home</span>
+            </a>
+            <a asp-controller="Orders" asp-action="ViewNewOrder" class="btn btn-secondary btn-block">
+                <span>Create another order</span>
+            </a>
+        </div>
+    </div>
+</section>

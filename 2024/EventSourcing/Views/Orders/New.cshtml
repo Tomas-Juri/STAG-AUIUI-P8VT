@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "New Order | Shippers";
+}
+<section class="row justify-content-center py-5 my-5">
+    <div class="col-7">
+        <h1 class="mb-5">Create new Order</h1>
+        <form asp-controller="Orders" asp-action="NewOrder">
+            <div class="">
+                <div class="col-12">
+                    <legend>Package information</legend>
+                    <div class="form-group mb-4">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Postel z Jysku">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="photo">Photo</label>
+                        <input type="file" class="form-control" id="photo" name="photo" placeholder="" onchange="onFileUpload(event)">
+                        <img class="img-fluid img-thumbnail mt-2 d-none" id="photo-thumbnail" alt="" src="#"></img>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="100 kč">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="size">Size</label>
+                        <select id="size" name="size" class="form-select" aria-label="Default select example">
+                            <option selected>Select the size of package</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5">
+                <div class="col-6">
+                    <legend>From</legend>
+                    <div class="form-group mb-4">
+                        <label for="from-street">Street</label>
+                        <input type="text" class="form-control" id="from-street" name="from-street" placeholder="">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="from-city">City</label>
+                        <input type="text" class="form-control" name="from-city" id="from-city" placeholder="">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="zipcode">Zip code</label>
+                        <input type="text" class="form-control" name="from-zipcode" id="from-zipcode" placeholder="">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <legend>To</legend>
+                    <div class="form-group mb-4">
+                        <label for="to-street">Street</label>
+                        <input type="text" class="form-control" id="to-street" name="to-street" placeholder="">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="to-city">City</label>
+                        <input type="text" class="form-control" name="to-city" id="to-city" placeholder="">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="to-zipcode">Zip code</label>
+                        <input type="text" class="form-control" name="to-zipcode" id="to-zipcode" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-12">
+                    <div asp-validation-summary="All" class="alert alert-danger mb-4"></div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>Confirm</span>
+                        </button>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-block">
+                            <span>Back</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

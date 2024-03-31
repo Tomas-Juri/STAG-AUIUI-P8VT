@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Sign in | Shippers";
+}
+
+<div class="login-display d-flex flex-column justify-content-center">
+    <div class="row justify-content-center pb-5">
+        <div class="col-5">
+            <form asp-controller="Account" asp-action="Login">
+                <h2 class="mb-4 h3">Sign in to continue</h2>
+                <div class="form-group mb-4">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                </div>
+                <div class="form-group mb-4">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <div asp-validation-summary="All" class="alert alert-danger mb-4"></div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span>Sign in</span>
+                    </button>
+                    <a asp-controller="Account" asp-action="ViewReqister" class="btn btn-secondary btn-block">
+                        <span>Register</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
