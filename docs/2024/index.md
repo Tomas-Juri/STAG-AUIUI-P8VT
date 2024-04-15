@@ -89,8 +89,8 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 8. Týden 25.3 - Logování aplikace, Individuální podpora týmů
 9. Týden 1.4 - Odpadá - Velkkonoce
 10. Týden 8.4 - Přednáška CI&CD Best practices, 
-11. Týden 15.4 - Clean Code/Atomic design / Code review
-12. Týden 22.4 - Individuální podpora týmů / Volné téma
+11. Týden 15.4 - Individuální podpora týmů / Volné téma
+12. Týden 22.4 - Clean Code/Atomic design / Code review
 13. Týden 29.4 - Code review
 14. Týden 6.5 - Už nebude cvičení.
 
@@ -723,10 +723,9 @@ More Info:
 
 [Presentation Link](/docs/2024/UTB%20CICD.pptx)
 
-## 11. Lekce - Clean Code/Atomic design Code review
+## 11. Lekce - Individuální podpora týmů / Volné téma
 
-
-## 12. Lekce - Individuální podpora týmů / Volné téma
+## 12. Lekce - Clean Code/Atomic design Code review
 
 
 ## 13. Lekce - Final code review
