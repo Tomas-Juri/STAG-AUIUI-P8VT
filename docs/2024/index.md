@@ -725,7 +725,6 @@ More Info:
 
 ## 11. Lekce - Individuální podpora týmů / Volné téma
 
-## 12. Lekce - Clean Code/Atomic design Code review
-
+## 12. Lekce - Code review
 
 ## 13. Lekce - Final code review
