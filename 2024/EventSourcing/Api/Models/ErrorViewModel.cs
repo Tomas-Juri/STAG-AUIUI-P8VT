@@ -1,4 +1,4 @@
-namespace EventSourcing.Mvc.Models;
+namespace EventSourcing.Api.Models;
 
 public class ErrorViewModel
 {

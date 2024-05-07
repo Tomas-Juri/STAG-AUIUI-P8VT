@@ -1,11 +1,11 @@
 using System.Diagnostics;
+using EventSourcing.Api.Models;
+using EventSourcing.Api.Models.Home;
 using EventSourcing.Domain;
-using EventSourcing.Mvc.Models;
-using EventSourcing.Mvc.Models.Home;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EventSourcing.Mvc.Controllers;
+namespace EventSourcing.Api.Controllers;
 
 public class HomeController(EventStore store) : Controller
 {

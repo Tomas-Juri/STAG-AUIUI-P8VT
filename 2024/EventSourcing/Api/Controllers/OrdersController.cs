@@ -1,11 +1,11 @@
+using EventSourcing.Api.Models.Orders;
 using EventSourcing.Domain;
 using EventSourcing.Domain.Orders;
 using EventSourcing.Domain.Orders.Events;
-using EventSourcing.Mvc.Models.Orders;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EventSourcing.Mvc.Controllers;
+namespace EventSourcing.Api.Controllers;
 
 [Authorize]
 [Route("orders")]

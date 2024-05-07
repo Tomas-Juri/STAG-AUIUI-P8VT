@@ -1,4 +1,4 @@
-namespace EventSourcing.Mvc.Models.Account;
+namespace EventSourcing.Api.Models.Account;
 
 public record LoginRequest
 {

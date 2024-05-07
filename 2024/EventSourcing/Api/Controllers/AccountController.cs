@@ -1,12 +1,12 @@
 using System.Security.Claims;
+using EventSourcing.Api.Models.Account;
 using EventSourcing.Domain;
 using EventSourcing.Domain.Users.Events;
-using EventSourcing.Mvc.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EventSourcing.Mvc.Controllers;
+namespace EventSourcing.Api.Controllers;
 
 [Route("account")]
 public class AccountController(EventStore eventStore) : Controller

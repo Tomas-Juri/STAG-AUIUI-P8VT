@@ -1,6 +1,6 @@
 using EventSourcing.Domain.Orders;
 
-namespace EventSourcing.Mvc.Models.Home;
+namespace EventSourcing.Api.Models.Home;
 
 public record IndexModel
 {

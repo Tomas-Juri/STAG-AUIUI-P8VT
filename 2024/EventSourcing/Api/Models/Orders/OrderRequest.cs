@@ -1,7 +1,7 @@
 using EventSourcing.Domain.Orders;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EventSourcing.Mvc.Models.Orders;
+namespace EventSourcing.Api.Models.Orders;
 
 public record OrderRequest
 {
