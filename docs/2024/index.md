@@ -1,7 +1,7 @@
 ---
 title: "2024"
 layout: home
-nav_order: 2
+nav_order: 997
 ---
 
 # STAG-AUIUI-P8VT 2024
