@@ -88,7 +88,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 7. Týden 18.3 - Scrum game
 8. Týden 25.3 - Logování aplikace, Individuální podpora týmů
 9. Týden 1.4 - Odpadá - Velkkonoce
-10. Týden 8.4 - Přednáška CI&CD Best practices, 
+10. Týden 8.4 - Přednáška CI&CD Best practices,
 11. Týden 15.4 - Individuální podpora týmů / Volné téma
 12. Týden 22.4 - Clean Code/Atomic design / Code review
 13. Týden 29.4 - Code review
@@ -158,13 +158,14 @@ More info
 ## 2. Lekce - Git, Continuous development & Continuous integration, Azure
 
 **Overview:**
+
 - Git & best practices presentation
 - Create a continuous integration pipeline to build your application.
 - Create a continous delivery pipeline (release) to deploy your application to server.
 - Setup git policies for branches.
 
-
 **Prerequisites:**
+
 - [Git](https://git-scm.com/downloads)
 - Pushed changes into a repository in azure devops
 
@@ -245,10 +246,11 @@ More Info:
 - [Spolecenstvo Simona - Binary Brothers](https://utb--2024-spolecenstvo-binary.azurewebsites.net/)
 - [Internal_Test](https://utb--2024-internal-test.azurewebsites.net/)
 
-Additional Topics: 
-- Overview of Azure resources.  
-- How is application connected to database ?  
-- If we have Time - Infrastructure as code and Pulumi  
+Additional Topics:
+
+- Overview of Azure resources.
+- How is application connected to database ?
+- If we have Time - Infrastructure as code and Pulumi
 - How can i get my release running automagically after a new build ?
 
 More info:
@@ -263,6 +265,7 @@ More info:
 ## 3. Lekce - Databáze, Entity framework, DI, Databáze, Entity framework, REST API
 
 **Overview:**
+
 - Leftover from last lecture: Setup git policies for branches.
 - Overview of MSSQL database and entity framework
 - Migrations, Database update, managing migrations in release
@@ -272,6 +275,7 @@ More info:
 - REST API in ASP.NET
 
 More info:
+
 - [Entity Framework](https://docs.microsoft.com/en-us/ef/)
 - [EF Migrations](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 - [ASP.NET Rest API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0&tabs=visual-studio)
@@ -286,6 +290,7 @@ More info:
 ## 5. Lekce - React app intro, React and Blazor components, Bootstrap, Fetch
 
 **Overview:**
+
 - React Intro
   - What is React
   - Intro to TSX/JSX
@@ -305,6 +310,7 @@ More info:
   - Information about bootstrap
 
 More info:
+
 - [React](https://react.dev/learn)
   - [Components](https://react.dev/learn/your-first-component)
   - [State management](https://react.dev/learn/state-a-components-memory)
@@ -324,222 +330,224 @@ More info:
 
 ## 6. Lekce - Autentizace a autorizace
 
-**Overview:** 
- - What is authentization? What is authorization? Difference
- - JWT tokens
- - Authentication in ASP.NET
- - Current user context
- - Authorization in ASP.NET
-  - Role Based
-  - Policy Based
-  - Claims-based
- - Claims in tokens for frontend
+**Overview:**
+
+- What is authentization? What is authorization? Difference
+- JWT tokens
+- Authentication in ASP.NET
+- Current user context
+- Authorization in ASP.NET
+- Role Based
+- Policy Based
+- Claims-based
+- Claims in tokens for frontend
 
 ### Add authenticaion to API
 
-1. Register Authentication Services  
+1. Register Authentication Services
 
-    ```csharp
-    // Add authentication
-    builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-    }).AddJwtBearer(o =>
-    {
-        o.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = false,
-            ValidateIssuerSigningKey = true
-        };
-    });
-    ```
+   ```csharp
+   // Add authentication
+   builder.Services.AddAuthentication(options =>
+   {
+       options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+       options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+       options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+   }).AddJwtBearer(o =>
+   {
+       o.TokenValidationParameters = new TokenValidationParameters
+       {
+           ValidIssuer = builder.Configuration["Jwt:Issuer"],
+           ValidAudience = builder.Configuration["Jwt:Audience"],
+           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
+           ValidateIssuer = true,
+           ValidateAudience = true,
+           ValidateLifetime = false,
+           ValidateIssuerSigningKey = true
+       };
+   });
+   ```
 
-  2. Add configuration for JWT
+2. Add configuration for JWT
 
-      ```csharp
-      "Jwt": {
-        "Issuer": "https://utb--2024-internal-test.azurewebsites.net/",
-        "Audience": "https://utb--2024-internal-test.azurewebsites.net/",
-        "Key": "{GENERATED_KEY_DO_NOT_SHARE}"
-      }
-      ```
+   ```csharp
+   "Jwt": {
+     "Issuer": "https://utb--2024-internal-test.azurewebsites.net/",
+     "Audience": "https://utb--2024-internal-test.azurewebsites.net/",
+     "Key": "{GENERATED_KEY_DO_NOT_SHARE}"
+   }
+   ```
 
-      ```csharp
-      public class AppSettings
-      {
-          public required JwtOptions Jwt { get; init; }
-          
-          public record JwtOptions
-          {
-              public required string Issuer { get; init; }
-              
-              public required string Audience { get; init; }
-              
-              public required string Key { get; init; }
-          }   
-      }
-      ```
+   ```csharp
+   public class AppSettings
+   {
+       public required JwtOptions Jwt { get; init; }
 
-  3. Add authentication middleware
+       public record JwtOptions
+       {
+           public required string Issuer { get; init; }
 
-      ```csharp
-      app.UseAuthorization();
-      ```
+           public required string Audience { get; init; }
 
-  4. Create login Endpoint
+           public required string Key { get; init; }
+       }
+   }
+   ```
 
-      ```csharp
-      [ApiController]
-      [Route("/api/account")]
-      public class AccountController(DataContext dataContext, IOptions<AppSettings> appSettings) : Controller
-      {
-          private readonly AppSettings _appSettings = appSettings.Value;
-          
-          [HttpPost("login")]
-          public IActionResult Login(LoginRequest request)
-          {
-              var user = dataContext.Users.FirstOrDefault(user => user.Email == request.Email);
-              if (user == null)
-                  return NotFound();
+3. Add authentication middleware
 
-              if (Password.Verify(request.Password, user.PasswordHash, user.PasswordSalt) == false)
-                  return BadRequest();
+   ```csharp
+   app.UseAuthorization();
+   ```
 
-              var issuer = _appSettings.Jwt.Issuer;
-              var audience = _appSettings.Jwt.Audience;
-              var key = Encoding.ASCII.GetBytes(_appSettings.Jwt.Key);
-              var tokenDescriptor = new SecurityTokenDescriptor
-              {
-                  Subject = new ClaimsIdentity(new[]
-                  {
-                      new Claim("Id", user.Id.ToString()),
-                      new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                  }),
-                  Expires = DateTime.UtcNow.AddDays(1),
-                  Issuer = issuer,
-                  Audience = audience,
-                  SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
-              };
-              var tokenHandler = new JwtSecurityTokenHandler();
-              var token = tokenHandler.CreateToken(tokenDescriptor);
-              var jwtToken = tokenHandler.WriteToken(token);
+4. Create login Endpoint
 
-              return Ok(jwtToken);
-          }
-      }
-      ```
+   ```csharp
+   [ApiController]
+   [Route("/api/account")]
+   public class AccountController(DataContext dataContext, IOptions<AppSettings> appSettings) : Controller
+   {
+       private readonly AppSettings _appSettings = appSettings.Value;
 
-  5. You should now be able to login in with your user 
+       [HttpPost("login")]
+       public IActionResult Login(LoginRequest request)
+       {
+           var user = dataContext.Users.FirstOrDefault(user => user.Email == request.Email);
+           if (user == null)
+               return NotFound();
+
+           if (Password.Verify(request.Password, user.PasswordHash, user.PasswordSalt) == false)
+               return BadRequest();
+
+           var issuer = _appSettings.Jwt.Issuer;
+           var audience = _appSettings.Jwt.Audience;
+           var key = Encoding.ASCII.GetBytes(_appSettings.Jwt.Key);
+           var tokenDescriptor = new SecurityTokenDescriptor
+           {
+               Subject = new ClaimsIdentity(new[]
+               {
+                   new Claim("Id", user.Id.ToString()),
+                   new Claim(JwtRegisteredClaimNames.Email, user.Email),
+               }),
+               Expires = DateTime.UtcNow.AddDays(1),
+               Issuer = issuer,
+               Audience = audience,
+               SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
+           };
+           var tokenHandler = new JwtSecurityTokenHandler();
+           var token = tokenHandler.CreateToken(tokenDescriptor);
+           var jwtToken = tokenHandler.WriteToken(token);
+
+           return Ok(jwtToken);
+       }
+   }
+   ```
+
+5. You should now be able to login in with your user
+
+
     - You can inspect your token at https://jwt.io/
 
-  6. Authorize weather forecasts
+6. Authorize weather forecasts
 
-      ```csharp
-      ...
-      [ApiController]
-      [Route("/api/weather-forecast")]
+   ```csharp
+   ...
+   [ApiController]
+   [Route("/api/weather-forecast")]
 
-      [Authorize]
+   [Authorize]
 
-      public class WeatherForecastController(DataContext dataContext, UsersRepository usersRepository) : ControllerBase
-      {
-      ...
-      ```
+   public class WeatherForecastController(DataContext dataContext, UsersRepository usersRepository) : ControllerBase
+   {
+   ...
+   ```
 
-  7. Add JWT token capability for swagger
+7. Add JWT token capability for swagger
 
-      ```csharp
-      // Add Swagger
-      builder.Services.AddEndpointsApiExplorer();
-      builder.Services.AddSwaggerGen(option =>
-      {
-          option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-          {
-              In = ParameterLocation.Header,
-              Description = "Please enter a valid token",
-              Name = "Authorization",
-              Type = SecuritySchemeType.Http,
-              BearerFormat = "JWT",
-              Scheme = "Bearer"
-          });
-          option.AddSecurityRequirement(new OpenApiSecurityRequirement
-          {
-              {
-                  new OpenApiSecurityScheme
-                  {
-                      Reference = new OpenApiReference
-                      {
-                          Type=ReferenceType.SecurityScheme,
-                          Id="Bearer"
-                      }
-                  },
-                  new string[]{}
-              }
-          });
-      });
-      ```
+   ```csharp
+   // Add Swagger
+   builder.Services.AddEndpointsApiExplorer();
+   builder.Services.AddSwaggerGen(option =>
+   {
+       option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+       {
+           In = ParameterLocation.Header,
+           Description = "Please enter a valid token",
+           Name = "Authorization",
+           Type = SecuritySchemeType.Http,
+           BearerFormat = "JWT",
+           Scheme = "Bearer"
+       });
+       option.AddSecurityRequirement(new OpenApiSecurityRequirement
+       {
+           {
+               new OpenApiSecurityScheme
+               {
+                   Reference = new OpenApiReference
+                   {
+                       Type=ReferenceType.SecurityScheme,
+                       Id="Bearer"
+                   }
+               },
+               new string[]{}
+           }
+       });
+   });
+   ```
 
-  8. Now your endpoints are restricted to authorized users only and swagger can work with token
-
+8. Now your endpoints are restricted to authorized users only and swagger can work with token
 
 ### Add authorization to API
 
-  1. Define roles
+1. Define roles
 
-      ```csharp
-      namespace Application.Backend.Authorization;
+   ```csharp
+   namespace Application.Backend.Authorization;
 
-      public class Role
-      {
-          public const string Administrator = "Administrator";
-          public const string User = "User";
-      }
-      ```
+   public class Role
+   {
+       public const string Administrator = "Administrator";
+       public const string User = "User";
+   }
+   ```
 
-  2. Define policies
+2. Define policies
 
-      ```csharp
-      namespace Application.Backend.Authorization;
+   ```csharp
+   namespace Application.Backend.Authorization;
 
-      public class Policy
-      {
-          public const string CanEditForecasts = "CanEditForecasts";
-      }
-      ```
+   public class Policy
+   {
+       public const string CanEditForecasts = "CanEditForecasts";
+   }
+   ```
 
-  3. Add Authorization and register policy
+3. Add Authorization and register policy
 
-      ```csharp
-      builder.Services
-        .AddAuthorization(options =>
-        {
-            options.AddPolicy(Policy.CanEditForecasts, policy => policy.RequireClaim(Policy.CanEditForecasts, "True"));
-        });
-      ```
+   ```csharp
+   builder.Services
+     .AddAuthorization(options =>
+     {
+         options.AddPolicy(Policy.CanEditForecasts, policy => policy.RequireClaim(Policy.CanEditForecasts, "True"));
+     });
+   ```
 
-  4. Add role to User
-  5. Add claim when creating token
+4. Add role to User
+5. Add claim when creating token
 
-      ```csharp
-      ...
-      new Claim(Policy.CanEditForecasts, (user.Role == Role.Administrator).ToString())
-      ...
-      ```
+   ```csharp
+   ...
+   new Claim(Policy.CanEditForecasts, (user.Role == Role.Administrator).ToString())
+   ...
+   ```
 
-  6. Apply authorization attribute on controller methods
-  
-      ```csharp
-      [Authorize(Policy = Policy.CanEditForecasts)]
-      ```
+6. Apply authorization attribute on controller methods
 
-  7. Now you have roles and policies for them, you can also use the policies on FE since they are in token
+   ```csharp
+   [Authorize(Policy = Policy.CanEditForecasts)]
+   ```
+
+7. Now you have roles and policies for them, you can also use the policies on FE since they are in token
 
 ### Getting current user context in API
 
@@ -551,11 +559,10 @@ var emailClaim = User.FindFirst(ClaimTypes.Email);
 ...
 ```
 
-
 More info:
+
 - [jwt.io](https://jwt.io/)
 - [ASP.NET Authenticaion](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-8.0)
-
 
 ## 7. Lekce - Scrum game
 
@@ -563,111 +570,112 @@ More info:
 
 ## 8. Lekce - Feature Flags, Logování aplikace, Individuální podpora týmů
 
-**Overview:** 
+**Overview:**
+
 - What is loggin and why is it usefull
 - ASP.NET Logging basics
 - Azure app insights
 - What is feature management and why should you use it
 - Setup feature managamenet
-- Give permessions to read azure ? TJU - JUR 
-
+- Give permessions to read azure ? TJU - JUR
 
 ### Logging
 
 1. Inject ILogger<T> in your class
 
-    ```csharp
-    public class WeatherForecastController(DataContext dataContext, ILogger<WeatherForecastController> logger) : ControllerBase
-    ```
+   ```csharp
+   public class WeatherForecastController(DataContext dataContext, ILogger<WeatherForecastController> logger) : ControllerBase
+   ```
 
 2. Log your actions
 
-    ```csharp
-    ...
-    [HttpGet]
-    public IActionResult Get()
-    {
-        logger.LogInformation("Getting weather forecasts");
-    ...  
-    ```
-    
-    ```csharp
-    ...
-    [HttpGet("{id:guid}")]
-    public IActionResult Get(Guid id)
-    {
-        var weatherForecasts = dataContext.WeatherForecasts.FirstOrDefault(forecast => forecast.Id == id);
-        if (weatherForecasts == null)
-        {
-            logger.LogWarning("Weather forecast  {id} not found", id);
+   ```csharp
+   ...
+   [HttpGet]
+   public IActionResult Get()
+   {
+       logger.LogInformation("Getting weather forecasts");
+   ...
+   ```
 
-            return NotFound();
-        }
-    ...
-    ```
+   ```csharp
+   ...
+   [HttpGet("{id:guid}")]
+   public IActionResult Get(Guid id)
+   {
+       var weatherForecasts = dataContext.WeatherForecasts.FirstOrDefault(forecast => forecast.Id == id);
+       if (weatherForecasts == null)
+       {
+           logger.LogWarning("Weather forecast  {id} not found", id);
 
-    ```csharp
-    [HttpGet("exception")]
-    public IActionResult GetException()
-    {
-        try
-        {
-            throw new Exception("Foo bar");
-        }
-        catch (Exception exception)
-        {
-            logger.LogError(exception, "An error happened while ...");
-            throw;
-        }
-    }
-    ```
+           return NotFound();
+       }
+   ...
+   ```
+
+   ```csharp
+   [HttpGet("exception")]
+   public IActionResult GetException()
+   {
+       try
+       {
+           throw new Exception("Foo bar");
+       }
+       catch (Exception exception)
+       {
+           logger.LogError(exception, "An error happened while ...");
+           throw;
+       }
+   }
+   ```
 
 3. Log all your HTTP request
 
-    ```csharp
-    ...
-    // Add Database
-    builder.Services
-        .AddDbContext<DataContext>(options => options
-            .UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+   ```csharp
+   ...
+   // Add Database
+   builder.Services
+       .AddDbContext<DataContext>(options => options
+           .UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 
-    // Add Logging
-    builder.Services.AddHttpLogging(o => { });
+   // Add Logging
+   builder.Services.AddHttpLogging(o => { });
 
-    // Build app
-    var app = builder.Build();
-    ...
-    ```
+   // Build app
+   var app = builder.Build();
+   ...
+   ```
 
-    ```csharp
-    ...
-    dataContext.Database.Migrate();
+   ```csharp
+   ...
+   dataContext.Database.Migrate();
 
-    // Configure the HTTP request pipeline.
-    app.UseHttpLogging();
+   // Configure the HTTP request pipeline.
+   app.UseHttpLogging();
 
-    if (app.Environment.IsDevelopment())
-    {
-    ...
-    ``` 
-    ```json
-    ...
-    "Logging": {
-      "LogLevel": {
-        ...
-        "Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware": "Information"
-      }
-    },
-    ...
-    ```
+   if (app.Environment.IsDevelopment())
+   {
+   ...
+   ```
+
+   ```json
+   ...
+   "Logging": {
+     "LogLevel": {
+       ...
+       "Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware": "Information"
+     }
+   },
+   ...
+   ```
 
 ### Feature Flags
 
 1. Install Microsoft.FeatureManagement package
 2. Add your flags to appsettings.json
-   
+
    ```json
-    "FeatureManagement": { 
+    "FeatureManagement": {
       "WeatherForecastIncludesFahrenheits": true,
       "WeatherForecastIncludesKelvins": {
         "EnabledFor": [
@@ -681,33 +689,35 @@ More info:
       }
     }
    ```
+
 3. Inject `IFeatureManager`
 
-  ```csharp
-  public class WeatherForecastController(DataContext dataContext, IFeatureManager featureManager) : ControllerBase
-  ```
+```csharp
+public class WeatherForecastController(DataContext dataContext, IFeatureManager featureManager) : ControllerBase
+```
 
 4. Use flags in code
 
-  ```csharp
-  ...
-  var includeFahrenheit = await featureManager.IsEnabledAsync("WeatherForecastIncludesFahrenheits");
-  var includeKelvin = await featureManager.IsEnabledAsync("WeatherForecastIncludesKelvins");
-  
-  var weatherForecasts = dataContext.WeatherForecasts
-      .Select(forecast => new
-      {
-          forecast.Id,
-          forecast.Summary,
-          forecast.Date,
-          Fahrenheit = includeFahrenheit ? Random.Next() : (int?)null,
-          Kelvin = includeKelvin ? Random.Next() : (int?)null,
-      })
-      .ToList();
-  ...
-  ```
+```csharp
+...
+var includeFahrenheit = await featureManager.IsEnabledAsync("WeatherForecastIncludesFahrenheits");
+var includeKelvin = await featureManager.IsEnabledAsync("WeatherForecastIncludesKelvins");
+
+var weatherForecasts = dataContext.WeatherForecasts
+    .Select(forecast => new
+    {
+        forecast.Id,
+        forecast.Summary,
+        forecast.Date,
+        Fahrenheit = includeFahrenheit ? Random.Next() : (int?)null,
+        Kelvin = includeKelvin ? Random.Next() : (int?)null,
+    })
+    .ToList();
+...
+```
 
 More Info:
+
 - [ASP.NET Http logging](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-logging/?view=aspnetcore-8.0)
 - [ASP.NET Logging fundamentals](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-8.0)
 - [Azure App Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
@@ -715,7 +725,7 @@ More Info:
 - [Feature toggle (Wiki)](https://en.wikipedia.org/wiki/Feature_toggle)
 - [Feature toggle (Martin Fowler)](https://martinfowler.com/articles/feature-toggles.html)
 
-## 9. Lekce 
+## 9. Lekce
 
 > Cvičení odpadá - Velikonoce
 
@@ -728,3 +738,62 @@ More Info:
 ## 12. Lekce - Code review
 
 ## 13. Lekce - Final code review
+
+## Final Results:
+
+- https://utb--2024-alfa-preberu.azurewebsites.net/
+- https://utb--2024-dynamic-random.azurewebsites.net/
+- https://utb--2024-spolecenstvo-binary.azurewebsites.net/
+
+<style>
+  .images-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .images-container > img {
+    width: 45%
+  }
+</style>
+
+### AlfaSkvarda Vlkousu & Preberu ukradnu
+
+<div class="images-container">
+  <img src="alfa-preberu-1.png"/>
+  <img src="alfa-preberu-2.png"/>
+  <img src="alfa-preberu-3.png"/>
+  <img src="alfa-preberu-4.png"/>
+  <img src="alfa-preberu-5.png"/>
+  <img src="alfa-preberu-6.png"/>
+  <img src="alfa-preberu-7.png"/>
+</div>
+
+### Dynamic Developers & Random
+
+<div class="images-container">
+  <img src="dynamic-random-2.png"/>
+  <img src="dynamic-random-3.png"/>
+  <img src="dynamic-random-4.png"/>
+  <img src="dynamic-random-5.png"/>
+  <img src="dynamic-random-6.png"/>
+  <img src="dynamic-random-7.png"/>
+  <img src="dynamic-random-8.png"/>
+  <img src="dynamic-random-9.png"/>
+  <img src="dynamic-random-10.png"/>
+</div>
+
+### Společenstvo Šimona & Binary brothers
+
+<div class="images-container">
+  <img src="spolecenstvo-binary-1.png"/>
+  <img src="spolecenstvo-binary-2.png"/>
+  <img src="spolecenstvo-binary-3.png"/>
+  <img src="spolecenstvo-binary-4.png"/>
+  <img src="spolecenstvo-binary-5.png"/>
+  <img src="spolecenstvo-binary-6.png"/>
+  <img src="spolecenstvo-binary-7.png"/>
+  <img src="spolecenstvo-binary-8.png"/>
+</div>
+
