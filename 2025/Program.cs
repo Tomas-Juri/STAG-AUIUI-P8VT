@@ -25,6 +25,13 @@ builder.Services.AddAuthorization();
 // Build application and start building middleware pipeline
 var app = builder.Build();
 
+// Migrate database
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+    db.Database.Migrate();
+}
+
 if (app.Environment.IsDevelopment() == false)
 {
     app.UseExceptionHandler("/Home/Error");
