@@ -68,7 +68,7 @@ vedoucí kurzu s týmem řešit celou situaci a buď celý tým nebo určití je
 
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
-<iframe src="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTQ3jHS6tC_j0in8UQweziS8DoeepuyOBnnn6vZ6E-JRoMXzwSNflS9eCaLqte9fAenSl_RgjrRvJru/pubhtml?gid=0&single=true"></iframe>
+<iframe src="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTQ3jHS6tC_j0in8UQweziS8DoeepuyOBnnn6vZ6E-JRoMXzwSNflS9eCaLqte9fAenSl_RgjrRvJru/pubhtml?gid=0&amp;single=true" style="width: 100%;height: 60rem;"></iframe>
 
 ## Program výuky
 
@@ -80,9 +80,9 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 4. Lekce  | 3.3.2025  | Scrum game (Lego)                                                                             |                                                           |
 | 5. Lekce  | 10.3.2025 | Sprint review 2                                                                               | Coding standarts, Pull requests, technical debt           |
 | 6. Lekce  | 17.3.2025 | Přednáška - Filip Kapler                                                                      |                                                           |
-| 7. Lekce  | 24.3.2025 | Sprint review 3                                                                               | Pair/mob programming                                      |
+| 7. Lekce  | 24.3.2025 | Sprint review 3                                                                               | Extreme programming                                       |
 | 8. Lekce  | 31.3.2025 | Přednáška - Život ve startupu s OpenVibe                                                      |                                                           |
-| 9. Lekce  | 7.4.2025  | Sprint review 4                                                                               | Extreme programming                                       |
+| 9. Lekce  | 7.4.2025  | Sprint review 4                                                                               | Pair/mob programming                                      |
 | 10. Lekce | 14.4.2025 | -- Velikonoce --                                                                              |                                                           |
 | 11. Lekce | 21.4.2025 | Finální retrospektiva / Pokročilý scrum                                                       |                                                           |
 | 12. Lekce | 28.4.2025 | Finální prezentace projektu                                                                   |                                                           |
