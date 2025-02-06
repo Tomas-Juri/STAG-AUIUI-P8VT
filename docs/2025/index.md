@@ -68,6 +68,8 @@ vedoucí kurzu s týmem řešit celou situaci a buď celý tým nebo určití je
 
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
+<iframe src="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTQ3jHS6tC_j0in8UQweziS8DoeepuyOBnnn6vZ6E-JRoMXzwSNflS9eCaLqte9fAenSl_RgjrRvJru/pubhtml?gid=0&single=true"></iframe>
+
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                     | Cvičení                                                   |
