@@ -71,15 +71,15 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                     | Cvičení                                                   |
-| --------- | --------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --- |
+| --------- | --------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | 1. Lekce  | 10.2.2025 | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje | Seznámení s šablonou aplikace                             |
 | 2. Lekce  | 17.2.2025 | Lean Canvas workshop                                                                          | Continuous development & Continuous integration, Azure    |
 | 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Backlog                                                                 | Trunk based development, small releases, feature toggling |
 | 4. Lekce  | 3.3.2025  | Scrum game (Lego)                                                                             |                                                           |
 | 5. Lekce  | 10.3.2025 | Sprint review 2                                                                               | Coding standarts, Pull requests, technical debt           |
 | 6. Lekce  | 17.3.2025 | Přednáška - Filip Kapler                                                                      |                                                           |
-| 7. Lekce  | 24.3.2025 | Sprint review 3                                                                               | Pair/mob programming                                      |     |
-| 8. Lekce  | 31.3.2025 | Přednáška - Život ve startupu s OpenVibe                                                      |
+| 7. Lekce  | 24.3.2025 | Sprint review 3                                                                               | Pair/mob programming                                      |
+| 8. Lekce  | 31.3.2025 | Přednáška - Život ve startupu s OpenVibe                                                      |                                                           |
 | 9. Lekce  | 7.4.2025  | Sprint review 4                                                                               | Extreme programming                                       |
 | 10. Lekce | 14.4.2025 | -- Velikonoce --                                                                              |                                                           |
 | 11. Lekce | 21.4.2025 | Finální retrospektiva / Pokročilý scrum                                                       |                                                           |
