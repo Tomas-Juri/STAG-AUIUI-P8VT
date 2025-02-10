@@ -91,6 +91,8 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ### Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje
 
+Odkaz na přednášku: [Úvod](https://docs.google.com/presentation/d/1yTSpYGDSLRayM4I8yML0vNC_a2_kXp1l/edit?usp=sharing&ouid=112391049308284909945&rtpof=true&sd=true)
+
 ### Seznámení s šablonou aplikace
 
 Prerequisites:
