@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 // Infrastructure - Database
 var connectionString = builder.Configuration.GetConnectionString("Database");
-builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
 // Authentication & Authorization
 builder.Services
