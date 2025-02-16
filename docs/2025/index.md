@@ -179,3 +179,10 @@ Prerequisites:
 - Team jedna [https://stag-auiui-p8vt-team-jedna.azurewebsites.net/](https://stag-auiui-p8vt-team-jedna.azurewebsites.net/)
 - Team lorax [https://stag-auiui-p8vt-team-lorax.azurewebsites.net/](https://stag-auiui-p8vt-team-lorax.azurewebsites.net/)
 
+
+More info:
+- [YAML](https://yaml.org/)
+- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+- [Learn git branching](https://learngitbranching.js.org/)
