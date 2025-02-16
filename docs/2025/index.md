@@ -137,6 +137,8 @@ Prerequisites:
 ### Continuous development & Continuous integration, Azure
 
 1. Push code to your repository in Azure devops
+2. Add PublishProfile.pubxml file to `Properties/PublishProfiles`
+   - Copy the file from 
 2. Create a build definition using YAML
 
     ```yml
