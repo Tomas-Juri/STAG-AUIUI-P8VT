@@ -129,3 +129,52 @@ Prerequisites:
 **More info**
 
 - [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+
+## 2. Lekce
+
+### Lean Canvas workshop
+
+### Continuous development & Continuous integration, Azure
+
+1. Push code to your repository in Azure devops
+2. Create a build definition using YAML
+    ```yaml
+    trigger:
+    - main
+    pool:
+      vmImage: ubuntu-latest
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: Use Dotnet 9
+      inputs:
+      version: "9.0.x"
+    
+    - script: dotnet clean
+      displayName: "dotnet clean"
+    
+    - script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
+      displayName: "dotnet publish"
+    ```
+3. Go to Pipelines/Pipelines and at right, click `New pipeline`
+   - Select Azure Repos git
+   - Select your repository
+   - Select Starter pipeline
+   - Replace the content with provided yaml
+   - Don't save yet
+4. At top right, click Variables
+5. Create new variable called `PASSWORD` and set the value to the deploy password (provided to each team individually)
+6. Save it
+7. Your build should now trigger and you can check it.
+8. After the build is finished your application should be running
+
+**Application Urls:**
+- Internal test: https://stag-auiui-p8vt-internal-test.azurewebsites.net/
+- Al-kaida: https://stag-auiui-p8vt-al-kaida.azurewebsites.net/
+- Hercules: https://stag-auiui-p8vt-hercules.azurewebsites.net/
+- Kohorta: https://stag-auiui-p8vt-kohorta.azurewebsites.net/
+- R-gen: https://stag-auiui-p8vt-r-gen.azurewebsites.net/
+- Staci e https://stag-auiui-p8vt-staci-e.azurewebsites.net/
+- Team jedna https://stag-auiui-p8vt-team-jedna.azurewebsites.net/
+- Team lorax https://stag-auiui-p8vt-team-lorax.azurewebsites.net/
+
