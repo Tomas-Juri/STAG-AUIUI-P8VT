@@ -138,25 +138,25 @@ Prerequisites:
 
 1. Push code to your repository in Azure devops
 2. Create a build definition using YAML
-```yaml
-trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- task: UseDotNet@2
-  displayName: Use Dotnet 9
-  inputs:
-  version: "9.0.x"
-
-- script: dotnet clean
-  displayName: "dotnet clean"
-
-- script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
-  displayName: "dotnet publish"
-```
+    ```yml
+    trigger:
+    - main
+    
+    pool:
+      vmImage: ubuntu-latest
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: Use Dotnet 9
+      inputs:
+      version: "9.0.x"
+    
+    - script: dotnet clean
+      displayName: "dotnet clean"
+    
+    - script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
+      displayName: "dotnet publish"
+    ```
 3. Go to Pipelines/Pipelines and at right, click `New pipeline`
    - Select Azure Repos git
    - Select your repository
@@ -164,7 +164,7 @@ steps:
    - Replace the content with provided yaml
    - Don't save yet
 4. At top right, click Variables
-5. Create new variable called `PASSWORD` and set the value to the deploy password (provided to each team individually)
+5. Create new variable called `PAS[index.md](..%2F2024%2Findex.md)SWORD` and set the value to the deploy password (provided to each team individually)
 6. Save it
 7. Your build should now trigger and you can check it.
 8. After the build is finished your application should be running
