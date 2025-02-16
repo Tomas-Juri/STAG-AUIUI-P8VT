@@ -138,25 +138,27 @@ Prerequisites:
 
 1. Push code to your repository in Azure devops
 2. Create a build definition using YAML
-    ```yml
-    trigger:
-    - main
-    
-    pool:
-      vmImage: ubuntu-latest
-    
-    steps:
-    - task: UseDotNet@2
-      displayName: Use Dotnet 9
-      inputs:
-      version: "9.0.x"
-    
-    - script: dotnet clean
-      displayName: "dotnet clean"
-    
-    - script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
-      displayName: "dotnet publish"
-    ```
+
+```yml
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UseDotNet@2
+  displayName: Use Dotnet 9
+  inputs:
+  version: "9.0.x"
+
+- script: dotnet clean
+  displayName: "dotnet clean"
+
+- script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
+  displayName: "dotnet publish"
+```
+
 3. Go to Pipelines/Pipelines and at right, click `New pipeline`
    - Select Azure Repos git
    - Select your repository
