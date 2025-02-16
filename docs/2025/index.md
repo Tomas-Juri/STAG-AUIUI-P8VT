@@ -138,7 +138,17 @@ Prerequisites:
 
 1. Push code to your repository in Azure devops
 2. Add PublishProfile.pubxml file to `Properties/PublishProfiles`
-   - Copy the file from 
+   - Copy the file from [here](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/blob/master/2025/src/Properties/PublishProfiles/PublishProfile.pubxml)
+   - Adjust the properties in the file
+     - MSDeployServiceURL
+     - DeployIisAppPath
+     - UserName
+     - DestinationAppUrl
+     - MSDeployServiceURL
+     - UserName
+     - DestinationAppUrl
+   - Just change the `internal-test` to your application name (provided to each team individually)
+   - Save the file, commit and push to the azure devops repository
 2. Create a build definition using YAML
 
     ```yml
