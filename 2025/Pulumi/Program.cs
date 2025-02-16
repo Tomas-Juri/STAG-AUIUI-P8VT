@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
+using System.Threading.Tasks;
 using Pulumi;
 using Pulumi.AzureNative.Resources;
 using Pulumi.AzureNative.KeyVault;
@@ -56,68 +57,26 @@ return await Pulumi.Deployment.RunAsync(() =>
         new RandomPassword(PrefixDashed(name),
                 new RandomPasswordArgs { Length = 18, Special = true, OverrideSpecial = "%!?", MinSpecial = 3 })
             .Result;
-    
+
     // Create an Azure Resource Group
-    var resourceGroup = new ResourceGroup(PrefixDashed(string.Empty), new ResourceGroupArgs
-    {
-        ResourceGroupName = PrefixDashed(string.Empty),
-        Location = "germanywestcentral"
-    });
-
-    // Create azure key vault
-    var keyVault = new Vault(PrefixZeroes(string.Empty), new()
-    {
-        VaultName = PrefixZeroes(string.Empty),
-        Location = "germanywestcentral",
-        Properties = new AzureNative.KeyVault.Inputs.VaultPropertiesArgs
+    var resourceGroup = new ResourceGroup(PrefixDashed(string.Empty),
+        new ResourceGroupArgs
         {
-            AccessPolicies = new[]
-            {
-                new AzureNative.KeyVault.Inputs.AccessPolicyEntryArgs
-                {
-                    ObjectId = "4ab2e4b6-afae-4dd0-a592-c7ae524bd8d4",
-                    Permissions = new AzureNative.KeyVault.Inputs.PermissionsArgs
-                    {
-                        Secrets = new InputList<Union<string, SecretPermissions>>
-                        {
-                            "get",
-                            "list",
-                            "set",
-                            "delete",
-                            "backup",
-                            "restore",
-                            "recover",
-                            "purge",
-                        },
-                    },
-                    TenantId = TenantId
-                },
-            },
-
-            EnabledForDeployment = true,
-            EnabledForDiskEncryption = true,
-            EnabledForTemplateDeployment = true,
-            Sku = new AzureNative.KeyVault.Inputs.SkuArgs
-            {
-                Family = "A",
-                Name = SkuName.Standard,
-            },
-            TenantId = TenantId,
-            
-        },
-        ResourceGroupName = resourceGroup.Name
-    });
+            ResourceGroupName = PrefixDashed(string.Empty),
+            Location = "germanywestcentral"
+        });
 
     // Create azure sql server
-    var sqlServer = new Server(PrefixDashed(string.Empty), new()
-    {
-        ServerName = PrefixDashed(string.Empty),
-        ResourceGroupName = resourceGroup.Name,
-        Location = resourceGroup.Location,
-        Version = "12.0",
-        AdministratorLogin = adminDbUsername,
-        AdministratorLoginPassword = adminDbPassword
-    });
+    var sqlServer = new Server(PrefixDashed(string.Empty),
+        new()
+        {
+            ServerName = PrefixDashed(string.Empty),
+            ResourceGroupName = resourceGroup.Name,
+            Location = resourceGroup.Location,
+            Version = "12.0",
+            AdministratorLogin = adminDbUsername,
+            AdministratorLoginPassword = adminDbPassword
+        });
 
     var internalTestDatabase = CreateDatabase(PrefixDashed("internal-test"), sqlServer, resourceGroup);
     var team1database = CreateDatabase(PrefixDashed("team-jedna"), sqlServer, resourceGroup);
@@ -130,31 +89,35 @@ return await Pulumi.Deployment.RunAsync(() =>
 
     Database CreateDatabase(string name, Server server, ResourceGroup rg)
     {
-        return new Database(name, new()
-        {
-            DatabaseName = name,
-            ResourceGroupName = rg.Name,
-            Location = rg.Location,
-            ServerName = server.Name,
-            Sku = new SkuArgs
+        return new Database(name,
+            new()
             {
-                Name = "Basic",
-                Tier = "Basic",
-                Size = "2"
-            },
-            RequestedBackupStorageRedundancy =  BackupStorageRedundancy.Local,
-        });
+                DatabaseName = name,
+                ResourceGroupName = rg.Name,
+                Location = rg.Location,
+                ServerName = server.Name,
+                Sku = new SkuArgs
+                {
+                    Name = "Basic",
+                    Tier = "Basic",
+                    Size = "2"
+                },
+                RequestedBackupStorageRedundancy = BackupStorageRedundancy.Local,
+            });
     }
-    
+
     CreateSecret(PrefixDashed("administrator-password"), adminDbPassword);
-    CreateSecret(PrefixDashed("internal-test-connection-string"), GetConnectionString(PrefixDashed("internal-test"), internalTestDbUsername, internalTestDbPassword));
-    CreateSecret(PrefixDashed("team-jedna-connection-string"), GetConnectionString(PrefixDashed("team-jedna"), team1UserName, team1Password));
+    CreateSecret(PrefixDashed("internal-test-connection-string"),
+        GetConnectionString(PrefixDashed("internal-test"), internalTestDbUsername, internalTestDbPassword));
+    CreateSecret(PrefixDashed("team-jedna-connection-string"),
+        GetConnectionString(PrefixDashed("team-jedna"), team1UserName, team1Password));
     CreateSecret(PrefixDashed("al-kaida-connection-string"), GetConnectionString(PrefixDashed("al-kaida"), team2UserName, team2Password));
     CreateSecret(PrefixDashed("hercules-connection-string"), GetConnectionString(PrefixDashed("hercules"), team3UserName, team3Password));
     CreateSecret(PrefixDashed("kohorta-connection-string"), GetConnectionString(PrefixDashed("kohorta"), team4UserName, team4Password));
     CreateSecret(PrefixDashed("r-gen-string"), GetConnectionString(PrefixDashed("r-gen"), team5UserName, team5Password));
     CreateSecret(PrefixDashed("staci-e-connection-string"), GetConnectionString(PrefixDashed("staci-e"), team6UserName, team6Password));
-    CreateSecret(PrefixDashed("team-lorax-connection-string"), GetConnectionString(PrefixDashed("team-lorax"), team7UserName, team7Password));
+    CreateSecret(PrefixDashed("team-lorax-connection-string"),
+        GetConnectionString(PrefixDashed("team-lorax"), team7UserName, team7Password));
 
 
     Output<string> GetConnectionString(string databaseName, string userName, Output<string> password)
@@ -169,86 +132,116 @@ return await Pulumi.Deployment.RunAsync(() =>
                                        $"TrustServerCertificate=False;" +
                                        $"Connection Timeout=30;");
     }
-    
+
     Secret CreateSecret(string name, Output<string> value)
     {
-        return new Secret(name, new SecretArgs
-        {
-            ResourceGroupName = resourceGroup.Name,
-            SecretName = name,
-            VaultName = keyVault.Name,
-            Properties = new AzureNative.KeyVault.Inputs.SecretPropertiesArgs
+        return new Secret(name,
+            new SecretArgs
             {
-                Value = value,
-            },
-        });
+                ResourceGroupName = resourceGroup.Name,
+                SecretName = name,
+                VaultName = "stag00auiui00p8vt002025",
+                Properties = new AzureNative.KeyVault.Inputs.SecretPropertiesArgs
+                {
+                    Value = value,
+                },
+            });
     }
 
     // create db users
     Output.Tuple(adminDbPassword, internalTestDbPassword, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("internal-test"),
-            internalTestDbUsername, output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("internal-test"),
+            internalTestDbUsername,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team1Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("team-jedna"), team1UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("team-jedna"),
+            team1UserName,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team2Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("al-kaida"), team2UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("al-kaida"),
+            team2UserName,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team3Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("hercules"), team3UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("hercules"),
+            team3UserName,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team4Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("kohorta"), team4UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("kohorta"),
+            team4UserName,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team5Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("r-gen"), team5UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("r-gen"),
+            team5UserName,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team6Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("staci-e"), team6UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("staci-e"),
+            team6UserName,
+            output.Item1,
+            output.Item2));
 
     Output.Tuple(adminDbPassword, team7Password, sqlServer.Name)
         .Apply(async output => await CreateUser(
-            output.Item3, PrefixDashed("team-lorax"), team7UserName,
-            output.Item1, output.Item2));
+            output.Item3,
+            PrefixDashed("team-lorax"),
+            team7UserName,
+            output.Item1,
+            output.Item2));
 
 
-    async Task CreateUser(string sqlServerName, string databaseName, string username, string adminPassword,
-        string password)
+    async Task CreateUser(
+        string sqlServerName,
+        string databaseName,
+        string username,
+        string adminPassword,
+        string password
+    )
     {
-        // var connString = GetAdminConnectionString(sqlServerName, databaseName, adminPassword);
-        // await using var sqlConn = new SqlConnection(connString);
-        // await sqlConn.OpenAsync();
-        //
-        // await using SqlCommand dropCmd = new($"DROP USER IF EXISTS {username}", sqlConn);
-        // await using SqlCommand createCmd = new($"CREATE USER {username} WITH PASSWORD='{password}'", sqlConn);
-        // await using SqlCommand dataReaderCmd = new($"EXEC sp_addrolemember N'db_datareader', N'{username}'", sqlConn);
-        // await using SqlCommand dataWriterCmd = new($"EXEC sp_addrolemember N'db_datawriter', N'{username}'", sqlConn);
-        // await using SqlCommand ddlAdminCmd = new($"EXEC sp_addrolemember N'db_ddladmin', N'{username}'", sqlConn);
-        //
-        // await dropCmd.ExecuteNonQueryAsync();
-        // await createCmd.ExecuteNonQueryAsync();
-        // await dataReaderCmd.ExecuteNonQueryAsync();
-        // await dataWriterCmd.ExecuteNonQueryAsync();
-        // await ddlAdminCmd.ExecuteNonQueryAsync();
+        var connString = GetAdminConnectionString(sqlServerName, databaseName, adminPassword);
+        await using var sqlConn = new SqlConnection(connString);
+        await sqlConn.OpenAsync();
+        
+        await using SqlCommand dropCmd = new($"DROP USER IF EXISTS {username}", sqlConn);
+        await using SqlCommand createCmd = new($"CREATE USER {username} WITH PASSWORD='{password}'", sqlConn);
+        await using SqlCommand dataReaderCmd = new($"EXEC sp_addrolemember N'db_datareader', N'{username}'", sqlConn);
+        await using SqlCommand dataWriterCmd = new($"EXEC sp_addrolemember N'db_datawriter', N'{username}'", sqlConn);
+        await using SqlCommand ddlAdminCmd = new($"EXEC sp_addrolemember N'db_ddladmin', N'{username}'", sqlConn);
+        
+        await dropCmd.ExecuteNonQueryAsync();
+        await createCmd.ExecuteNonQueryAsync();
+        await dataReaderCmd.ExecuteNonQueryAsync();
+        await dataWriterCmd.ExecuteNonQueryAsync();
+        await ddlAdminCmd.ExecuteNonQueryAsync();
     }
 
     string GetAdminConnectionString(string sqlServerName, string databaseName, string adminPassword)
     {
-        return $"Server=tcp:{sqlServerName}.database.windows.net,1433;" +
+        return $"Server={sqlServerName}.database.windows.net,1433;" +
                $"Initial Catalog={databaseName};" +
                $"Persist Security Info=False;" +
                $"User ID={adminDbUsername};" +
@@ -260,21 +253,23 @@ return await Pulumi.Deployment.RunAsync(() =>
     }
 
     // Apps
-    var appServicePlan = new AppServicePlan(PrefixDashed(string.Empty), new()
-    {
-        Kind = "app",
-        Location = "germanywestcentral",
-        Name = PrefixDashed(string.Empty),
-        ResourceGroupName = resourceGroup.Name,
-        Sku = new SkuDescriptionArgs
+    var appServicePlan = new AppServicePlan(PrefixDashed(string.Empty),
+        new()
         {
-            Capacity = 1,
-            Family = "B",
-            Name = "B1",
-            Size = "B1",
-            Tier = "Basic",
-        }
-    });
+            Kind = "app",
+            Location = "germanywestcentral",
+            Name = PrefixDashed(string.Empty),
+            ResourceGroupName = resourceGroup.Name,
+            Sku = new SkuDescriptionArgs
+            {
+                Capacity = 1,
+                Family = "B",
+                Name = "B1",
+                Size = "B1",
+                Tier = "Basic",
+            }
+        });
+    CreateWebApp(PrefixDashed("internal-test"), appServicePlan);
     CreateWebApp(PrefixDashed("team-jedna"), appServicePlan);
     CreateWebApp(PrefixDashed("al-kaida"), appServicePlan);
     CreateWebApp(PrefixDashed("hercules"), appServicePlan);
@@ -285,14 +280,15 @@ return await Pulumi.Deployment.RunAsync(() =>
 
     WebApp CreateWebApp(string name, AppServicePlan appServicePlan)
     {
-        return new WebApp(name, new WebAppArgs
-        {
-            Name = name,
-            ResourceGroupName = resourceGroup.Name,
-            RedundancyMode = RedundancyMode.None,
-            Kind = "app",
-            Location = "germanywestcentral",
-            ServerFarmId = appServicePlan.Name
-        });
+        return new WebApp(name,
+            new WebAppArgs
+            {
+                Name = name,
+                ResourceGroupName = resourceGroup.Name,
+                RedundancyMode = RedundancyMode.None,
+                Kind = "app",
+                Location = "germanywestcentral",
+                ServerFarmId = appServicePlan.Name
+            });
     }
 });
