@@ -134,6 +134,8 @@ Prerequisites:
 
 ### Lean Canvas workshop
 
+[Lean canvas prezentace](https://docs.google.com/presentation/d/1Y4aMDvZsj8s9OXzlo4kFWf83kCWX2I2K/edit?usp=drive_link&ouid=112391049308284909945&rtpof=true&sd=true)
+
 ### Continuous development & Continuous integration, Azure
 
 1. Push code to your repository in Azure devops
