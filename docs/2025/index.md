@@ -202,3 +202,13 @@ More info:
 - [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
 - [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
 - [Learn git branching](https://learngitbranching.js.org/)
+
+## 3. Lekce
+
+### Přednáška - UI a UX / Figma
+
+[Přednáška - UI a UX by Jakub Žídek](./utb-design-speak.pdf)
+
+### Backlog
+
+[Building a backlog prezentace](https://docs.google.com/presentation/d/1htzG9QzMYyGhitNcBQ4tmgD55hUW30-E/edit#slide=id.p1)
