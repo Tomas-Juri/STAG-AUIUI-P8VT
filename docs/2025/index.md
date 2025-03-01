@@ -38,15 +38,15 @@ Studenti mohou během semestru získat až 70 bodů v následující struktuře:
 
 **Projekt – 65 bodů**
 
-- Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
-- Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
+-   Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
+-   Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
 
 **Go to market – 5 bodů**
 
-- Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
-    - Získání a zpracování zpětné vazby od reálných uživatelů.
-    - Marketingové aktivity spojené s propagací aplikace
-    - Viditelný engagement uživatelů aplikace
+-   Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
+    -   Získání a zpracování zpětné vazby od reálných uživatelů.
+    -   Marketingové aktivity spojené s propagací aplikace
+    -   Viditelný engagement uživatelů aplikace
 
 Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminologie). Konkrétní bodování za jednotlivé sprinty probíhá následovně:
 
@@ -73,7 +73,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                     | Cvičení                                                |
-|-----------|-----------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| --------- | --------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | 1. Lekce  | 10.2.2025 | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje | Seznámení s šablonou aplikace                          |
 | 2. Lekce  | 17.2.2025 | Lean Canvas workshop                                                                          | Continuous development & Continuous integration, Azure |
 | 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Figma / Backlog                                                         |                                                        |
@@ -86,7 +86,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 10. Lekce | 14.4.2025 | Sprint review 4                                                                               | Volné téma                                             |
 | 11. Lekce | 21.4.2025 | -- Velikonoce --                                                                              |                                                        |
 | 12. Lekce | 28.4.2025 | Sprint review 5                                                                               | Volné téma                                             |
-| 13. Lekce | 5.5.2025  | Finální retrospektiva / Pokročilý scrum 	                                                     |                                                        |
+| 13. Lekce | 5.5.2025  | Finální retrospektiva / Pokročilý scrum                                                       |                                                        |
 | 14. Lekce | 12.5.2025 | Finální prezentace projektu                                                                   |                                                        |
 
 ## 1. Lekce
@@ -100,12 +100,12 @@ přednášku: [Úvod](https://docs.google.com/presentation/d/1yTSpYGDSLRayM4I8yM
 
 Prerequisites:
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-- Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
-- [Docker](https://www.docker.com/)
-- [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
-  management tool
-- [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
+-   [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+-   Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
+-   [Docker](https://www.docker.com/)
+-   [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
+    management tool
+-   [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
 
 #### Copy project a get it working locally
 
@@ -128,7 +128,7 @@ Prerequisites:
 
 **More info**
 
-- [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+-   [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
 
 ## 2. Lekce
 
@@ -140,68 +140,69 @@ Prerequisites:
 
 1. Push code to your repository in Azure devops
 2. Add PublishProfile.pubxml file to `Properties/PublishProfiles`
-   - Copy the file from [here](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/blob/master/2025/src/Properties/PublishProfiles/PublishProfile.pubxml)
-   - Adjust the properties in the file
-     - MSDeployServiceURL
-     - DeployIisAppPath
-     - UserName
-     - DestinationAppUrl
-     - MSDeployServiceURL
-     - UserName
-     - DestinationAppUrl
-   - Just change the `internal-test` to your application name (provided to each team individually)
-   - Save the file, commit and push to the azure devops repository
-2. Create a build definition using YAML
+    - Copy the file from [here](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/blob/master/2025/src/Properties/PublishProfiles/PublishProfile.pubxml)
+    - Adjust the properties in the file
+        - MSDeployServiceURL
+        - DeployIisAppPath
+        - UserName
+        - DestinationAppUrl
+        - MSDeployServiceURL
+        - UserName
+        - DestinationAppUrl
+    - Just change the `internal-test` to your application name (provided to each team individually)
+    - Save the file, commit and push to the azure devops repository
+3. Create a build definition using YAML
 
     ```yml
     trigger:
-    - main
-    
+        - main
+
     pool:
-      vmImage: ubuntu-latest
-    
+        vmImage: ubuntu-latest
+
     steps:
-    - task: UseDotNet@2
-      displayName: Use Dotnet 9
-      inputs:
-      version: "9.0.x"
-    
-    - script: dotnet clean
-      displayName: "dotnet clean"
-    
-    - script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
-      displayName: "dotnet publish"
+        - task: UseDotNet@2
+          displayName: Use Dotnet 9
+          inputs:
+          version: "9.0.x"
+
+        - script: dotnet clean
+          displayName: "dotnet clean"
+
+        - script: dotnet publish -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
+          displayName: "dotnet publish"
     ```
 
-3. Go to Pipelines/Pipelines and at right, click `New pipeline`
-   - Select Azure Repos git
-   - Select your repository
-   - Select Starter pipeline
-   - Replace the content with provided yaml
-   - Don't save yet
-4. At top right, click Variables
-5. Create new variable called `PASSWORD` and set the value to the deploy password (provided to each team individually)
-6. Save it
-7. Your build should now trigger and you can check it.
-8. After the build is finished your application should be running
+4. Go to Pipelines/Pipelines and at right, click `New pipeline`
+    - Select Azure Repos git
+    - Select your repository
+    - Select Starter pipeline
+    - Replace the content with provided yaml
+    - Don't save yet
+5. At top right, click Variables
+6. Create new variable called `PASSWORD` and set the value to the deploy password (provided to each team individually)
+7. Save it
+8. Your build should now trigger and you can check it.
+9. After the build is finished your application should be running
 
 **Application Urls:**
-- Internal test: [https://stag-auiui-p8vt-internal-test.azurewebsites.net/](https://stag-auiui-p8vt-internal-test.azurewebsites.net/)
-- Al-kaida: [https://stag-auiui-p8vt-al-kaida.azurewebsites.net/](https://stag-auiui-p8vt-al-kaida.azurewebsites.net/)
-- Hercules: [https://stag-auiui-p8vt-hercules.azurewebsites.net/](https://stag-auiui-p8vt-hercules.azurewebsites.net/)
-- Kohorta: [https://stag-auiui-p8vt-kohorta.azurewebsites.net/](https://stag-auiui-p8vt-kohorta.azurewebsites.net/)
-- R-gen: [https://stag-auiui-p8vt-r-gen.azurewebsites.net/](https://stag-auiui-p8vt-r-gen.azurewebsites.net/)
-- Staci e [https://stag-auiui-p8vt-staci-e.azurewebsites.net/](https://stag-auiui-p8vt-staci-e.azurewebsites.net/)
-- Team jedna [https://stag-auiui-p8vt-team-jedna.azurewebsites.net/](https://stag-auiui-p8vt-team-jedna.azurewebsites.net/)
-- Team lorax [https://stag-auiui-p8vt-team-lorax.azurewebsites.net/](https://stag-auiui-p8vt-team-lorax.azurewebsites.net/)
 
+-   Internal test: [https://stag-auiui-p8vt-internal-test.azurewebsites.net/](https://stag-auiui-p8vt-internal-test.azurewebsites.net/)
+-   Al-kaida: [https://stag-auiui-p8vt-al-kaida.azurewebsites.net/](https://stag-auiui-p8vt-al-kaida.azurewebsites.net/)
+-   Hercules: [https://stag-auiui-p8vt-hercules.azurewebsites.net/](https://stag-auiui-p8vt-hercules.azurewebsites.net/)
+-   Kohorta: [https://stag-auiui-p8vt-kohorta.azurewebsites.net/](https://stag-auiui-p8vt-kohorta.azurewebsites.net/)
+-   R-gen: [https://stag-auiui-p8vt-r-gen.azurewebsites.net/](https://stag-auiui-p8vt-r-gen.azurewebsites.net/)
+-   Staci e [https://stag-auiui-p8vt-staci-e.azurewebsites.net/](https://stag-auiui-p8vt-staci-e.azurewebsites.net/)
+-   Team jedna [https://stag-auiui-p8vt-team-jedna.azurewebsites.net/](https://stag-auiui-p8vt-team-jedna.azurewebsites.net/)
+-   Team lorax [https://stag-auiui-p8vt-team-lorax.azurewebsites.net/](https://stag-auiui-p8vt-team-lorax.azurewebsites.net/)
 
 More info:
-- [YAML](https://yaml.org/)
-- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
-- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
-- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
-- [Learn git branching](https://learngitbranching.js.org/)
+
+-   [YAML](https://yaml.org/)
+-   [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+-   [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+-   [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+-   [Learn git branching](https://learngitbranching.js.org/)
 
 ## 3. Lekce
 
@@ -212,3 +213,9 @@ More info:
 ### Backlog
 
 [Building a backlog prezentace](https://docs.google.com/presentation/d/1htzG9QzMYyGhitNcBQ4tmgD55hUW30-E/edit#slide=id.p1)
+
+## 4.Lekce
+
+### Git, Trunk based development, Small releases
+
+[Prezentace](https://docs.google.com/presentation/d/e/2PACX-1vRqwNYyn7Ops2GDMvb16UyCBArouhyzBo1eiTRiNwa8g-KO8RH79TYdE4qhF6cycCMe9XfAHxjro-Vp/pub?start=false&loop=false&delayms=3000#slide=id.g33b9727eb85_0_192)
