@@ -79,11 +79,11 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Figma / Backlog                                                         |                                                        |
 | 4. Lekce  | 3.3.2025  | Sprint review 1 / Základy scrumu 2                                                            | Git, Trunk based development, small releases           |
 | 5. Lekce  | 10.3.2025 | Scrum game                                                                                    |                                                        |
-| 6. Lekce  | 17.3.2025 | Sprint review 2                                                                               | Feature flags, Pull requests, technical debt           |
+| 6. Lekce  | 17.3.2025 | Sprint review 2                                                                               | Pull requests                                          |
 | 7. Lekce  | 24.3.2025 | Přednáška - Filip Kapler                                                                      |                                                        |
-| 8. Lekce  | 31.3.2025 | Sprint review 3                                                                               | Conding standarts, Extreme programming                 |
+| 8. Lekce  | 31.3.2025 | Sprint review 3                                                                               | Feature flags                                          |
 | 9. Lekce  | 7.4.2025  | Přednáška - Život ve startupu s OpenVibe                                                      |                                                        |
-| 10. Lekce | 14.4.2025 | Sprint review 4                                                                               | Volné téma                                             |
+| 10. Lekce | 14.4.2025 | Sprint review 4                                                                               | Extreme programming téma                               |
 | 11. Lekce | 21.4.2025 | -- Velikonoce --                                                                              |                                                        |
 | 12. Lekce | 28.4.2025 | Sprint review 5                                                                               | Volné téma                                             |
 | 13. Lekce | 5.5.2025  | Finální retrospektiva / Pokročilý scrum                                                       |                                                        |
@@ -219,3 +219,9 @@ More info:
 ### Git, Trunk based development, Small releases
 
 [Prezentace](https://docs.google.com/presentation/d/e/2PACX-1vRqwNYyn7Ops2GDMvb16UyCBArouhyzBo1eiTRiNwa8g-KO8RH79TYdE4qhF6cycCMe9XfAHxjro-Vp/pub?start=false&loop=false&delayms=3000#slide=id.g33b9727eb85_0_192)
+
+## 5. Lekce
+
+#### Scrum game
+
+## 6. Lekce
