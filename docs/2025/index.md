@@ -225,3 +225,61 @@ More info:
 #### Scrum game
 
 ## 6. Lekce
+
+
+### Pull requests
+
+1. Move code into `src/` folder
+   - Adjust pipeline accordingly 
+     - `dotnet clean src/Application.csproj`
+     - `dotnet publish src/Application.csproj ...`
+2. Add solution file `.sln` to the folder, and add reference to the `Application.csproj` project
+3. Create xUnit tests project in the solution
+4. Reference `Application` project in the tests project
+5. Write your unit tests!
+6. Create new pull requests pipeline file `azure-pipelines-pull-requests.yml`
+7. Fill it with pipeline that builds your app and runs unit tests
+
+    ```yml
+    pool:
+        vmImage: ubuntu-latest
+
+    steps:
+        - task: UseDotNet@2
+          displayName: Use Dotnet 9
+          inputs:
+          version: "9.0.x"
+
+        - script: dotnet build src/Application.csproj
+          displayName: "dotnet build"
+
+        - script: dotnet test tests/Application.Tests.csproj
+          displayName: "dotnet test"
+    ```
+   
+8. Commit this to your repository
+9. Create new pipeline from this existing yaml pipeline
+   - You can also rename the pipelines accordingly
+10. Go to **Repos** -> **Branches**
+11. Open **Branch policies** for your `main` branch
+12. Set branch policies
+    - Atleast 2 reviewers
+    - Allow requestors to approve their own Changes
+    - Check for linked work items as optional
+    - Check for comment rsolution as required
+    - Limit merge types to squash merge
+13. Add build validation for branch
+    - Select your pull request pipeline
+    - Automatic trigger
+    - Required policy
+    - Expire default value
+    - Save
+14. Now you can't commit to main branch directly, you need a pull request
+15. When you open PR
+    - A build is triggered, validating your code
+    - You need to get some reviewers and their approval
+    - Merge conflicts are checked
+16. Can be extended with various checks later on
+17. What if I really need to push some code without a PR?
+    - You shouldn't
+    - And if you really need to, adjust your branch security, to allow yourself to bypass policies

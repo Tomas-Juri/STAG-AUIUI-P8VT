@@ -1,0 +1,17 @@
+ trigger:
+ - main
+    
+ pool:
+   vmImage: ubuntu-latest
+    
+ steps:
+ - task: UseDotNet@2
+   displayName: Use Dotnet 9
+   inputs:
+    version: "9.0.x"
+    
+ - script: dotnet clean src/Application.csproj
+   displayName: "dotnet clean"
+    
+ - script: dotnet publish src/Application.csproj -p:PublishProfile=PublishProfile -p:Password=$(PASSWORD)
+   displayName: "dotnet publish"

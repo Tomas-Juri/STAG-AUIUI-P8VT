@@ -1,0 +1,14 @@
+ pool:
+   vmImage: ubuntu-latest
+    
+ steps:
+ - task: UseDotNet@2
+   displayName: Use Dotnet 9
+   inputs:
+    version: "9.0.x"
+    
+ - script: dotnet build src/Application.csproj
+   displayName: "dotnet build"
+    
+ - script: dotnet test tests/Application.Tests.csproj
+   displayName: "dotnet test"
