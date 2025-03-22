@@ -14,13 +14,13 @@ using SkuName = Pulumi.AzureNative.KeyVault.SkuName;
 
 // ReSharper disable InconsistentNaming
 
-const string TenantId = "52992157-2a29-4fab-a811-3876d08e0bfe";
+const string TenantId = "1ea8ce61-8469-4d88-8f7b-db1d7828710f";
 
 static string PrefixDashed(string name)
-    => string.IsNullOrEmpty(name) ? "stag-auiui-p8vt--2025" : $"stag-auiui-p8vt-{name}";
+    => string.IsNullOrEmpty(name) ? "ap8vt--2025" : $"ap8vt-{name}";
 
 static string PrefixZeroes(string name)
-    => string.IsNullOrEmpty(name) ? "stag00auiui00p8vt002025" : $"stag00auiui00p8vt0020250{name}";
+    => string.IsNullOrEmpty(name) ? "ap8vt002025" : $"ap8vt0020250{name}";
 
 return await Pulumi.Deployment.RunAsync(() =>
 {
@@ -140,7 +140,7 @@ return await Pulumi.Deployment.RunAsync(() =>
             {
                 ResourceGroupName = resourceGroup.Name,
                 SecretName = name,
-                VaultName = "stag00auiui00p8vt002025",
+                VaultName = "ap8vt002025",
                 Properties = new AzureNative.KeyVault.Inputs.SecretPropertiesArgs
                 {
                     Value = value,

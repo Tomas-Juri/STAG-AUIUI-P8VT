@@ -187,14 +187,14 @@ Prerequisites:
 
 **Application Urls:**
 
--   Internal test: [https://stag-auiui-p8vt-internal-test.azurewebsites.net/](https://stag-auiui-p8vt-internal-test.azurewebsites.net/)
--   Al-kaida: [https://stag-auiui-p8vt-al-kaida.azurewebsites.net/](https://stag-auiui-p8vt-al-kaida.azurewebsites.net/)
--   Hercules: [https://stag-auiui-p8vt-hercules.azurewebsites.net/](https://stag-auiui-p8vt-hercules.azurewebsites.net/)
--   Kohorta: [https://stag-auiui-p8vt-kohorta.azurewebsites.net/](https://stag-auiui-p8vt-kohorta.azurewebsites.net/)
--   R-gen: [https://stag-auiui-p8vt-r-gen.azurewebsites.net/](https://stag-auiui-p8vt-r-gen.azurewebsites.net/)
--   Staci e [https://stag-auiui-p8vt-staci-e.azurewebsites.net/](https://stag-auiui-p8vt-staci-e.azurewebsites.net/)
--   Team jedna [https://stag-auiui-p8vt-team-jedna.azurewebsites.net/](https://stag-auiui-p8vt-team-jedna.azurewebsites.net/)
--   Team lorax [https://stag-auiui-p8vt-team-lorax.azurewebsites.net/](https://stag-auiui-p8vt-team-lorax.azurewebsites.net/)
+-   Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
+-   Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
+-   Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
+-   Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
+-   R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
+-   Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
+-   Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
+-   Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
 
 More info:
 
