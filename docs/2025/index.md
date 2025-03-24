@@ -56,8 +56,8 @@ Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminolog
    Například pro 5ti-členný tým by součet byl max. 50 bodů, který mohl tým za sprint získat.
 3. Body se zaokrouhlí na celé číslo nahoru a tím se získá bodové ohodnocení za tento sprint pro daný tým (např. 43 bodů).
 4. Tyto body si mezi sebe rozdělí členové týmu na základě vzájemné dohody, jak kdo v daném sprintu pracoval.
-5. Tým je povinen nahlásit do 3 dnů od sprint review počet bodů pro jednotlivé členy v týmu (např. Karel 8b, Monika 10 bodů, Pepa 5 bodů,
-   Simona 10 bodů, Šimon 10 bodů). Tímto způsobem můžete reflektovat skutečnou práci na projektu napříč týmem.
+5. Tým je povinen nahlásit do 3 dnů od přidělení bodů po sprint review počet bodů pro jednotlivé členy v týmu (např. Karel 8b, Monika 10 bodů, Pepa 5 bodů,
+   Simona 10 bodů, Šimon 10 bodů). Tímto způsobem můžete reflektovat skutečnou práci na projektu napříč týmem. Pokud tým nestihne poslat body včas, body za sprint propadají.
 
 ### Zvláštní pravidla
 
