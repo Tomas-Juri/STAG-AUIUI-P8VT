@@ -38,15 +38,15 @@ Studenti mohou během semestru získat až 70 bodů v následující struktuře:
 
 **Projekt – 65 bodů**
 
--   Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
--   Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
+- Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
+- Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
 
 **Go to market – 5 bodů**
 
--   Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
-    -   Získání a zpracování zpětné vazby od reálných uživatelů.
-    -   Marketingové aktivity spojené s propagací aplikace
-    -   Viditelný engagement uživatelů aplikace
+- Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
+    - Získání a zpracování zpětné vazby od reálných uživatelů.
+    - Marketingové aktivity spojené s propagací aplikace
+    - Viditelný engagement uživatelů aplikace
 
 Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminologie). Konkrétní bodování za jednotlivé sprinty probíhá následovně:
 
@@ -72,22 +72,22 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
 ## Program výuky
 
-| Lekce     | Datum     | Přednáška                                                                                     | Cvičení                                                |
-| --------- | --------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| 1. Lekce  | 10.2.2025 | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje | Seznámení s šablonou aplikace                          |
-| 2. Lekce  | 17.2.2025 | Lean Canvas workshop                                                                          | Continuous development & Continuous integration, Azure |
-| 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Figma / Backlog                                                         |                                                        |
-| 4. Lekce  | 3.3.2025  | Sprint review 1 / Základy scrumu 2                                                            | Git, Trunk based development, small releases           |
-| 5. Lekce  | 10.3.2025 | Scrum game                                                                                    |                                                        |
-| 6. Lekce  | 17.3.2025 | Sprint review 2                                                                               | Pull requests                                          |
-| 7. Lekce  | 24.3.2025 | Přednáška - Filip Kapler                                                                      |                                                        |
-| 8. Lekce  | 31.3.2025 | Sprint review 3                                                                               | Feature flags                                          |
-| 9. Lekce  | 7.4.2025  | Přednáška - Život ve startupu s OpenVibe                                                      |                                                        |
-| 10. Lekce | 14.4.2025 | Sprint review 4                                                                               | Extreme programming téma                               |
-| 11. Lekce | 21.4.2025 | -- Velikonoce --                                                                              |                                                        |
-| 12. Lekce | 28.4.2025 | Sprint review 5                                                                               | Volné téma                                             |
-| 13. Lekce | 5.5.2025  | Finální retrospektiva / Pokročilý scrum                                                       |                                                        |
-| 14. Lekce | 12.5.2025 | Finální prezentace projektu                                                                   |                                                        |
+| Lekce     | Datum     | Přednáška                                                                                                                    |
+|-----------|-----------|------------------------------------------------------------------------------------------------------------------------------|
+| 1. Lekce  | 10.2.2025 | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
+| 2. Lekce  | 17.2.2025 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
+| 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Figma / Backlog                                                                                        |
+| 4. Lekce  | 3.3.2025  | Sprint review 1 / Základy scrumu 2, Git, Trunk based development, small releases                                             |
+| 5. Lekce  | 10.3.2025 | Scrum game                                                                                                                   |
+| 6. Lekce  | 17.3.2025 | Sprint review 2                                                                                                              |
+| 7. Lekce  | 24.3.2025 | Přednáška - Filip Kapler                                                                                                     |
+| 8. Lekce  | 31.3.2025 | Sprint review 3                                                                                                              |
+| 9. Lekce  | 7.4.2025  | Přednáška - Život ve startupu s OpenVibe                                                                                     |
+| 10. Lekce | 14.4.2025 | Sprint review 4                                                                                                              |
+| 11. Lekce | 21.4.2025 | -- Velikonoce --                                                                                                             |
+| 12. Lekce | 28.4.2025 | Sprint review 5                                                                                                              |
+| 13. Lekce | 5.5.2025  | Finální retrospektiva / Pokročilý scrum                                                                                      |
+| 14. Lekce | 12.5.2025 | Finální prezentace projektu                                                                                                  |
 
 ## 1. Lekce
 
@@ -100,12 +100,12 @@ přednášku: [Úvod](https://docs.google.com/presentation/d/1yTSpYGDSLRayM4I8yM
 
 Prerequisites:
 
--   [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
--   Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
--   [Docker](https://www.docker.com/)
--   [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
-    management tool
--   [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
+- [Docker](https://www.docker.com/)
+- [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
+  management tool
+- [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
 
 #### Copy project a get it working locally
 
@@ -128,7 +128,7 @@ Prerequisites:
 
 **More info**
 
--   [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+- [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
 
 ## 2. Lekce
 
@@ -140,7 +140,8 @@ Prerequisites:
 
 1. Push code to your repository in Azure devops
 2. Add PublishProfile.pubxml file to `Properties/PublishProfiles`
-    - Copy the file from [here](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/blob/master/2025/src/Properties/PublishProfiles/PublishProfile.pubxml)
+    - Copy the file
+      from [here](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/blob/master/2025/src/Properties/PublishProfiles/PublishProfile.pubxml)
     - Adjust the properties in the file
         - MSDeployServiceURL
         - DeployIisAppPath
@@ -187,22 +188,22 @@ Prerequisites:
 
 **Application Urls:**
 
--   Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
--   Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
--   Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
--   Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
--   R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
--   Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
--   Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
--   Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
+- Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
+- Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
+- Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
+- Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
+- R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
+- Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
+- Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
+- Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
 
 More info:
 
--   [YAML](https://yaml.org/)
--   [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
--   [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
--   [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
--   [Learn git branching](https://learngitbranching.js.org/)
+- [YAML](https://yaml.org/)
+- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+- [Learn git branching](https://learngitbranching.js.org/)
 
 ## 3. Lekce
 
@@ -226,13 +227,12 @@ More info:
 
 ## 6. Lekce
 
-
 ### Pull requests
 
 1. Move code into `src/` folder
-   - Adjust pipeline accordingly 
-     - `dotnet clean src/Application.csproj`
-     - `dotnet publish src/Application.csproj ...`
+    - Adjust pipeline accordingly
+        - `dotnet clean src/Application.csproj`
+        - `dotnet publish src/Application.csproj ...`
 2. Add solution file `.sln` to the folder, and add reference to the `Application.csproj` project
 3. Create xUnit tests project in the solution
 4. Reference `Application` project in the tests project
@@ -256,10 +256,10 @@ More info:
         - script: dotnet test tests/Application.Tests.csproj
           displayName: "dotnet test"
     ```
-   
+
 8. Commit this to your repository
 9. Create new pipeline from this existing yaml pipeline
-   - You can also rename the pipelines accordingly
+    - You can also rename the pipelines accordingly
 10. Go to **Repos** -> **Branches**
 11. Open **Branch policies** for your `main` branch
 12. Set branch policies
