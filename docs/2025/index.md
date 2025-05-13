@@ -295,7 +295,8 @@ More info:
   }
 
   .images-container > img {
-    width: 45%
+    width: 32%;
+    object-fit: contain;
   }
 </style>
 
