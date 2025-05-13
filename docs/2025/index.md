@@ -38,15 +38,15 @@ Studenti mohou během semestru získat až 70 bodů v následující struktuře:
 
 **Projekt – 65 bodů**
 
-- Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
-- Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
+-   Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
+-   Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
 
 **Go to market – 5 bodů**
 
-- Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
-    - Získání a zpracování zpětné vazby od reálných uživatelů.
-    - Marketingové aktivity spojené s propagací aplikace
-    - Viditelný engagement uživatelů aplikace
+-   Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
+    -   Získání a zpracování zpětné vazby od reálných uživatelů.
+    -   Marketingové aktivity spojené s propagací aplikace
+    -   Viditelný engagement uživatelů aplikace
 
 Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminologie). Konkrétní bodování za jednotlivé sprinty probíhá následovně:
 
@@ -73,7 +73,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                                                    |
-|-----------|-----------|------------------------------------------------------------------------------------------------------------------------------|
+| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | 1. Lekce  | 10.2.2025 | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 17.2.2025 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
 | 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Figma / Backlog                                                                                        |
@@ -100,12 +100,12 @@ přednášku: [Úvod](https://docs.google.com/presentation/d/1yTSpYGDSLRayM4I8yM
 
 Prerequisites:
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-- Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
-- [Docker](https://www.docker.com/)
-- [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
-  management tool
-- [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
+-   [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+-   Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
+-   [Docker](https://www.docker.com/)
+-   [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
+    management tool
+-   [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
 
 #### Copy project a get it working locally
 
@@ -128,7 +128,7 @@ Prerequisites:
 
 **More info**
 
-- [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+-   [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
 
 ## 2. Lekce
 
@@ -188,22 +188,22 @@ Prerequisites:
 
 **Application Urls:**
 
-- Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
-- Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
-- Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
-- Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
-- R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
-- Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
-- Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
-- Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
+-   Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
+-   Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
+-   Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
+-   Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
+-   R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
+-   Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
+-   Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
+-   Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
 
 More info:
 
-- [YAML](https://yaml.org/)
-- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
-- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
-- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
-- [Learn git branching](https://learngitbranching.js.org/)
+-   [YAML](https://yaml.org/)
+-   [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+-   [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+-   [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+-   [Learn git branching](https://learngitbranching.js.org/)
 
 ## 3. Lekce
 
@@ -283,3 +283,78 @@ More info:
 17. What if I really need to push some code without a PR?
     - You shouldn't
     - And if you really need to, adjust your branch security, to allow yourself to bypass policies
+
+## Final presentation
+
+<style>
+  .images-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .images-container > img {
+    width: 45%
+  }
+</style>
+
+### Al-Kaida
+
+<div class="images-container">
+  <img src="Al-Kaida-1.png"/>
+  <img src="Al-Kaida-2.png"/>
+  <img src="Al-Kaida-3.png"/>
+  <img src="Al-Kaida-4.png"/>
+</div>
+
+### Hercules
+
+<div class="images-container">
+  <img src="Hercules-1.png"/>
+  <img src="Hercules-2.png"/>
+  <img src="Hercules-3.png"/>
+  <img src="Hercules-4.png"/>
+  <img src="Hercules-5.png"/>
+  <img src="Hercules-6.png"/>
+  <img src="Hercules-7.png"/>
+</div>
+
+### Lorax
+
+<div class="images-container">
+  <img src="Lorax-1.png"/>
+  <img src="Lorax-2.png"/>
+  <img src="Lorax-3.png"/>
+  <img src="Lorax-4.png"/>
+  <img src="Lorax-5.png"/>
+  <img src="Lorax-6.png"/>
+  <img src="Lorax-7.png"/>
+  <img src="Lorax-8.png"/>
+</div>
+
+### R-Gen
+
+<div class="images-container">
+  <img src="R-Gen-1.png"/>
+  <img src="R-Gen-2.png"/>
+</div>
+
+### Staci E
+
+<div class="images-container">
+  <img src="Staci-E-1.png"/>
+  <img src="Staci-E-2.png"/>
+  <img src="Staci-E-3.png"/>
+  <img src="Staci-E-4.png"/>
+</div>
+
+### Team jedna
+
+<div class="images-container">
+  <img src="Team-Jedna-1.png"/>
+  <img src="Team-Jedna-2.png"/>
+  <img src="Team-Jedna-3.png"/>
+  <img src="Team-Jedna-4.png"/>
+  <img src="Team-Jedna-5.png"/>
+</div>
