@@ -1,0 +1,37 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Application</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mt-3 mt-sm-0">
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link ">
+                        Home
+                    </a>
+                </li>
+            </ul>
+            @if (User.Identity?.IsAuthenticated == false)
+            {
+                <div class="d-flex gap-2">
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-secondary my-2 my-sm-0">Log in</a>
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-dark my-2 my-sm-0">Register</a>
+                </div>
+            }
+            else
+            {
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a asp-controller="Account" asp-action="Index" class="nav-link">
+                            @User.Identity?.Name
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Account" asp-action="Logout" class="nav-link">Log out</a>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+</nav>

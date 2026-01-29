@@ -1,0 +1,33 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="row justify-content-center">
+    <div class="col-sm-12 col-md-10 col-lg-7 col-xl-5">
+
+        <h1>Log into your account</h1>
+        <p>To access the Application please log in with your details.</p>
+        <form asp-controller="Account" asp-action="LoginSubmit" method="post" novalidate="">
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div>
+                <label asp-for="Email" class="form-label mt-4">Email address</label>
+                <input asp-for="Email" class="form-control @ViewData.ValidationClass(model => model.Email)" placeholder="john@doe.com">
+                <span asp-validation-for="Email" class="invalid-feedback"></span>
+            </div>
+            <div>
+                <label asp-for="Password" class="form-label mt-4">Password</label>
+                <input asp-for="Password" class="form-control @ViewData.ValidationClass(model => model.Password)" placeholder="*****">
+                <span asp-validation-for="Password" class="invalid-feedback"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-4">Submit</button>
+        </form>
+
+        @if (string.IsNullOrWhiteSpace(Model.Message) == false)
+        {
+            <div class="alert alert-danger mt-4" role="alert">
+                @Model.Message   
+            </div>
+        }
+    </div>
+</div>
