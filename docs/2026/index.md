@@ -111,7 +111,7 @@ Prerequisites:
 1. Copy the project from [github repo](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/tree/master/2026)
 2. Run your Postgre Docker image
     - `docker pull mcr.microsoft.com/mssql/server:latest`
-    - `$ docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
+    - `docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
 3. Create a database in your local SQL server
     - `CREATE DATABASE utb`
 4. Change your connection string in your `appsettings.json`
