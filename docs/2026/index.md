@@ -4,7 +4,7 @@ layout: home
 nav_order: 995
 ---
 
-# STAG-AUIUI-P8VT 2025
+# STAG-AUIUI-P8VT 2026
 
 {: .no_toc }
 
@@ -17,13 +17,13 @@ využívání konkrétních technologií, pomocí kterých studenti průběžně
 ## Lektoři
 
 **Petr Záček**
-Organizační záležitosti univerzity, garant předmětu, Product Owner
+Organizační záležitosti univerzity, garant předmětu
 
 **Jiří Urban**
 Hlavní přednášející, organizace kurzu, Product Owner
 
 **Tomáš Juřička**
-Hlavní cvičící
+Hlavní cvičící, Product Owner
 
 **Stanislav Čermák**
 Product Owner
@@ -72,10 +72,10 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                                                    |
-| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| --------- | --------- |------------------------------------------------------------------------------------------------------------------------------|
 | 1. Lekce  | 9.2.2025  | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 16.2.2025 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
-| 3. Lekce  | 23.2.2025 | Přednáška -                                                                                                                  |
+| 3. Lekce  | 23.2.2025 | Přednáška - UX & UI                                                                                                          | 
 | 4. Lekce  | 2.3.2025  | Sprint review 1 / Základy scrumu 2, Git, Trunk based development, small releases                                             |
 | 5. Lekce  | 9.3.2025  | Scrum game                                                                                                                   |
 | 6. Lekce  | 16.3.2025 | Sprint review 2                                                                                                              |
@@ -127,3 +127,5 @@ Prerequisites:
 **More info**
 
 - [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+- [Entity Framework](https://learn.microsoft.com/en-us/ef/)
+- [Docker](https://www.docker.com/)
