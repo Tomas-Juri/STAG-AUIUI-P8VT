@@ -3,9 +3,9 @@
     
  steps:
  - task: UseDotNet@2
-   displayName: Use Dotnet 9
+   displayName: Use Dotnet 10
    inputs:
-    version: "9.0.x"
+    version: "10.0.x"
     
  - script: dotnet build src/Application.csproj
    displayName: "dotnet build"
