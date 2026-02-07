@@ -1,4 +1,4 @@
-using Application.Infastructure.Database;
+using Application.Infrastructure.Database;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +9,11 @@ builder.Services.AddControllersWithViews();
 
 // Infrastructure - Database
 var connectionString = builder.Configuration.GetConnectionString("Database");
-builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<DatabaseContext>(options =>
+{
+    options.UseNpgsql(connectionString);
+    options.UseSnakeCaseNamingConvention();
+});
 
 // Authentication & Authorization
 builder.Services

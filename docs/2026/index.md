@@ -68,7 +68,6 @@ vedoucí kurzu s týmem řešit celou situaci a buď celý tým nebo určití je
 
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
-<iframe src="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTQ3jHS6tC_j0in8UQweziS8DoeepuyOBnnn6vZ6E-JRoMXzwSNflS9eCaLqte9fAenSl_RgjrRvJru/pubhtml?gid=0&amp;single=true" style="width: 100%;height: 60rem;"></iframe>
 
 ## Program výuky
 
@@ -103,23 +102,22 @@ Prerequisites:
 - [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 - Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
 - [Docker](https://www.docker.com/)
-- [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
+- [Postgre Docker image](https://hub.docker.com/_/postgres)  for local database. And some
   management tool
-- [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
+- [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management (deprecated soon)
 
 #### Copy project a get it working locally
 
 1. Copy the project from [github repo](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/tree/master/2026)
-2. Run your MSSQL Docker image
+2. Run your Postgre Docker image
     - `docker pull mcr.microsoft.com/mssql/server:latest`
-    - `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest`
-    - See how to use section in https://hub.docker.com/_/microsoft-mssql-server
+    - `$ docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
 3. Create a database in your local SQL server
-    - `CREATE DATABASE "STAG-AUIUI-P8VT"`
+    - `CREATE DATABASE utb`
 4. Change your connection string in your `appsettings.json`
     ```
      "ConnectionStrings": {
-         "Database": "Data Source=localhost;Initial Catalog=STAG-AUIUI-P8VT;Integrated Security=false;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=true"
+         "Database": "Host=localhost;Database=utb;Username=postgres;Password=mysecretpassword;"
        },
     ```
 5. Build the application via `dotnet build`

@@ -1,4 +1,4 @@
-namespace Application.Infastructure.Database.Models;
+namespace Application.Infrastructure.Database.Models;
 
 public class UserDo
 {

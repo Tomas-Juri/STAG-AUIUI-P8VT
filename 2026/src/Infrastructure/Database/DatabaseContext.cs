@@ -1,7 +1,7 @@
-using Application.Infastructure.Database.Models;
+using Application.Infrastructure.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Infastructure.Database;
+namespace Application.Infrastructure.Database;
 
 public class DatabaseContext(DbContextOptions options) : DbContext(options)
 {
