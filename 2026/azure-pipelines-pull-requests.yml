@@ -1,14 +1,15 @@
- pool:
-   vmImage: ubuntu-latest
-    
- steps:
- - task: UseDotNet@2
-   displayName: Use Dotnet 10
-   inputs:
-    version: "10.0.x"
-    
- - script: dotnet build src/Application.csproj
-   displayName: "dotnet build"
-    
- - script: dotnet test tests/Application.Tests.csproj
-   displayName: "dotnet test"
+trigger: none # Disable CI builds (pushes)
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 10
+    inputs:
+      version: "10.0.x"
+
+  - script: dotnet build src/Application.csproj
+    displayName: "dotnet build"
+
+  - script: dotnet test tests/Application.Tests.csproj
+    displayName: "dotnet test"

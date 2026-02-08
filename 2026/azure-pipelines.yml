@@ -1,24 +1,29 @@
- trigger:
- - main
-    
- pool:
-   vmImage: ubuntu-latest
-    
- steps:
- - task: UseDotNet@2
-   displayName: Use Dotnet 10
-   inputs:
-    version: "10.0.x"
-    
- - script: dotnet clean src/Application.csproj
-   displayName: "dotnet clean"
+trigger:
+  - main
 
- - script: dotnet test tests/Application.Tests.csproj
-   displayName: "dotnet test"
+pool:
+  vmImage: ubuntu-latest
 
- - script: dotnet build src/Application.csproj
-   displayName: "dotnet build"
+steps:
+  - task: UseDotNet@2
+    displayName: Use Dotnet 10
+    inputs:
+      version: "10.0.x"
 
- - script: dotnet publish src/Application.csproj
-   displayName: "dotnet publish"
-    
+  - script: dotnet clean src/Application.csproj
+    displayName: "dotnet clean"
+
+  - script: dotnet test tests/Application.Tests.csproj
+    displayName: "dotnet test"
+
+  - script: dotnet build src/Application.csproj
+    displayName: "dotnet build"
+
+  - script: dotnet publish src/Application.csproj -o publish
+    displayName: "dotnet publish"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
+    inputs:
+      PathtoPublish: "publish"
+      ArtifactName: "application"
