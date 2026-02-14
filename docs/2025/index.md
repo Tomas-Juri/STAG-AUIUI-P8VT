@@ -38,15 +38,15 @@ Studenti mohou během semestru získat až 70 bodů v následující struktuře:
 
 **Projekt – 65 bodů**
 
--   Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
--   Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
+- Projekt je rozdělen do 5 sprintů, každý po 10 bodech.
+- Finální sprint (ve zkouškovém období) má hodnotu 15 bodů.
 
 **Go to market – 5 bodů**
 
--   Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
-    -   Získání a zpracování zpětné vazby od reálných uživatelů.
-    -   Marketingové aktivity spojené s propagací aplikace
-    -   Viditelný engagement uživatelů aplikace
+- Extra body je možné získat za prokazatelnou snahu uvést aplikaci na "trh".
+    - Získání a zpracování zpětné vazby od reálných uživatelů.
+    - Marketingové aktivity spojené s propagací aplikace
+    - Viditelný engagement uživatelů aplikace
 
 Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminologie). Konkrétní bodování za jednotlivé sprinty probíhá následovně:
 
@@ -56,8 +56,10 @@ Bodování projektu sestává z hodnocení dílčích sprintů (Scrum terminolog
    Například pro 5ti-členný tým by součet byl max. 50 bodů, který mohl tým za sprint získat.
 3. Body se zaokrouhlí na celé číslo nahoru a tím se získá bodové ohodnocení za tento sprint pro daný tým (např. 43 bodů).
 4. Tyto body si mezi sebe rozdělí členové týmu na základě vzájemné dohody, jak kdo v daném sprintu pracoval.
-5. Tým je povinen nahlásit do 3 dnů od přidělení bodů po sprint review počet bodů pro jednotlivé členy v týmu (např. Karel 8b, Monika 10 bodů, Pepa 5 bodů,
-   Simona 10 bodů, Šimon 10 bodů). Tímto způsobem můžete reflektovat skutečnou práci na projektu napříč týmem. Pokud tým nestihne poslat body včas, body za sprint propadají.
+5. Tým je povinen nahlásit do 3 dnů od přidělení bodů po sprint review počet bodů pro jednotlivé členy v týmu (např. Karel 8b, Monika 10
+   bodů, Pepa 5 bodů,
+   Simona 10 bodů, Šimon 10 bodů). Tímto způsobem můžete reflektovat skutečnou práci na projektu napříč týmem. Pokud tým nestihne poslat
+   body včas, body za sprint propadají.
 
 ### Zvláštní pravidla
 
@@ -73,7 +75,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                                                    |
-| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+|-----------|-----------|------------------------------------------------------------------------------------------------------------------------------|
 | 1. Lekce  | 10.2.2025 | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 17.2.2025 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
 | 3. Lekce  | 24.2.2025 | Přednáška - UI a UX / Figma / Backlog                                                                                        |
@@ -100,19 +102,20 @@ přednášku: [Úvod](https://docs.google.com/presentation/d/1yTSpYGDSLRayM4I8yM
 
 Prerequisites:
 
--   [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
--   Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
--   [Docker](https://www.docker.com/)
--   [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
-    management tool
--   [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
+- [Docker](https://www.docker.com/)
+- [MSSQL Docker image](https://hub.docker.com/_/microsoft-mssql-server) (mcr.microsoft.com/mssql/server:latest) for local database. And some
+  management tool
+- [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management
 
 #### Copy project a get it working locally
 
 1. Copy the project from [github repo](https://github.com/Tomas-Juri/STAG-AUIUI-P8VT/tree/master/2025)
 2. Run your MSSQL Docker image
     - `docker pull mcr.microsoft.com/mssql/server:latest`
-    - `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest`
+    -
+    `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest`
     - See how to use section in https://hub.docker.com/_/microsoft-mssql-server
 3. Create a database in your local SQL server
     - `CREATE DATABASE "STAG-AUIUI-P8VT"`
@@ -128,7 +131,7 @@ Prerequisites:
 
 **More info**
 
--   [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
+- [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet)
 
 ## 2. Lekce
 
@@ -188,22 +191,22 @@ Prerequisites:
 
 **Application Urls:**
 
--   Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
--   Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
--   Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
--   Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
--   R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
--   Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
--   Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
--   Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
+- Internal test: [https://ap8vt-internal-test.azurewebsites.net/](https://ap8vt-internal-test.azurewebsites.net/)
+- Al-kaida: [https://ap8vt-al-kaida.azurewebsites.net/](https://ap8vt-al-kaida.azurewebsites.net/)
+- Hercules: [https://ap8vt-hercules.azurewebsites.net/](https://ap8vt-hercules.azurewebsites.net/)
+- Kohorta: [https://ap8vt-kohorta.azurewebsites.net/](https://ap8vt-kohorta.azurewebsites.net/)
+- R-gen: [https://ap8vt-r-gen.azurewebsites.net/](https://ap8vt-r-gen.azurewebsites.net/)
+- Staci e [https://ap8vt-staci-e.azurewebsites.net/](https://ap8vt-staci-e.azurewebsites.net/)
+- Team jedna [https://ap8vt-team-jedna.azurewebsites.net/](https://ap8vt-team-jedna.azurewebsites.net/)
+- Team lorax [https://ap8vt-team-lorax.azurewebsites.net/](https://ap8vt-team-lorax.azurewebsites.net/)
 
 More info:
 
--   [YAML](https://yaml.org/)
--   [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
--   [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
--   [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
--   [Learn git branching](https://learngitbranching.js.org/)
+- [YAML](https://yaml.org/)
+- [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
+- [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+- [Learn git branching](https://learngitbranching.js.org/)
 
 ## 3. Lekce
 
