@@ -243,15 +243,13 @@ More info:
 
 <style>
   .cols-2 {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .cols-2 > * {
-    width: 50%;
-    object-fit: contain;
-    aspect-ratio: 2 / 1;
+    width: 100%;
+    aspect-ratio: 16 / 9;
   }
 </style>
