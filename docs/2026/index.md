@@ -70,16 +70,15 @@ vedoucí kurzu s týmem řešit celou situaci a buď celý tým nebo určití je
 
 Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ3jHS6tC_j0in8UQweziS8DoeepuyOBnnn6vZ6E-JRoMXzwSNflS9eCaLqte9fAenSl_RgjrRvJru/pubhtml?gid=435874227&amp;single=true&amp;widget=true&amp;headers=false" style="width: 100%;height: 60rem;"></iframe> 
-
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ3jHS6tC_j0in8UQweziS8DoeepuyOBnnn6vZ6E-JRoMXzwSNflS9eCaLqte9fAenSl_RgjrRvJru/pubhtml?gid=435874227&amp;single=true&amp;widget=true&amp;headers=false" style="width: 100%;height: 60rem;"></iframe>
 
 ## Program výuky
 
 | Lekce     | Datum     | Přednáška                                                                                                                    |
-| --------- | --------- |------------------------------------------------------------------------------------------------------------------------------|
+| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | 1. Lekce  | 9.2.2026  | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 16.2.2026 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
-| 3. Lekce  | 23.2.2026 | Přednáška - UX & UI                                                                                                          | 
+| 3. Lekce  | 23.2.2026 | Přednáška - UX & UI                                                                                                          |
 | 4. Lekce  | 2.3.2026  | Sprint review 1 / Základy scrumu 2, Git, Trunk based development, small releases                                             |
 | 5. Lekce  | 9.3.2026  | Scrum game                                                                                                                   |
 | 6. Lekce  | 16.3.2026 | Sprint review 2                                                                                                              |
@@ -106,7 +105,7 @@ Prerequisites:
 - [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 - Your favorite IDE ([Rider recommended](https://www.jetbrains.com/rider/))
 - [Docker](https://www.docker.com/)
-- [Postgre Docker image](https://hub.docker.com/_/postgres)  for local database. And some
+- [Postgre Docker image](https://hub.docker.com/_/postgres) for local database. And some
   management tool
 - [Azure Data Studio](https://azure.microsoft.com/en-us/products/data-studio) for db management (deprecated soon)
 
@@ -191,19 +190,19 @@ Prerequisites:
 1. Go to Pipelines/Releases
 2. Edit your release pipeline (`Release_2026`)
 3. Add an artifact
-   - Source type: Build
-   - Check that project matches your project
-   - Source (build pipeline): your main pipeline (`Internal_Test_2026`)
-   - Default version: Latest
-   - Source alias: Build
+    - Source type: Build
+    - Check that project matches your project
+    - Source (build pipeline): your main pipeline (`Internal_Test_2026`)
+    - Default version: Latest
+    - Source alias: Build
 4. Configure trigger[index.md](../2025/index.md)
-   - Go to the artifact you just created and press the lightning icon
-   - Enable Continuous deployment trigger
-   - Add main branch filter
+    - Go to the artifact you just created and press the lightning icon
+    - Enable Continuous deployment trigger
+    - Add main branch filter
 5. Configure pre-deployment conditions of Deploy to production
-   - Go to the stage and press the lightning icon
-   - Enable After release
-   - Add artifact filter: Build and main branch
+    - Go to the stage and press the lightning icon
+    - Enable After release
+    - Add artifact filter: Build and main branch
 6. Configure build folder in stage
     - Go Tasks tab
     - Select Deploy Azure App Service task
@@ -212,24 +211,46 @@ Prerequisites:
 8. Check that your application is running
 
 Notes:
-- Connection string is filled in Azure settings in ConnectionStrings__Database environment variable
+
+- Connection string is filled in Azure settings in ConnectionStrings\_\_Database environment variable
 - Database migrations are applied automatically on application start
 
-**Application Urls:**  
--   Internal test: [ap8vt--2025--internal-test-bugwekdyd3hhbyc0.westeurope-01.azurewebsites.net](http://ap8vt--2025--internal-test-bugwekdyd3hhbyc0.westeurope-01.azurewebsites.net/)
--   Abcd: [ap8vt--2025-abcd-b8c2hfguckh4gqd3.westeurope-01.azurewebsites.net](https://ap8vt--2025-abcd-b8c2hfguckh4gqd3.westeurope-01.azurewebsites.net/)
--   Ctyri a pul evropanu: [ap8vt--2025-ctyri-a-pul-evropanu-cndvcghyazfwctff.westeurope-01.azurewebsites.net](https://ap8vt--2025-ctyri-a-pul-evropanu-cndvcghyazfwctff.westeurope-01.azurewebsites.net/)
--   Matlab: [ap8vt--2025-matlab-e4h4c9b4exbthjb2.westeurope-01.azurewebsites.net](http://ap8vt--2025-matlab-e4h4c9b4exbthjb2.westeurope-01.azurewebsites.net/)
--   Myskavec: [ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net](https://ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net/)
--   PIVO: [ap8vt--2025-pivo-c2c0hsfzh0etesh4.westeurope-01.azurewebsites.net](http://ap8vt--2025-pivo-c2c0hsfzh0etesh4.westeurope-01.azurewebsites.net/)
--   Placeholder: [ap8vt--2025-placeholder-acfeembmf6brhkem.westeurope-01.azurewebsites.net](http://ap8vt--2025-placeholder-acfeembmf6brhkem.westeurope-01.azurewebsites.net/)
--   Team XY: [ap8vt--2025-team-xy-hfddhkayfjdcfjge.westeurope-01.azurewebsites.net](http://ap8vt--2025-team-xy-hfddhkayfjdcfjge.westeurope-01.azurewebsites.net/)
--   Zacci: [ap8vt--2025-zacci-f2f5eug9bgf0avd3.westeurope-01.azurewebsites.net](http://ap8vt--2025-zacci-f2f5eug9bgf0avd3.westeurope-01.azurewebsites.net/)
--   ZXC: [ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net](http://ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net/)
+**Application Urls:**
+
+- Internal test: [ap8vt--2025--internal-test-bugwekdyd3hhbyc0.westeurope-01.azurewebsites.net](http://ap8vt--2025--internal-test-bugwekdyd3hhbyc0.westeurope-01.azurewebsites.net/)
+- Abcd: [ap8vt--2025-abcd-b8c2hfguckh4gqd3.westeurope-01.azurewebsites.net](https://ap8vt--2025-abcd-b8c2hfguckh4gqd3.westeurope-01.azurewebsites.net/)
+- Ctyri a pul evropanu: [ap8vt--2025-ctyri-a-pul-evropanu-cndvcghyazfwctff.westeurope-01.azurewebsites.net](https://ap8vt--2025-ctyri-a-pul-evropanu-cndvcghyazfwctff.westeurope-01.azurewebsites.net/)
+- Matlab: [ap8vt--2025-matlab-e4h4c9b4exbthjb2.westeurope-01.azurewebsites.net](http://ap8vt--2025-matlab-e4h4c9b4exbthjb2.westeurope-01.azurewebsites.net/)
+- Myskavec: [ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net](https://ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net/)
+- PIVO: [ap8vt--2025-pivo-c2c0hsfzh0etesh4.westeurope-01.azurewebsites.net](http://ap8vt--2025-pivo-c2c0hsfzh0etesh4.westeurope-01.azurewebsites.net/)
+- Placeholder: [ap8vt--2025-placeholder-acfeembmf6brhkem.westeurope-01.azurewebsites.net](http://ap8vt--2025-placeholder-acfeembmf6brhkem.westeurope-01.azurewebsites.net/)
+- Team XY: [ap8vt--2025-team-xy-hfddhkayfjdcfjge.westeurope-01.azurewebsites.net](http://ap8vt--2025-team-xy-hfddhkayfjdcfjge.westeurope-01.azurewebsites.net/)
+- Zacci: [ap8vt--2025-zacci-f2f5eug9bgf0avd3.westeurope-01.azurewebsites.net](http://ap8vt--2025-zacci-f2f5eug9bgf0avd3.westeurope-01.azurewebsites.net/)
+- ZXC: [ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net](http://ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net/)
+
+<div class="cols-2">
+<iframe  src="https://www.youtube.com/embed/aoMfbgF2D_4?si=g11VFxTIbIdWKn4E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 More info:
+
 - [YAML](https://yaml.org/)
 - [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
 - [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
 - [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
 - [Learn git branching](https://learngitbranching.js.org/)
+
+<style>
+  .cols-2 {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cols-2 > * {
+    width: 50%;
+    object-fit: contain;
+    aspect-ratio: 2 / 1;
+  }
+</style>
