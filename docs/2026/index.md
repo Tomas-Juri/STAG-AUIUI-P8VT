@@ -229,7 +229,7 @@ Notes:
 - ZXC: [ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net](http://ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net/)
 
 <div class="cols-2">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Uq9Sp1DxGQg?si=rsRiIs816bW3AkgS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/Uq9Sp1DxGQg?si=rsRiIs816bW3AkgS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <iframe  src="https://www.youtube.com/embed/aoMfbgF2D_4?si=g11VFxTIbIdWKn4E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
