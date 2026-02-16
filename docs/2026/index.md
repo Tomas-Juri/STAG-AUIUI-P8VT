@@ -79,7 +79,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 1. Lekce  | 9.2.2026  | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 16.2.2026 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
 | 3. Lekce  | 23.2.2026 | Přednáška - UX & UI                                                                                                          |
-| 4. Lekce  | 2.3.2026  | Sprint review 1 / Základy scrumu 2, Git, Trunk based development, small releases                                             |
+| 4. Lekce  | 2.3.2026  | Sprint review 1 / Základy scrumu 2, Trunk based development, Feature flags, Testing                                          |
 | 5. Lekce  | 9.3.2026  | Scrum game                                                                                                                   |
 | 6. Lekce  | 16.3.2026 | Sprint review 2                                                                                                              |
 | 7. Lekce  | 23.3.2026 | Přednáška -                                                                                                                  |
@@ -235,7 +235,8 @@ Notes:
 
 More info:
 
-- [YAML](https://yaml.org/)
+- [Agile Manifesto](https://agilemanifesto.org/)
+    - [Principles](https://agilemanifesto.org/principles.html)
 - [Azure devops pipelines](https://docs.microsoft.com/cs-cz/azure/devops/pipelines/?view=azure-devops)
 - [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration)
 - [Continuous Deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
