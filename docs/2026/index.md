@@ -79,10 +79,10 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 1. Lekce  | 9.2.2026  | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 16.2.2026 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
 | 3. Lekce  | 23.2.2026 | Přednáška - UX & UI                                                                                                          |
-| 4. Lekce  | 2.3.2026  | Sprint review 1 / Základy scrumu 2, Trunk based development, Feature flags, Testing                                          |
+| 4. Lekce  | 2.3.2026  | Sprint review 1 /                                                                                                            |
 | 5. Lekce  | 9.3.2026  | Scrum game                                                                                                                   |
 | 6. Lekce  | 16.3.2026 | Sprint review 2                                                                                                              |
-| 7. Lekce  | 23.3.2026 | Přednáška -                                                                                                                  |
+| 7. Lekce  | 23.3.2026 | Základy scrumu 2, Trunk based development, Feature flags, Testing                                                            |
 | 8. Lekce  | 30.3.2026 | Sprint review 3                                                                                                              |
 | 9. Lekce  | 6.4.2026  | -- Velikonoce --                                                                                                             |
 | 10. Lekce | 13.4.2026 | Přednáška - Marketing Aplikace & Sprint review 4                                                                             |
@@ -220,10 +220,13 @@ Notes:
 - Internal
   test: [ap8vt--2025--internal-test-bugwekdyd3hhbyc0.westeurope-01.azurewebsites.net](http://ap8vt--2025--internal-test-bugwekdyd3hhbyc0.westeurope-01.azurewebsites.net/)
 -
+
 Abcd: [ap8vt--2025-abcd-b8c2hfguckh4gqd3.westeurope-01.azurewebsites.net](https://ap8vt--2025-abcd-b8c2hfguckh4gqd3.westeurope-01.azurewebsites.net/)
+
 - Ctyri a pul
   evropanu: [ap8vt--2025-ctyri-a-pul-evropanu-cndvcghyazfwctff.westeurope-01.azurewebsites.net](https://ap8vt--2025-ctyri-a-pul-evropanu-cndvcghyazfwctff.westeurope-01.azurewebsites.net/)
 -
+
 Matlab: [ap8vt--2025-matlab-e4h4c9b4exbthjb2.westeurope-01.azurewebsites.net](http://ap8vt--2025-matlab-e4h4c9b4exbthjb2.westeurope-01.azurewebsites.net/)
 -
 Myskavec: [ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net](https://ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net/)
@@ -231,9 +234,11 @@ Myskavec: [ap8vt--2025-myskavec-dycxegcxgcaghcdu.westeurope-01.azurewebsites.net
 PIVO: [ap8vt--2025-pivo-c2c0hsfzh0etesh4.westeurope-01.azurewebsites.net](http://ap8vt--2025-pivo-c2c0hsfzh0etesh4.westeurope-01.azurewebsites.net/)
 -
 Placeholder: [ap8vt--2025-placeholder-acfeembmf6brhkem.westeurope-01.azurewebsites.net](http://ap8vt--2025-placeholder-acfeembmf6brhkem.westeurope-01.azurewebsites.net/)
+
 - Team
   XY: [ap8vt--2025-team-xy-hfddhkayfjdcfjge.westeurope-01.azurewebsites.net](http://ap8vt--2025-team-xy-hfddhkayfjdcfjge.westeurope-01.azurewebsites.net/)
 -
+
 Zacci: [ap8vt--2025-zacci-f2f5eug9bgf0avd3.westeurope-01.azurewebsites.net](http://ap8vt--2025-zacci-f2f5eug9bgf0avd3.westeurope-01.azurewebsites.net/)
 -
 ZXC: [ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net](http://ap8vt--2025-zxc-b2due6hshegfescp.westeurope-01.azurewebsites.net/)
