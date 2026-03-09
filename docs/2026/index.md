@@ -85,7 +85,7 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 7. Lekce  | 23.3.2026 | Přednáška -                                                                                                                  |
 | 8. Lekce  | 30.3.2026 | Sprint review 3                                                                                                              |
 | 9. Lekce  | 6.4.2026  | -- Velikonoce --                                                                                                             |
-| 10. Lekce | 13.4.2026 | Sprint review 4                                                                                                              |
+| 10. Lekce | 13.4.2026 | Přednáška - Marketing Aplikace & Sprint review 4                                                                             |
 | 11. Lekce | 20.4.2026 | Přednáška -                                                                                                                  |
 | 12. Lekce | 27.4.2026 | Sprint review 5                                                                                                              |
 | 13. Lekce | 4.5.2026  | Finální retrospektiva / Pokročilý scrum                                                                                      |
