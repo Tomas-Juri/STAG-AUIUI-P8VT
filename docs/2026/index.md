@@ -79,14 +79,14 @@ Přepočet bodů na konkrétní známky odpovídá standardům vysokých škol.
 | 1. Lekce  | 9.2.2026  | Seznámení s předmětem, Představení projektu, Sestavení týmů, Základy Scrumu a Agilniho vývoje, Seznámení s šablonou aplikace |
 | 2. Lekce  | 16.2.2026 | Lean Canvas workshop, Continuous development & Continuous integration, Azure                                                 |
 | 3. Lekce  | 23.2.2026 | Přednáška - UX & UI                                                                                                          |
-| 4. Lekce  | 2.3.2026  | Sprint review 1 /                                                                                                            |
+| 4. Lekce  | 2.3.2026  | Sprint review 1                                                                                                              |
 | 5. Lekce  | 9.3.2026  | Scrum game                                                                                                                   |
-| 6. Lekce  | 16.3.2026 | Sprint review 2                                                                                                              |
-| 7. Lekce  | 23.3.2026 | Základy scrumu 2, Trunk based development, Feature flags, Testing                                                            |
-| 8. Lekce  | 30.3.2026 | Sprint review 3                                                                                                              |
+| 6. Lekce  | 16.3.2026 | MVP Backlog                                                                                                        |
+| 7. Lekce  | 23.3.2026 | Sprint review 2                                                                                                              |
+| 8. Lekce  | 30.3.2026 | Základy scrumu 2, Trunk based development, Feature flags, Testing                                                            
 | 9. Lekce  | 6.4.2026  | -- Velikonoce --                                                                                                             |
-| 10. Lekce | 13.4.2026 | Přednáška - Marketing Aplikace & Sprint review 4                                                                             |
-| 11. Lekce | 20.4.2026 | Přednáška -                                                                                                                  |
+| 10. Lekce | 13.4.2026 | Přednáška - Marketing Aplikace & Sprint review 3                                                                             |
+| 11. Lekce | 20.4.2026 | Přednáška - AI in software development                                                                                       |
 | 12. Lekce | 27.4.2026 | Sprint review 5                                                                                                              |
 | 13. Lekce | 4.5.2026  | Finální retrospektiva / Pokročilý scrum                                                                                      |
 | 14. Lekce | 11.5.2026 | Finální prezentace projektu                                                                                                  |
